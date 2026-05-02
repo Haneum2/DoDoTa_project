@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>두근두근타운 도감 공략소</title>
+    <style>
+        :root {
+            --primary-color: #ffb7b7;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+        }
+
+        body { font-family: 'Apple SD Gothic Neo', sans-serif; background-color: var(--bg-color); margin: 0; padding: 20px; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { color: #555; }
+
+        /* 필터 버튼 */
+        .filter-container { text-align: center; margin-bottom: 20px; }
+        .filter-btn { 
+            padding: 10px 20px; margin: 0 5px; cursor: pointer; border: none; 
+            border-radius: 20px; background: #ddd; transition: 0.3s;
+        }
+        .filter-btn.active { background: var(--primary-color); color: white; }
+
+        /* 도감 리스트 (그리드) */
+        .book-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 20px; max-width: 1000px; margin: 0 auto; 
+        }
+
+        /* 카드 스타일 */
+        .card { 
+            background: var(--card-bg); border-radius: 15px; padding: 15px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; 
+        }
+        .card img { width: 80px; height: 80px; object-fit: contain; margin-bottom: 10px; }
+        .card h3 { margin: 10px 0 5px; font-size: 1.1rem; }
+        .card .info { font-size: 0.85rem; color: #777; line-height: 1.5; }
+        .tag { 
+            display: inline-block; padding: 2px 8px; border-radius: 10px; 
+            font-size: 0.7rem; margin-top: 5px; color: white;
+        }
+        .tag.insect { background: #8bc34a; }
+        .tag.fish { background: #03a9f4; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🏡 두근두근타운 도감 공략</h1>
+    <p>원하는 곤충과 물고기의 출현 정보를 확인하세요!</p>
+</header>
+
+<div class="filter-container">
+    <button class="filter-btn active" onclick="filterData('all')">전체</button>
+    <button class="filter-btn" onclick="filterData('insect')">곤충</button>
+    <button class="filter-btn" onclick="filterData('fish')">물고기</button>
+</div>
+
+<div class="book-grid" id="bookGrid">
+    </div>
+
+<script>
+    // 1. 샘플 데이터 (차근차근 여기에 추가하시면 됩니다)
+    const gameData = [
+        { id: 1, type: 'insect', name: '장수풍뎅이', location: '숲 나무 기둥', time: '22:00 ~ 04:00', weather: '맑음', rarity: 3 },
+        { id: 2, type: 'fish', name: '무지개송어', location: '강', time: '09:00 ~ 16:00', weather: '비/흐림', rarity: 4 },
+        { id: 3, type: 'insect', name: '배추흰나비', location: '꽃밭', time: '상시', weather: '맑음', rarity: 1 },
+        { id: 4, type: 'fish', name: '산갈치', location: '바다', time: '18:00 ~ 06:00', weather: '눈/비', rarity: 5 }
+    ];
+
+    const grid = document.getElementById('bookGrid');
+
+    // 2. 카드를 화면에 그리는 함수
+    function displayCards(data) {
+        grid.innerHTML = '';
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <img src="https://via.placeholder.com/80?text=${item.name}" alt="${item.name}">
+                <span class="tag ${item.type}">${item.type === 'insect' ? '곤충' : '물고기'}</span>
+                <h3>${item.name}</h3>
+                <div class="info">
+                    📍 ${item.location}<br>
+                    ⏰ ${item.time}<br>
+                    ☁️ ${item.weather}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // 3. 필터링 함수
+    function filterData(category) {
+        // 버튼 활성화 스타일 변경
+        const btns = document.querySelectorAll('.filter-btn');
+        btns.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        if(category === 'all') {
+            displayCards(gameData);
+        } else {
+            const filtered = gameData.filter(item => item.type === category);
+            displayCards(filtered);
+        }
+    }
+
+    // 초기 실행
+    displayCards(gameData);
+</script>
+
+</body>
+</html>
