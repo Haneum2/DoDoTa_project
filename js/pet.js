@@ -1,12 +1,20 @@
 const MAX_FAVORITES = 3;
-const PHOTO_SIZE = 200; // 저장 전 리사이즈 최대 px
+const PHOTO_SIZE = 200;
 
 let foodData = {};
 let pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
 let selectedPetId = null;
 let newPetType = 'cat';
 let currentStatusFilter = 'all';
-let uploadingPetId = null;
+
+// 사진 업로드 관련
+let uploadingPetId = null;   // 카드/상세 직접 업로드용
+let modalTempPhoto = null;   // 모달 내 임시 사진
+let petModalMode = 'add';    // 'add' | 'edit'
+let editingPetId = null;
+
+// 라이트박스 관련
+let lightboxPetId = null;
 
 // ===== 데이터 로드 =====
 async function loadData() {
@@ -43,7 +51,27 @@ function showToast(msg) {
     toast._timer = setTimeout(() => toast.classList.remove('show'), 2600);
 }
 
-// ===== 사진 업로드 =====
+// ===== 이미지 리사이즈 공통 유틸 =====
+function resizeImageToBase64(file, callback) {
+    const reader = new FileReader();
+    reader.onload = e => {
+        const img = new Image();
+        img.onload = () => {
+            const size = Math.min(img.width, img.height);
+            const sx = (img.width - size) / 2;
+            const sy = (img.height - size) / 2;
+            const canvas = document.createElement('canvas');
+            canvas.width = PHOTO_SIZE;
+            canvas.height = PHOTO_SIZE;
+            canvas.getContext('2d').drawImage(img, sx, sy, size, size, 0, 0, PHOTO_SIZE, PHOTO_SIZE);
+            callback(canvas.toDataURL('image/jpeg', 0.82));
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+// ===== 카드/상세 직접 사진 업로드 =====
 function triggerPhotoUpload(petId) {
     uploadingPetId = petId;
     const input = document.getElementById('photo-upload-input');
@@ -58,39 +86,17 @@ function triggerDetailPhotoUpload() {
 function handlePhotoUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        const img = new Image();
-        img.onload = function () {
-            // canvas로 정사각형 크롭 + 리사이즈
-            const size = Math.min(img.width, img.height);
-            const sx = (img.width - size) / 2;
-            const sy = (img.height - size) / 2;
-
-            const canvas = document.createElement('canvas');
-            canvas.width = PHOTO_SIZE;
-            canvas.height = PHOTO_SIZE;
-            canvas.getContext('2d').drawImage(img, sx, sy, size, size, 0, 0, PHOTO_SIZE, PHOTO_SIZE);
-
-            const base64 = canvas.toDataURL('image/jpeg', 0.82);
-            const pet = pets.find(p => p.id === uploadingPetId);
-            if (!pet) return;
-
-            pet.photo = base64;
-            savePets();
-
-            // 목록 뷰 또는 상세 뷰 갱신
-            if (document.getElementById('view-list').style.display !== 'none') {
-                renderPetList();
-            } else {
-                renderDetailPhoto(pet);
-                renderPetList(); // 목록 캐시도 갱신
-            }
-        };
-        img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+    resizeImageToBase64(file, base64 => {
+        const pet = pets.find(p => p.id === uploadingPetId);
+        if (!pet) return;
+        pet.photo = base64;
+        savePets();
+        if (document.getElementById('view-list').style.display !== 'none') {
+            renderPetList();
+        } else {
+            renderDetailPhoto(pet);
+        }
+    });
 }
 
 function removePhoto(petId) {
@@ -105,41 +111,154 @@ function removePhoto(petId) {
     }
 }
 
-// ===== 모달 =====
+// ===== 라이트박스 =====
+function openPhotoLightbox(petId) {
+    const pet = pets.find(p => p.id === petId);
+    if (!pet || !pet.photo) return;
+    lightboxPetId = petId;
+    document.getElementById('lightbox-img').src = pet.photo;
+    document.getElementById('photo-lightbox').style.display = 'flex';
+}
+
+function closeLightbox() {
+    document.getElementById('photo-lightbox').style.display = 'none';
+    lightboxPetId = null;
+}
+
+function lightboxChangePhoto() {
+    closeLightbox();
+    triggerPhotoUpload(lightboxPetId || selectedPetId);
+}
+
+function lightboxDeletePhoto() {
+    const id = lightboxPetId;
+    closeLightbox();
+    removePhoto(id);
+}
+
+// ===== 모달 사진 업로드 =====
+function triggerModalPhotoUpload() {
+    const input = document.getElementById('modal-photo-upload-input');
+    input.value = '';
+    input.click();
+}
+
+function handleModalPhotoUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    resizeImageToBase64(file, base64 => {
+        modalTempPhoto = base64;
+        renderModalPhoto();
+    });
+}
+
+function removeModalPhoto() {
+    modalTempPhoto = null;
+    renderModalPhoto();
+}
+
+function renderModalPhoto() {
+    const preview = document.getElementById('modal-photo-preview');
+    const removeBtn = document.getElementById('modal-photo-remove-btn');
+
+    if (modalTempPhoto) {
+        preview.innerHTML = `<img src="${modalTempPhoto}" class="pet-photo" alt="사진">`;
+        removeBtn.style.display = 'flex';
+    } else {
+        let icon;
+        if (petModalMode === 'edit') {
+            const pet = pets.find(p => p.id === editingPetId);
+            icon = pet?.type === 'cat' ? '🐱' : '🐶';
+        } else {
+            icon = newPetType === 'cat' ? '🐱' : '🐶';
+        }
+        preview.innerHTML = `<span class="pet-emoji-default">${icon}</span>`;
+        removeBtn.style.display = 'none';
+    }
+}
+
+// ===== 통합 펫 모달 =====
 function openModal(type) {
+    petModalMode = 'add';
     newPetType = type;
+    modalTempPhoto = null;
+    editingPetId = null;
     selectPetType(type);
     document.getElementById('pet-name-input').value = '';
-    document.getElementById('add-pet-modal').style.display = 'flex';
+    document.getElementById('modal-title').textContent = '새 펫 추가';
+    document.getElementById('modal-confirm-btn').textContent = '추가하기';
+    document.getElementById('modal-type-row').style.display = 'flex';
+    renderModalPhoto();
+    document.getElementById('pet-modal').style.display = 'flex';
+    setTimeout(() => document.getElementById('pet-name-input').focus(), 60);
+}
+
+function openEditModal(petId) {
+    const pet = pets.find(p => p.id === petId);
+    if (!pet) return;
+    petModalMode = 'edit';
+    editingPetId = petId;
+    modalTempPhoto = pet.photo || null;
+    document.getElementById('pet-name-input').value = pet.name;
+    document.getElementById('modal-title').textContent = '펫 설정';
+    document.getElementById('modal-confirm-btn').textContent = '저장';
+    document.getElementById('modal-type-row').style.display = 'none';
+    renderModalPhoto();
+    document.getElementById('pet-modal').style.display = 'flex';
     setTimeout(() => document.getElementById('pet-name-input').focus(), 60);
 }
 
 function closeModal() {
-    document.getElementById('add-pet-modal').style.display = 'none';
+    document.getElementById('pet-modal').style.display = 'none';
+    modalTempPhoto = null;
 }
 
 function handleOverlayClick(e) {
-    if (e.target === document.getElementById('add-pet-modal')) closeModal();
+    if (e.target === document.getElementById('pet-modal')) closeModal();
 }
 
 function selectPetType(type) {
     newPetType = type;
     document.getElementById('type-btn-cat').classList.toggle('active', type === 'cat');
     document.getElementById('type-btn-dog').classList.toggle('active', type === 'dog');
+    if (!modalTempPhoto) renderModalPhoto();
 }
 
-function confirmAddPet() {
+function confirmModal() {
     const name = document.getElementById('pet-name-input').value.trim();
     if (!name) { document.getElementById('pet-name-input').focus(); return; }
-    pets.push({ id: Date.now(), name, type: newPetType, foodStatus: {} });
+
+    if (petModalMode === 'add') {
+        const newPet = { id: Date.now(), name, type: newPetType, foodStatus: {} };
+        if (modalTempPhoto) newPet.photo = modalTempPhoto;
+        pets.push(newPet);
+    } else {
+        const pet = pets.find(p => p.id === editingPetId);
+        if (!pet) return;
+        pet.name = name;
+        if (modalTempPhoto) {
+            pet.photo = modalTempPhoto;
+        } else {
+            delete pet.photo;
+        }
+        // 상세 뷰가 열려 있고 편집 대상이 현재 보고 있는 펫이면 헤더 갱신
+        if (document.getElementById('view-detail').style.display !== 'none' && selectedPetId === editingPetId) {
+            document.getElementById('detail-pet-name').textContent = pet.name;
+            renderDetailPhoto(pet);
+        }
+    }
+
     savePets();
     closeModal();
     renderPetList();
 }
 
 document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && document.getElementById('add-pet-modal').style.display !== 'none') confirmAddPet();
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Enter' && document.getElementById('pet-modal').style.display !== 'none') confirmModal();
+    if (e.key === 'Escape') {
+        closeModal();
+        closeLightbox();
+    }
 });
 
 // ===== 펫 삭제 =====
@@ -188,23 +307,24 @@ function renderPetList() {
         foods.forEach(f => { counts[fs[f.id] || 'none']++; });
         const icon = pet.type === 'cat' ? '🐱' : '🐶';
 
-        // 사진 있으면 img, 없으면 이모지
+        // 사진 영역: 사진 있으면 라이트박스, 없으면 업로드
         const photoInner = pet.photo
             ? `<img src="${pet.photo}" class="pet-photo" alt="${pet.name}">`
             : `<span class="pet-emoji-default">${icon}</span>`;
 
-        // 사진 있을 때만 삭제 버튼 표시
-        const removeBtn = pet.photo
-            ? `<button class="photo-remove-btn" onclick="event.stopPropagation(); removePhoto(${pet.id})" title="사진 삭제">✕</button>`
-            : '';
+        const photoOnclick = pet.photo
+            ? `event.stopPropagation(); openPhotoLightbox(${pet.id})`
+            : `event.stopPropagation(); triggerPhotoUpload(${pet.id})`;
+
+        const photoHint = pet.photo ? '' : `<div class="photo-edit-overlay">📷</div>`;
 
         return `
             <div class="pet-card" onclick="showDetailView(${pet.id})">
+                <button class="settings-btn" onclick="event.stopPropagation(); openEditModal(${pet.id})" title="설정">⚙️</button>
                 <button class="pet-delete-btn" onclick="event.stopPropagation(); deletePet(${pet.id})">✕</button>
-                <div class="pet-photo-area" onclick="event.stopPropagation(); triggerPhotoUpload(${pet.id})">
+                <div class="pet-photo-area" onclick="${photoOnclick}">
                     ${photoInner}
-                    <div class="photo-edit-overlay">📷</div>
-                    ${removeBtn}
+                    ${photoHint}
                 </div>
                 <h3>${pet.name}</h3>
                 <div class="pet-status-summary">
@@ -216,21 +336,22 @@ function renderPetList() {
     }).join('');
 }
 
-// ===== 상세 뷰 - 사진 영역 갱신 =====
+// ===== 상세 뷰 사진 영역 갱신 =====
 function renderDetailPhoto(pet) {
     const area = document.getElementById('detail-photo-area');
     const icon = pet.type === 'cat' ? '🐱' : '🐶';
 
-    const photoInner = pet.photo
-        ? `<img src="${pet.photo}" class="pet-photo" alt="${pet.name}">`
-        : `<span class="pet-emoji-default">${icon}</span>`;
-
-    const removeBtn = pet.photo
-        ? `<button class="photo-remove-btn" onclick="event.stopPropagation(); removePhoto(${pet.id})" title="사진 삭제">✕</button>`
-        : '';
-
-    // overlay는 유지하면서 내용만 교체
-    area.innerHTML = `${photoInner}<div class="photo-edit-overlay">📷</div>${removeBtn}`;
+    if (pet.photo) {
+        area.innerHTML = `
+            <img src="${pet.photo}" class="pet-photo" alt="${pet.name}">
+            <div class="photo-edit-overlay" style="font-size:1rem;">🔍</div>`;
+        area.onclick = () => openPhotoLightbox(pet.id);
+    } else {
+        area.innerHTML = `
+            <span class="pet-emoji-default">${icon}</span>
+            <div class="photo-edit-overlay">📷</div>`;
+        area.onclick = triggerDetailPhotoUpload;
+    }
 }
 
 // ===== 음식 상태 변경 =====
@@ -242,9 +363,7 @@ function setFoodStatus(foodId, newStatus) {
     const current = pet.foodStatus[foodId] || 'none';
     if (current === newStatus) {
         delete pet.foodStatus[foodId];
-        savePets();
-        renderFoodList();
-        return;
+        savePets(); renderFoodList(); return;
     }
 
     if (newStatus === 'favorite') {
@@ -279,7 +398,6 @@ function renderFoodList() {
     if (!pet) return;
     if (!pet.foodStatus) pet.foodStatus = {};
 
-    // 헤더 갱신
     document.getElementById('detail-pet-name').textContent = pet.name;
     renderDetailPhoto(pet);
 
@@ -298,7 +416,7 @@ function renderFoodList() {
     const container = document.getElementById('detail-food-list');
 
     if (filtered.length === 0) {
-        container.innerHTML = `<p style="grid-column:1/-1; padding:50px; text-align:center; color:#ccc; font-family:'Gamja Flower',cursive; font-size:1.1rem;">해당하는 음식이 없어요 😅</p>`;
+        container.innerHTML = `<p style="grid-column:1/-1;padding:50px;text-align:center;color:#ccc;font-family:'Gamja Flower',cursive;font-size:1.1rem;">해당하는 음식이 없어요 😅</p>`;
         return;
     }
 

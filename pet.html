@@ -42,9 +42,13 @@
     <!-- ===== 뷰 2: 펫 상세 (먹이 체크리스트) ===== -->
     <div id="view-detail" style="display:none;">
         <div class="detail-top">
-            <button class="back-to-list-btn" onclick="showListView()">← 목록으로</button>
+            <!-- 상단 네비게이션 -->
+            <div class="detail-top-nav">
+                <button class="back-to-list-btn" onclick="showListView()">← 목록으로</button>
+                <button class="detail-settings-btn" onclick="openEditModal(selectedPetId)">⚙️ 설정</button>
+            </div>
+            <!-- 펫 정보 헤더 -->
             <div class="detail-pet-header">
-                <!-- 사진 영역: JS가 렌더링 -->
                 <div id="detail-photo-area" class="detail-photo-area" onclick="triggerDetailPhotoUpload()">
                     <div class="photo-edit-overlay">📷</div>
                 </div>
@@ -67,24 +71,47 @@
         <main id="detail-food-list" class="grid-container"></main>
     </div>
 
-    <!-- ===== 모달: 펫 추가 ===== -->
-    <div id="add-pet-modal" class="modal-overlay" style="display:none;" onclick="handleOverlayClick(event)">
+    <!-- ===== 통합 펫 모달 (추가 / 설정) ===== -->
+    <div id="pet-modal" class="modal-overlay" style="display:none;" onclick="handleOverlayClick(event)">
         <div class="modal-box">
-            <h3>새 펫 추가</h3>
-            <div class="modal-type-select">
+            <h3 id="modal-title">새 펫 추가</h3>
+
+            <!-- 사진 업로드 영역 -->
+            <div class="modal-photo-area" onclick="triggerModalPhotoUpload()">
+                <div id="modal-photo-preview" class="modal-photo-preview"></div>
+                <div class="photo-edit-overlay">📷</div>
+                <button id="modal-photo-remove-btn" class="photo-remove-btn" style="display:none"
+                        onclick="event.stopPropagation(); removeModalPhoto()">✕</button>
+            </div>
+
+            <!-- 타입 선택 (추가 모드만 표시) -->
+            <div id="modal-type-row" class="modal-type-select">
                 <button class="type-btn active" id="type-btn-cat" onclick="selectPetType('cat')">🐱 고양이</button>
                 <button class="type-btn"        id="type-btn-dog" onclick="selectPetType('dog')">🐶 강아지</button>
             </div>
+
             <input type="text" id="pet-name-input" placeholder="이름을 입력하세요" maxlength="10">
+
             <div class="modal-actions">
                 <button class="modal-cancel"  onclick="closeModal()">취소</button>
-                <button class="modal-confirm" onclick="confirmAddPet()">추가하기</button>
+                <button class="modal-confirm" id="modal-confirm-btn" onclick="confirmModal()">추가하기</button>
             </div>
         </div>
     </div>
 
-    <!-- 숨김 파일 입력 (사진 업로드용) -->
-    <input type="file" id="photo-upload-input" accept="image/*" style="display:none" onchange="handlePhotoUpload(event)">
+    <!-- 숨김 파일 입력 -->
+    <input type="file" id="photo-upload-input"       accept="image/*" style="display:none" onchange="handlePhotoUpload(event)">
+    <input type="file" id="modal-photo-upload-input" accept="image/*" style="display:none" onchange="handleModalPhotoUpload(event)">
+
+    <!-- ===== 사진 라이트박스 ===== -->
+    <div id="photo-lightbox" class="lightbox-overlay" style="display:none;" onclick="closeLightbox()">
+        <img id="lightbox-img" class="lightbox-img" src="" alt="펫 사진" onclick="event.stopPropagation()">
+        <div class="lightbox-actions" onclick="event.stopPropagation()">
+            <button class="lightbox-btn lightbox-btn-change" onclick="lightboxChangePhoto()">📷 사진 변경</button>
+            <button class="lightbox-btn lightbox-btn-delete" onclick="lightboxDeletePhoto()">🗑️ 사진 삭제</button>
+            <button class="lightbox-btn lightbox-btn-close"  onclick="closeLightbox()">✕ 닫기</button>
+        </div>
+    </div>
 
     <!-- 토스트 알림 -->
     <div id="toast" class="toast"></div>
