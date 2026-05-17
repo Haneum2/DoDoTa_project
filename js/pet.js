@@ -1,10 +1,12 @@
 const MAX_FAVORITES = 3;
+const PHOTO_SIZE = 200; // 저장 전 리사이즈 최대 px
 
-let foodData = {}; // { cat: [...], dog: [...] }
+let foodData = {};
 let pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
 let selectedPetId = null;
 let newPetType = 'cat';
 let currentStatusFilter = 'all';
+let uploadingPetId = null;
 
 // ===== 데이터 로드 =====
 async function loadData() {
@@ -13,7 +15,6 @@ async function loadData() {
         const allData = await response.json();
         foodData.cat = allData.filter(i => i.type === 'cat_food');
         foodData.dog = allData.filter(i => i.type === 'dog_food');
-        // 구버전 데이터 마이그레이션
         pets = pets.map(pet => {
             if (!pet.foodStatus) {
                 pet.foodStatus = {};
@@ -33,13 +34,75 @@ function savePets() {
     localStorage.setItem('ddTownPets', JSON.stringify(pets));
 }
 
-// ===== 토스트 알림 =====
+// ===== 토스트 =====
 function showToast(msg) {
     const toast = document.getElementById('toast');
     toast.textContent = msg;
     toast.classList.add('show');
     clearTimeout(toast._timer);
     toast._timer = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+// ===== 사진 업로드 =====
+function triggerPhotoUpload(petId) {
+    uploadingPetId = petId;
+    const input = document.getElementById('photo-upload-input');
+    input.value = '';
+    input.click();
+}
+
+function triggerDetailPhotoUpload() {
+    triggerPhotoUpload(selectedPetId);
+}
+
+function handlePhotoUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+            // canvas로 정사각형 크롭 + 리사이즈
+            const size = Math.min(img.width, img.height);
+            const sx = (img.width - size) / 2;
+            const sy = (img.height - size) / 2;
+
+            const canvas = document.createElement('canvas');
+            canvas.width = PHOTO_SIZE;
+            canvas.height = PHOTO_SIZE;
+            canvas.getContext('2d').drawImage(img, sx, sy, size, size, 0, 0, PHOTO_SIZE, PHOTO_SIZE);
+
+            const base64 = canvas.toDataURL('image/jpeg', 0.82);
+            const pet = pets.find(p => p.id === uploadingPetId);
+            if (!pet) return;
+
+            pet.photo = base64;
+            savePets();
+
+            // 목록 뷰 또는 상세 뷰 갱신
+            if (document.getElementById('view-list').style.display !== 'none') {
+                renderPetList();
+            } else {
+                renderDetailPhoto(pet);
+                renderPetList(); // 목록 캐시도 갱신
+            }
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function removePhoto(petId) {
+    const pet = pets.find(p => p.id === petId);
+    if (!pet) return;
+    delete pet.photo;
+    savePets();
+    if (document.getElementById('view-list').style.display !== 'none') {
+        renderPetList();
+    } else {
+        renderDetailPhoto(pet);
+    }
 }
 
 // ===== 모달 =====
@@ -125,10 +188,24 @@ function renderPetList() {
         foods.forEach(f => { counts[fs[f.id] || 'none']++; });
         const icon = pet.type === 'cat' ? '🐱' : '🐶';
 
+        // 사진 있으면 img, 없으면 이모지
+        const photoInner = pet.photo
+            ? `<img src="${pet.photo}" class="pet-photo" alt="${pet.name}">`
+            : `<span class="pet-emoji-default">${icon}</span>`;
+
+        // 사진 있을 때만 삭제 버튼 표시
+        const removeBtn = pet.photo
+            ? `<button class="photo-remove-btn" onclick="event.stopPropagation(); removePhoto(${pet.id})" title="사진 삭제">✕</button>`
+            : '';
+
         return `
             <div class="pet-card" onclick="showDetailView(${pet.id})">
                 <button class="pet-delete-btn" onclick="event.stopPropagation(); deletePet(${pet.id})">✕</button>
-                <span class="pet-icon-large">${icon}</span>
+                <div class="pet-photo-area" onclick="event.stopPropagation(); triggerPhotoUpload(${pet.id})">
+                    ${photoInner}
+                    <div class="photo-edit-overlay">📷</div>
+                    ${removeBtn}
+                </div>
                 <h3>${pet.name}</h3>
                 <div class="pet-status-summary">
                     <span class="ps-chip ps-favorite">❤️ ${counts.favorite}/3</span>
@@ -139,6 +216,23 @@ function renderPetList() {
     }).join('');
 }
 
+// ===== 상세 뷰 - 사진 영역 갱신 =====
+function renderDetailPhoto(pet) {
+    const area = document.getElementById('detail-photo-area');
+    const icon = pet.type === 'cat' ? '🐱' : '🐶';
+
+    const photoInner = pet.photo
+        ? `<img src="${pet.photo}" class="pet-photo" alt="${pet.name}">`
+        : `<span class="pet-emoji-default">${icon}</span>`;
+
+    const removeBtn = pet.photo
+        ? `<button class="photo-remove-btn" onclick="event.stopPropagation(); removePhoto(${pet.id})" title="사진 삭제">✕</button>`
+        : '';
+
+    // overlay는 유지하면서 내용만 교체
+    area.innerHTML = `${photoInner}<div class="photo-edit-overlay">📷</div>${removeBtn}`;
+}
+
 // ===== 음식 상태 변경 =====
 function setFoodStatus(foodId, newStatus) {
     const pet = pets.find(p => p.id === selectedPetId);
@@ -146,8 +240,6 @@ function setFoodStatus(foodId, newStatus) {
     if (!pet.foodStatus) pet.foodStatus = {};
 
     const current = pet.foodStatus[foodId] || 'none';
-
-    // 같은 버튼 클릭 시 → 보통으로 리셋
     if (current === newStatus) {
         delete pet.foodStatus[foodId];
         savePets();
@@ -155,7 +247,6 @@ function setFoodStatus(foodId, newStatus) {
         return;
     }
 
-    // 좋아함 최대 3개 제한
     if (newStatus === 'favorite') {
         const favCount = Object.values(pet.foodStatus).filter(s => s === 'favorite').length;
         if (favCount >= MAX_FAVORITES) {
@@ -188,8 +279,9 @@ function renderFoodList() {
     if (!pet) return;
     if (!pet.foodStatus) pet.foodStatus = {};
 
-    const icon = pet.type === 'cat' ? '🐱' : '🐶';
-    document.getElementById('detail-pet-name').textContent = `${icon} ${pet.name}`;
+    // 헤더 갱신
+    document.getElementById('detail-pet-name').textContent = pet.name;
+    renderDetailPhoto(pet);
 
     const foods = foodData[pet.type] || [];
     const fs = pet.foodStatus;

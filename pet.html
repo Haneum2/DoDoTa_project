@@ -43,8 +43,16 @@
     <div id="view-detail" style="display:none;">
         <div class="detail-top">
             <button class="back-to-list-btn" onclick="showListView()">← 목록으로</button>
-            <h2 id="detail-pet-name"></h2>
-            <p id="detail-summary" class="progress-display"></p>
+            <div class="detail-pet-header">
+                <!-- 사진 영역: JS가 렌더링 -->
+                <div id="detail-photo-area" class="detail-photo-area" onclick="triggerDetailPhotoUpload()">
+                    <div class="photo-edit-overlay">📷</div>
+                </div>
+                <div>
+                    <h2 id="detail-pet-name"></h2>
+                    <p id="detail-summary" class="progress-display"></p>
+                </div>
+            </div>
         </div>
 
         <!-- 상태 필터 -->
@@ -74,6 +82,9 @@
             </div>
         </div>
     </div>
+
+    <!-- 숨김 파일 입력 (사진 업로드용) -->
+    <input type="file" id="photo-upload-input" accept="image/*" style="display:none" onchange="handlePhotoUpload(event)">
 
     <!-- 토스트 알림 -->
     <div id="toast" class="toast"></div>
