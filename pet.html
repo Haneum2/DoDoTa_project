@@ -44,16 +44,16 @@
         <div class="detail-top">
             <button class="back-to-list-btn" onclick="showListView()">← 목록으로</button>
             <h2 id="detail-pet-name"></h2>
-            <p id="detail-progress" class="progress-display"></p>
+            <p id="detail-summary" class="progress-display"></p>
         </div>
 
-        <div class="filter-section" style="text-align:center; padding: 10px 0;">
-            <div class="hide-settings" style="display:inline-block;">
-                <label style="cursor:pointer; font-size:0.9rem; color:#666;">
-                    <input type="checkbox" id="hide-checked-checkbox" onchange="toggleHideChecked(this.checked)">
-                    ✅ 수집 완료한 카드 가리기
-                </label>
-            </div>
+        <!-- 상태 필터 -->
+        <div class="status-filter">
+            <button class="sfil-btn active" data-status="all"      onclick="setStatusFilter('all')">전체</button>
+            <button class="sfil-btn"        data-status="none"     onclick="setStatusFilter('none')">⬜ 보통</button>
+            <button class="sfil-btn"        data-status="favorite" onclick="setStatusFilter('favorite')">❤️ 좋아함</button>
+            <button class="sfil-btn"        data-status="dislike"  onclick="setStatusFilter('dislike')">👎 싫어함</button>
+            <button class="sfil-btn"        data-status="full"     onclick="setStatusFilter('full')">🍽️ 배불림</button>
         </div>
 
         <main id="detail-food-list" class="grid-container"></main>
@@ -65,15 +65,18 @@
             <h3>새 펫 추가</h3>
             <div class="modal-type-select">
                 <button class="type-btn active" id="type-btn-cat" onclick="selectPetType('cat')">🐱 고양이</button>
-                <button class="type-btn" id="type-btn-dog" onclick="selectPetType('dog')">🐶 강아지</button>
+                <button class="type-btn"        id="type-btn-dog" onclick="selectPetType('dog')">🐶 강아지</button>
             </div>
             <input type="text" id="pet-name-input" placeholder="이름을 입력하세요" maxlength="10">
             <div class="modal-actions">
-                <button class="modal-cancel" onclick="closeModal()">취소</button>
+                <button class="modal-cancel"  onclick="closeModal()">취소</button>
                 <button class="modal-confirm" onclick="confirmAddPet()">추가하기</button>
             </div>
         </div>
     </div>
+
+    <!-- 토스트 알림 -->
+    <div id="toast" class="toast"></div>
 
     <script src="js/pet.js"></script>
 </body>

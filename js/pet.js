@@ -1,8 +1,10 @@
+const MAX_FAVORITES = 3;
+
 let foodData = {}; // { cat: [...], dog: [...] }
 let pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
 let selectedPetId = null;
 let newPetType = 'cat';
-let hideChecked = false;
+let currentStatusFilter = 'all';
 
 // ===== 데이터 로드 =====
 async function loadData() {
@@ -11,6 +13,16 @@ async function loadData() {
         const allData = await response.json();
         foodData.cat = allData.filter(i => i.type === 'cat_food');
         foodData.dog = allData.filter(i => i.type === 'dog_food');
+        // 구버전 데이터 마이그레이션
+        pets = pets.map(pet => {
+            if (!pet.foodStatus) {
+                pet.foodStatus = {};
+                (pet.checkedFoods || []).forEach(id => { pet.foodStatus[id] = 'full'; });
+                delete pet.checkedFoods;
+            }
+            return pet;
+        });
+        savePets();
         showListView();
     } catch (error) {
         console.error('데이터 로드 실패:', error);
@@ -21,13 +33,22 @@ function savePets() {
     localStorage.setItem('ddTownPets', JSON.stringify(pets));
 }
 
+// ===== 토스트 알림 =====
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
 // ===== 모달 =====
 function openModal(type) {
     newPetType = type;
     selectPetType(type);
     document.getElementById('pet-name-input').value = '';
     document.getElementById('add-pet-modal').style.display = 'flex';
-    setTimeout(() => document.getElementById('pet-name-input').focus(), 50);
+    setTimeout(() => document.getElementById('pet-name-input').focus(), 60);
 }
 
 function closeModal() {
@@ -46,21 +67,15 @@ function selectPetType(type) {
 
 function confirmAddPet() {
     const name = document.getElementById('pet-name-input').value.trim();
-    if (!name) {
-        document.getElementById('pet-name-input').focus();
-        return;
-    }
-    pets.push({ id: Date.now(), name, type: newPetType, checkedFoods: [] });
+    if (!name) { document.getElementById('pet-name-input').focus(); return; }
+    pets.push({ id: Date.now(), name, type: newPetType, foodStatus: {} });
     savePets();
     closeModal();
     renderPetList();
 }
 
-// Enter 키로 모달 제출
 document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && document.getElementById('add-pet-modal').style.display !== 'none') {
-        confirmAddPet();
-    }
+    if (e.key === 'Enter' && document.getElementById('add-pet-modal').style.display !== 'none') confirmAddPet();
     if (e.key === 'Escape') closeModal();
 });
 
@@ -74,17 +89,18 @@ function deletePet(id) {
 
 // ===== 뷰 전환 =====
 function showListView() {
+    currentStatusFilter = 'all';
     document.getElementById('view-list').style.display = 'block';
     document.getElementById('view-detail').style.display = 'none';
-    document.getElementById('hide-checked-checkbox').checked = false;
-    hideChecked = false;
     renderPetList();
 }
 
 function showDetailView(petId) {
     selectedPetId = petId;
+    currentStatusFilter = 'all';
     document.getElementById('view-list').style.display = 'none';
     document.getElementById('view-detail').style.display = 'block';
+    updateStatusFilterUI();
     renderFoodList();
 }
 
@@ -104,9 +120,9 @@ function renderPetList() {
 
     container.innerHTML = pets.map(pet => {
         const foods = foodData[pet.type] || [];
-        const total = foods.length;
-        const collected = pet.checkedFoods.length;
-        const percent = total > 0 ? Math.round((collected / total) * 100) : 0;
+        const fs = pet.foodStatus || {};
+        const counts = { favorite: 0, dislike: 0, full: 0, none: 0 };
+        foods.forEach(f => { counts[fs[f.id] || 'none']++; });
         const icon = pet.type === 'cat' ? '🐱' : '🐶';
 
         return `
@@ -114,66 +130,104 @@ function renderPetList() {
                 <button class="pet-delete-btn" onclick="event.stopPropagation(); deletePet(${pet.id})">✕</button>
                 <span class="pet-icon-large">${icon}</span>
                 <h3>${pet.name}</h3>
-                <p class="pet-count">${collected} / ${total} 완료</p>
-                <div class="pet-progress-bar">
-                    <div class="pet-progress-fill ${pet.type}" style="width:${percent}%"></div>
+                <div class="pet-status-summary">
+                    <span class="ps-chip ps-favorite">❤️ ${counts.favorite}/3</span>
+                    <span class="ps-chip ps-dislike">👎 ${counts.dislike}</span>
+                    <span class="ps-chip ps-full">🍽️ ${counts.full}</span>
                 </div>
             </div>`;
     }).join('');
 }
 
-// ===== 먹이 체크 토글 =====
-function toggleFood(foodId) {
+// ===== 음식 상태 변경 =====
+function setFoodStatus(foodId, newStatus) {
     const pet = pets.find(p => p.id === selectedPetId);
     if (!pet) return;
-    const idx = pet.checkedFoods.indexOf(foodId);
-    if (idx === -1) {
-        pet.checkedFoods.push(foodId);
-    } else {
-        pet.checkedFoods.splice(idx, 1);
+    if (!pet.foodStatus) pet.foodStatus = {};
+
+    const current = pet.foodStatus[foodId] || 'none';
+
+    // 같은 버튼 클릭 시 → 보통으로 리셋
+    if (current === newStatus) {
+        delete pet.foodStatus[foodId];
+        savePets();
+        renderFoodList();
+        return;
     }
+
+    // 좋아함 최대 3개 제한
+    if (newStatus === 'favorite') {
+        const favCount = Object.values(pet.foodStatus).filter(s => s === 'favorite').length;
+        if (favCount >= MAX_FAVORITES) {
+            showToast('❤️ 좋아하는 음식은 최대 3개까지만 설정할 수 있어요!');
+            return;
+        }
+    }
+
+    pet.foodStatus[foodId] = newStatus;
     savePets();
     renderFoodList();
 }
 
-function toggleHideChecked(isHide) {
-    hideChecked = isHide;
+// ===== 상태 필터 =====
+function setStatusFilter(status) {
+    currentStatusFilter = status;
+    updateStatusFilterUI();
     renderFoodList();
 }
 
-// ===== 먹이 목록 렌더링 =====
+function updateStatusFilterUI() {
+    document.querySelectorAll('.sfil-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.status === currentStatusFilter);
+    });
+}
+
+// ===== 음식 목록 렌더링 =====
 function renderFoodList() {
     const pet = pets.find(p => p.id === selectedPetId);
     if (!pet) return;
+    if (!pet.foodStatus) pet.foodStatus = {};
 
     const icon = pet.type === 'cat' ? '🐱' : '🐶';
     document.getElementById('detail-pet-name').textContent = `${icon} ${pet.name}`;
 
     const foods = foodData[pet.type] || [];
-    const total = foods.length;
-    const collected = pet.checkedFoods.length;
-    const percent = total > 0 ? Math.round((collected / total) * 100) : 0;
-    document.getElementById('detail-progress').textContent =
-        `${collected} / ${total} 완료 (${percent}%)`;
+    const fs = pet.foodStatus;
+    const counts = { favorite: 0, dislike: 0, full: 0, none: 0 };
+    foods.forEach(f => { counts[fs[f.id] || 'none']++; });
 
-    const filtered = hideChecked
-        ? foods.filter(f => !pet.checkedFoods.includes(f.id))
-        : foods;
+    document.getElementById('detail-summary').innerHTML =
+        `❤️ ${counts.favorite}/3 &nbsp;·&nbsp; 👎 싫어함 ${counts.dislike} &nbsp;·&nbsp; 🍽️ 배불림 ${counts.full} &nbsp;·&nbsp; ⬜ 보통 ${counts.none}`;
+
+    const filtered = currentStatusFilter === 'all'
+        ? foods
+        : foods.filter(f => (fs[f.id] || 'none') === currentStatusFilter);
 
     const container = document.getElementById('detail-food-list');
+
     if (filtered.length === 0) {
-        container.innerHTML = `<p style="grid-column:1/-1; padding:50px; text-align:center; color:#ccc;">모두 수집 완료! 🎉</p>`;
+        container.innerHTML = `<p style="grid-column:1/-1; padding:50px; text-align:center; color:#ccc; font-family:'Gamja Flower',cursive; font-size:1.1rem;">해당하는 음식이 없어요 😅</p>`;
         return;
     }
 
+    const statusLabel = { favorite: '❤️ 좋아함', dislike: '👎 싫어함', full: '🍽️ 배불림', none: '' };
+
     container.innerHTML = filtered.map(food => {
-        const isChecked = pet.checkedFoods.includes(food.id);
+        const status = fs[food.id] || 'none';
+        const label = statusLabel[status];
         return `
-            <div class="card ${pet.type}_food ${isChecked ? 'checked' : ''}" onclick="toggleFood(${food.id})">
-                <div class="checklist-marker">${isChecked ? '✅' : '⬜'}</div>
+            <div class="card food-card status-${status}">
+                ${label ? `<div class="food-status-badge badge-${status}">${label}</div>` : ''}
                 <img src="${food.image}" alt="${food.name}" onerror="this.style.display='none'">
                 <h3>${food.name}</h3>
-                <p>📍 ${food.location}</p>
+                <div class="food-status-btns">
+                    <button class="status-btn btn-favorite ${status === 'favorite' ? 'active' : ''}"
+                        onclick="setFoodStatus(${food.id}, 'favorite')" title="좋아하는 음식 (최대 3개)">❤️</button>
+                    <button class="status-btn btn-dislike ${status === 'dislike' ? 'active' : ''}"
+                        onclick="setFoodStatus(${food.id}, 'dislike')" title="싫어하는 음식">👎</button>
+                    <button class="status-btn btn-full ${status === 'full' ? 'active' : ''}"
+                        onclick="setFoodStatus(${food.id}, 'full')" title="배불리 먹은 음식">🍽️</button>
+                </div>
             </div>`;
     }).join('');
 }

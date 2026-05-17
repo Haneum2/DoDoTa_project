@@ -583,6 +583,128 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 
 .modal-confirm:hover { background: #ff9999; transform: scale(1.02); }
 
+/* ===== 음식 카드 상태 색상 ===== */
+.card.food-card { padding-top: 30px; } /* 뱃지 공간 확보 */
+
+.card.status-favorite { border-color: #ff9eb5; background: linear-gradient(150deg, #fff5f7, #ffffff); }
+.card.status-dislike  { border-color: #85bfff; background: linear-gradient(150deg, #f5f8ff, #ffffff); }
+.card.status-full     { border-color: #81c784; background: linear-gradient(150deg, #f4faf4, #ffffff); }
+
+/* 상태 뱃지 (카드 좌상단) */
+.food-status-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 0.78rem;
+    padding: 3px 9px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.badge-favorite { background: #ffe0e8; color: #e06080; }
+.badge-dislike  { background: #daeaff; color: #4a80c8; }
+.badge-full     { background: #d8f0d8; color: #4a9050; }
+
+/* 상태 버튼 (카드 하단 3개) */
+.food-status-btns {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    justify-content: center;
+}
+
+.status-btn {
+    flex: 1;
+    padding: 8px 4px;
+    border: 1.5px solid #eee;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    font-size: 1.05rem;
+    line-height: 1;
+    transition: transform 0.15s, border-color 0.2s, background 0.2s;
+}
+
+.status-btn:hover { transform: scale(1.12); }
+
+.status-btn.active.btn-favorite { border-color: #ff9eb5; background: #fff0f4; }
+.status-btn.active.btn-dislike  { border-color: #85bfff; background: #f0f5ff; }
+.status-btn.active.btn-full     { border-color: #81c784; background: #f0faf0; }
+
+/* ===== 상태 필터 바 ===== */
+.status-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 20px 4px;
+}
+
+.sfil-btn {
+    padding: 7px 15px;
+    border: 1.5px solid #eee;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 0.95rem;
+    color: #aaa;
+    transition: all 0.2s;
+}
+
+.sfil-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.sfil-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+/* ===== 펫 카드 상태 요약 칩 ===== */
+.pet-status-summary {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.ps-chip {
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.ps-favorite { background: #ffe0e8; color: #d06080; }
+.ps-dislike  { background: #daeaff; color: #4a80c8; }
+.ps-full     { background: #d8f0d8; color: #4a9050; }
+
+/* ===== 토스트 알림 ===== */
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    background: rgba(40,40,40,0.88);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.28s, transform 0.28s;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 /* 반응형 모바일 대응 */
 @media (max-width: 480px) {
     .grid-container {
