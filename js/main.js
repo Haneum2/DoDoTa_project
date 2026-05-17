@@ -18,9 +18,14 @@ async function loadData() {
 
 // 2. 현재 시간 및 날씨 조건 체크 함수
 function isAvailable(item) {
+    // 펫 먹이는 시간/날씨 제한 없이 항상 표시
+    if (item.type === 'cat_food' || item.type === 'dog_food') {
+        return true;
+    }
+
     const currentHour = new Date().getHours();
     console.log(`현재 시각: ${currentHour}시, 아이템: ${item.name}`); // 필터링 과정 확인
-    
+
     // 시간 체크 (자정 포함 로직)
     let timeMatch = false;
     if (item.start_time <= item.end_time) {
@@ -73,8 +78,11 @@ function updateDisplay() {
         // 이제 여기서 some, trim, toLowerCase 로직이 실행되어 공백 문제를 해결합니다.
         const isTimeAndWeatherOk = isAvailable(item);
         
-        // 카테고리 체크 (물고기/곤충/전체)
-        const categoryMatch = (currentSelectedCategory === 'all') || (item.type === currentSelectedCategory);
+        // 카테고리 체크 (물고기/곤충/전체/펫 먹이)
+        // 전체 보기에서는 펫 먹이 제외 (물고기·곤충 도감과 분리)
+        const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
+        const categoryMatch = (currentSelectedCategory === 'all' && !isPetFood) ||
+                              (item.type === currentSelectedCategory);
         
         // 수집 완료 가리기 체크
         const isChecked = checkedItems.includes(item.id);
@@ -89,13 +97,14 @@ function updateDisplay() {
     } else {
         availableItems.forEach(item => {
             const isChecked = checkedItems.includes(item.id);
+            const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
             const card = `
                 <div class="card ${item.type} ${isChecked ? 'checked' : ''}" onclick="toggleCheck(${item.id})">
                     <div class="checklist-marker">${isChecked ? '✅' : '⬜'}</div>
                     <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
                     <h3>${item.name}</h3>
                     <p>📍 ${item.location}</p>
-                    <p>⏰ ${item.start_time}:00 ~ ${item.end_time}:00</p>
+                    ${!isPetFood ? `<p>⏰ ${item.start_time}:00 ~ ${item.end_time}:00</p>` : ''}
                 </div>
             `;
             listContainer.insertAdjacentHTML('beforeend', card);

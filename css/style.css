@@ -163,8 +163,10 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     border-color: #ffe0e0;
 }
 
-.card.insect { border-bottom: 5px solid #8bc34a; } /* 곤충은 초록 포인트 */
-.card.fish { border-bottom: 5px solid #03a9f4; }   /* 물고기는 파랑 포인트 */
+.card.insect { border-bottom: 5px solid #8bc34a; }
+.card.fish { border-bottom: 5px solid #03a9f4; }
+.card.cat_food { border-bottom: 5px solid #ff9eb5; }
+.card.dog_food { border-bottom: 5px solid #ffb347; }
 
 .card img {
     width: 100px;
@@ -201,8 +203,9 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 .category-controls {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     border-bottom: 2px solid #eee;
-    max-width: 400px;
+    max-width: 650px;
     margin: 20px auto;
 }
 
