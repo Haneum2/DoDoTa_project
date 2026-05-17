@@ -947,6 +947,88 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     transform: translateX(-50%) translateY(0);
 }
 
+/* ===== 인증 UI ===== */
+.header-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 680px;
+    margin: 0 auto 12px;
+    padding: 0 4px;
+}
+
+.home-auth-bar {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 760px;
+    margin: 0 auto 8px;
+    padding: 0 24px;
+}
+
+.auth-user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.auth-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+}
+
+.auth-avatar-placeholder {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.auth-username {
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 0.82rem;
+    color: #999;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.auth-btn {
+    padding: 5px 13px;
+    border-radius: 16px;
+    border: 1.5px solid #eee;
+    cursor: pointer;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 0.88rem;
+    transition: all 0.2s;
+    background: white;
+}
+
+.auth-login {
+    color: #4a80c8;
+    border-color: #c0d8f8;
+    background: #f0f6ff;
+}
+
+.auth-login:hover {
+    background: #4a80c8;
+    color: white;
+    border-color: #4a80c8;
+}
+
+.auth-logout {
+    color: #c87070;
+    border-color: #f0c0c0;
+    background: #fff5f5;
+}
+
+.auth-logout:hover {
+    background: #c87070;
+    color: white;
+    border-color: #c87070;
+}
+
 /* 반응형 모바일 대응 */
 @media (max-width: 480px) {
     .grid-container {

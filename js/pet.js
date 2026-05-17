@@ -2,44 +2,94 @@ const MAX_FAVORITES = 3;
 const PHOTO_SIZE = 200;
 
 let foodData = {};
-let pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
+let pets = [];
 let selectedPetId = null;
 let newPetType = 'cat';
 let currentStatusFilter = 'all';
+let currentUser = null;
+let authInitialized = false;
 
 // 사진 업로드 관련
-let uploadingPetId = null;   // 카드/상세 직접 업로드용
-let modalTempPhoto = null;   // 모달 내 임시 사진
-let petModalMode = 'add';    // 'add' | 'edit'
+let uploadingPetId = null;
+let modalTempPhoto = null;
+let petModalMode = 'add';
 let editingPetId = null;
 
 // 라이트박스 관련
 let lightboxPetId = null;
 
-// ===== 데이터 로드 =====
-async function loadData() {
-    try {
-        const response = await fetch('./assets/data/encyclopedia.json');
-        const allData = await response.json();
-        foodData.cat = allData.filter(i => i.type === 'cat_food');
-        foodData.dog = allData.filter(i => i.type === 'dog_food');
-        pets = pets.map(pet => {
-            if (!pet.foodStatus) {
-                pet.foodStatus = {};
-                (pet.checkedFoods || []).forEach(id => { pet.foodStatus[id] = 'full'; });
-                delete pet.checkedFoods;
-            }
-            return pet;
-        });
-        savePets();
-        showListView();
-    } catch (error) {
-        console.error('데이터 로드 실패:', error);
+// Firestore 디바운스 타이머
+let syncTimer = null;
+
+// ===== Firebase Auth =====
+function updateAuthUI(user) {
+    const el = document.getElementById('auth-status');
+    if (!el) return;
+    if (user) {
+        const photoHTML = user.photoURL
+            ? `<img src="${user.photoURL}" class="auth-avatar" alt="프로필">`
+            : `<span class="auth-avatar-placeholder">👤</span>`;
+        el.innerHTML = `
+            <div class="auth-user-info">
+                ${photoHTML}
+                <span class="auth-username">${user.displayName || user.email}</span>
+                <button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button>
+            </div>`;
+    } else {
+        el.innerHTML = `<button class="auth-btn auth-login" onclick="signInWithGoogle()">🔐 구글로 로그인</button>`;
     }
 }
 
+// ===== Firestore 동기화 =====
+async function syncAllPetsToFirestore() {
+    if (!currentUser) return;
+    try {
+        const col = db.collection('users').doc(currentUser.uid).collection('pets');
+        const batch = db.batch();
+        pets.forEach(pet => batch.set(col.doc(String(pet.id)), pet));
+        await batch.commit();
+    } catch (e) {
+        console.error('Firestore 동기화 실패:', e);
+    }
+}
+
+function scheduleSyncToFirestore() {
+    if (!currentUser) return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => {
+        syncAllPetsToFirestore().catch(e => console.error('동기화 실패:', e));
+    }, 1500);
+}
+
+async function loadPetsFromFirestore(uid) {
+    const col = db.collection('users').doc(uid).collection('pets');
+    const snapshot = await col.get();
+
+    if (!snapshot.empty) {
+        pets = snapshot.docs.map(doc => doc.data());
+    } else if (pets.length > 0) {
+        // Firestore가 비어있고 로컬 데이터가 있으면 업로드
+        await syncAllPetsToFirestore();
+        showToast('💾 로컬 데이터를 클라우드에 저장했어요!');
+    }
+
+    // 구버전 데이터 마이그레이션
+    pets = pets.map(pet => {
+        if (!pet.foodStatus) {
+            pet.foodStatus = {};
+            (pet.checkedFoods || []).forEach(id => { pet.foodStatus[id] = 'full'; });
+            delete pet.checkedFoods;
+        }
+        return pet;
+    });
+
+    localStorage.setItem('ddTownPets', JSON.stringify(pets));
+}
+
+// ===== 데이터 저장 =====
 function savePets() {
     localStorage.setItem('ddTownPets', JSON.stringify(pets));
+    scheduleSyncToFirestore();
 }
 
 // ===== 토스트 =====
@@ -241,7 +291,6 @@ function confirmModal() {
         } else {
             delete pet.photo;
         }
-        // 상세 뷰가 열려 있고 편집 대상이 현재 보고 있는 펫이면 헤더 갱신
         if (document.getElementById('view-detail').style.display !== 'none' && selectedPetId === editingPetId) {
             document.getElementById('detail-pet-name').textContent = pet.name;
             renderDetailPhoto(pet);
@@ -265,7 +314,11 @@ document.addEventListener('keydown', e => {
 function deletePet(id) {
     if (!confirm('이 펫을 삭제할까요? 체크 기록도 함께 사라져요.')) return;
     pets = pets.filter(p => p.id !== id);
-    savePets();
+    localStorage.setItem('ddTownPets', JSON.stringify(pets));
+    if (currentUser) {
+        db.collection('users').doc(currentUser.uid).collection('pets').doc(String(id)).delete()
+            .catch(e => console.error('Firestore 삭제 실패:', e));
+    }
     renderPetList();
 }
 
@@ -307,7 +360,6 @@ function renderPetList() {
         foods.forEach(f => { counts[fs[f.id] || 'none']++; });
         const icon = pet.type === 'cat' ? '🐱' : '🐶';
 
-        // 사진 영역: 사진 있으면 라이트박스, 없으면 업로드
         const photoInner = pet.photo
             ? `<img src="${pet.photo}" class="pet-photo" alt="${pet.name}">`
             : `<span class="pet-emoji-default">${icon}</span>`;
@@ -440,6 +492,57 @@ function renderFoodList() {
                 </div>
             </div>`;
     }).join('');
+}
+
+// ===== 데이터 로드 =====
+async function loadData() {
+    try {
+        const response = await fetch('./assets/data/encyclopedia.json');
+        const allData = await response.json();
+        foodData.cat = allData.filter(i => i.type === 'cat_food');
+        foodData.dog = allData.filter(i => i.type === 'dog_food');
+
+        // 로컬 데이터 먼저 로드해서 즉시 렌더
+        pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
+        pets = pets.map(pet => {
+            if (!pet.foodStatus) {
+                pet.foodStatus = {};
+                (pet.checkedFoods || []).forEach(id => { pet.foodStatus[id] = 'full'; });
+                delete pet.checkedFoods;
+            }
+            return pet;
+        });
+        showListView();
+
+        // Auth 상태 감지 - 변경 시 자동으로 데이터 동기화
+        auth.onAuthStateChanged(async (user) => {
+            const prevUser = currentUser;
+            currentUser = user;
+            updateAuthUI(user);
+
+            if (user) {
+                try {
+                    await loadPetsFromFirestore(user.uid);
+                    if (authInitialized) {
+                        showToast(`✅ ${user.displayName || ''}님의 데이터를 불러왔어요!`);
+                    }
+                } catch (e) {
+                    console.error('Firestore 로드 실패:', e);
+                    showToast('⚠️ 클라우드 로드 실패. 로컬 데이터를 사용해요.');
+                }
+            } else {
+                pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
+                if (prevUser) showToast('👋 로그아웃했어요.');
+            }
+
+            authInitialized = true;
+            showListView();
+        });
+    } catch (error) {
+        console.error('데이터 로드 실패:', error);
+        pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
+        showListView();
+    }
 }
 
 loadData();

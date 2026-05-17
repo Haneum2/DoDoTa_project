@@ -26,7 +26,10 @@
 <body>
     <!-- ===== 헤더 ===== -->
     <header>
-        <a href="index.html" class="back-btn">← 홈으로</a>
+        <div class="header-top-row">
+            <a href="index.html" class="back-btn">← 홈으로</a>
+            <div id="auth-status"></div>
+        </div>
         <h1>🐾 펫 먹이 체크리스트</h1>
     </header>
 
@@ -116,6 +119,11 @@
     <!-- 토스트 알림 -->
     <div id="toast" class="toast"></div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase.js"></script>
     <script src="js/pet.js"></script>
 </body>
 </html>
