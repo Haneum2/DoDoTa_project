@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실시간 도감 - 두근두근타운</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'GanaChocolate';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/GanaChocolate.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'NanumSquareRound';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="back-btn">← 홈으로</a>
+        <h1>🐟🐞 실시간 도감</h1>
+        <div id="real-time-clock" class="clock-display">
+            로딩 중...
+        </div>
+        <div class="filter-section">
+            <div class="weather-controls">
+                <button class="weather-btn active" data-weather="sunny" onclick="setWeather('sunny')">☀️ 맑음</button>
+                <button class="weather-btn" data-weather="rainbow" onclick="setWeather('rainbow')">🌈 무지개</button>
+                <button class="weather-btn" data-weather="rainy" onclick="setWeather('rainy')">🌧️ 비</button>
+            </div>
+
+            <div class="category-controls" style="margin-top: 15px;">
+                <button class="cat-btn active" data-type="all" onclick="setCategory('all')">전체</button>
+                <button class="cat-btn" data-type="insect" onclick="setCategory('insect')">🐞 곤충</button>
+                <button class="cat-btn" data-type="fish" onclick="setCategory('fish')">🐟 물고기</button>
+            </div>
+
+            <div class="hide-settings" style="margin-top: 15px; text-align: center;">
+                <label style="cursor: pointer; font-size: 0.9rem; color: #666;">
+                    <input type="checkbox" id="hide-checked-checkbox" onchange="toggleHideChecked(this.checked)">
+                    ✅ 수집 완료한 카드 가리기
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main id="item-list" class="grid-container"></main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
