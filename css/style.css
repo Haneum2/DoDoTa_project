@@ -189,25 +189,52 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     color: #888;
 }
 
-/* 홈 페이지 */
+/* ===== 홈 페이지 ===== */
+.home-page {
+    min-height: 100vh;
+    background: linear-gradient(155deg, #fff5f7 0%, #fdfbf7 45%, #f0f7ff 100%);
+}
+
 .home-header {
-    padding: 80px 20px 20px;
+    text-align: center;
+    padding: 72px 20px 36px;
+}
+
+.home-logo {
+    font-size: 4.5rem;
+    display: block;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 6px 12px rgba(255,183,183,0.4));
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.home-header h1 {
+    font-family: 'GanaChocolate', sans-serif;
+    font-size: 2.4rem;
+    color: #4a4a4a;
+    margin: 0 0 10px;
+    letter-spacing: 2px;
 }
 
 .home-subtitle {
-    font-family: 'NanumSquareRound', sans-serif;
-    color: #aaa;
-    font-size: 1rem;
-    margin-top: 8px;
+    font-family: 'Gamja Flower', cursive;
+    color: #c0a8a8;
+    font-size: 1.15rem;
+    margin: 0;
 }
 
 .home-nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 40px 20px;
-    max-width: 800px;
+    gap: 24px;
+    padding: 20px 24px 60px;
+    max-width: 760px;
     margin: 0 auto;
 }
 
@@ -217,30 +244,47 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     align-items: center;
     text-align: center;
     background: white;
-    border-radius: 24px;
-    padding: 40px 30px;
-    width: 220px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    border-radius: 28px;
+    padding: 36px 28px;
+    width: 230px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
     text-decoration: none;
     color: var(--text-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    border: 2px solid transparent;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    border-radius: 28px 28px 0 0;
+}
+
+.encyclopedia-card::before {
+    background: linear-gradient(90deg, #03a9f4, #8bc34a);
+}
+
+.pet-card::before {
+    background: linear-gradient(90deg, #ff9eb5, #ffb347);
 }
 
 .nav-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-    border-color: var(--primary);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 44px rgba(0,0,0,0.12);
 }
 
 .nav-icon {
     font-size: 3rem;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    line-height: 1;
 }
 
 .nav-card h2 {
     font-family: 'GanaChocolate', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #4a4a4a;
     margin: 0 0 10px;
 }
@@ -248,12 +292,12 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 .nav-card p {
     font-family: 'NanumSquareRound', sans-serif;
     font-size: 0.85rem;
-    color: #999;
+    color: #aaa;
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
-/* 뒤로가기 버튼 */
+/* ===== 뒤로가기 버튼 ===== */
 .back-btn {
     display: inline-block;
     font-family: 'Gamja Flower', cursive;
@@ -272,13 +316,272 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     border-color: var(--primary);
 }
 
-/* 달성률 표시 */
+/* ===== 달성률 표시 ===== */
 .progress-display {
     font-family: 'NanumSquareRound', sans-serif;
     font-size: 0.9rem;
-    color: #888;
-    margin-top: 12px;
+    color: #aaa;
+    margin-top: 10px;
 }
+
+/* ===== 펫 페이지 - 펫 추가 버튼 ===== */
+.pet-add-bar {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 24px 20px 8px;
+}
+
+.add-pet-btn {
+    padding: 12px 26px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1.05rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.add-pet-btn.cat { background: #ff9eb5; color: white; }
+.add-pet-btn.dog { background: #ffb347; color: white; }
+
+.add-pet-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== 펫 카드 그리드 ===== */
+.pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.pet-card {
+    background: white;
+    border-radius: 22px;
+    padding: 26px 18px 20px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    user-select: none;
+}
+
+.pet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.1);
+}
+
+.pet-card .pet-icon-large {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pet-card h3 {
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin: 0 0 6px;
+}
+
+.pet-card .pet-count {
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 0.8rem;
+    color: #bbb;
+    margin: 0 0 12px;
+}
+
+.pet-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.pet-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+.pet-progress-fill.cat { background: linear-gradient(90deg, #ff9eb5, #ffb7b7); }
+.pet-progress-fill.dog { background: linear-gradient(90deg, #ffb347, #ffd080); }
+
+.pet-delete-btn {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.pet-delete-btn:hover { background: #fff0f0; color: #ff6b6b; }
+
+/* ===== 빈 상태 메시지 ===== */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #ccc;
+}
+
+.empty-state .empty-icon { font-size: 3.5rem; margin-bottom: 14px; }
+.empty-state p { font-family: 'Gamja Flower', cursive; font-size: 1.1rem; margin: 4px 0; }
+
+/* ===== 펫 상세 뷰 ===== */
+.detail-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.back-to-list-btn {
+    background: none;
+    border: 1.5px solid #eee;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 0.95rem;
+    color: #bbb;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.back-to-list-btn:hover { color: var(--primary); border-color: var(--primary); }
+
+#detail-pet-name {
+    font-family: 'GanaChocolate', sans-serif;
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    margin: 0;
+}
+
+/* ===== 모달 ===== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    backdrop-filter: blur(5px);
+}
+
+.modal-box {
+    background: white;
+    border-radius: 28px;
+    padding: 40px 36px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+    animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+    from { transform: scale(0.88) translateY(10px); opacity: 0; }
+    to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-box h3 {
+    font-family: 'GanaChocolate', sans-serif;
+    font-size: 1.4rem;
+    color: #4a4a4a;
+    margin: 0 0 22px;
+}
+
+.modal-type-select {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.type-btn {
+    flex: 1;
+    padding: 12px 8px;
+    border: 2px solid #eee;
+    border-radius: 14px;
+    background: white;
+    cursor: pointer;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1rem;
+    color: #bbb;
+    transition: all 0.2s;
+}
+
+.type-btn.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: #fff5f7;
+}
+
+#pet-name-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    border: 2px solid #eee;
+    border-radius: 14px;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#pet-name-input:focus { border-color: var(--primary); }
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-cancel {
+    flex: 1;
+    padding: 13px;
+    border: 2px solid #eee;
+    border-radius: 14px;
+    background: white;
+    cursor: pointer;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1rem;
+    color: #bbb;
+    transition: 0.2s;
+}
+
+.modal-cancel:hover { border-color: #ddd; color: #999; }
+
+.modal-confirm {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 14px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.modal-confirm:hover { background: #ff9999; transform: scale(1.02); }
 
 /* 반응형 모바일 대응 */
 @media (max-width: 480px) {

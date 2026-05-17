@@ -24,29 +24,56 @@
 </head>
 
 <body>
+    <!-- ===== 헤더 ===== -->
     <header>
         <a href="index.html" class="back-btn">← 홈으로</a>
         <h1>🐾 펫 먹이 체크리스트</h1>
+    </header>
 
-        <div class="filter-section">
-            <div class="category-controls" style="margin-top: 15px;">
-                <button class="cat-btn active" data-type="all" onclick="setPetCategory('all')">전체</button>
-                <button class="cat-btn" data-type="cat_food" onclick="setPetCategory('cat_food')">🐱 고양이</button>
-                <button class="cat-btn" data-type="dog_food" onclick="setPetCategory('dog_food')">🐶 강아지</button>
-            </div>
+    <!-- ===== 뷰 1: 펫 목록 ===== -->
+    <div id="view-list">
+        <div class="pet-add-bar">
+            <button class="add-pet-btn cat" onclick="openModal('cat')">🐱 고양이 추가</button>
+            <button class="add-pet-btn dog" onclick="openModal('dog')">🐶 강아지 추가</button>
+        </div>
+        <div id="pet-list-grid" class="pet-grid"></div>
+    </div>
 
-            <div id="pet-progress" class="progress-display"></div>
+    <!-- ===== 뷰 2: 펫 상세 (먹이 체크리스트) ===== -->
+    <div id="view-detail" style="display:none;">
+        <div class="detail-top">
+            <button class="back-to-list-btn" onclick="showListView()">← 목록으로</button>
+            <h2 id="detail-pet-name"></h2>
+            <p id="detail-progress" class="progress-display"></p>
+        </div>
 
-            <div class="hide-settings" style="margin-top: 15px; text-align: center;">
-                <label style="cursor: pointer; font-size: 0.9rem; color: #666;">
+        <div class="filter-section" style="text-align:center; padding: 10px 0;">
+            <div class="hide-settings" style="display:inline-block;">
+                <label style="cursor:pointer; font-size:0.9rem; color:#666;">
                     <input type="checkbox" id="hide-checked-checkbox" onchange="toggleHideChecked(this.checked)">
                     ✅ 수집 완료한 카드 가리기
                 </label>
             </div>
         </div>
-    </header>
 
-    <main id="item-list" class="grid-container"></main>
+        <main id="detail-food-list" class="grid-container"></main>
+    </div>
+
+    <!-- ===== 모달: 펫 추가 ===== -->
+    <div id="add-pet-modal" class="modal-overlay" style="display:none;" onclick="handleOverlayClick(event)">
+        <div class="modal-box">
+            <h3>새 펫 추가</h3>
+            <div class="modal-type-select">
+                <button class="type-btn active" id="type-btn-cat" onclick="selectPetType('cat')">🐱 고양이</button>
+                <button class="type-btn" id="type-btn-dog" onclick="selectPetType('dog')">🐶 강아지</button>
+            </div>
+            <input type="text" id="pet-name-input" placeholder="이름을 입력하세요" maxlength="10">
+            <div class="modal-actions">
+                <button class="modal-cancel" onclick="closeModal()">취소</button>
+                <button class="modal-confirm" onclick="confirmAddPet()">추가하기</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/pet.js"></script>
 </body>
