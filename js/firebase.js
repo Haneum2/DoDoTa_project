@@ -10,11 +10,15 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-const db = firebase.firestore ? firebase.firestore() : null;
+let db = null;
+try { db = firebase.firestore(); } catch(e) {}
 
 function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).catch(() => {});
+    auth.signInWithPopup(provider).catch(err => {
+        console.error('로그인 오류:', err.code, err.message);
+        alert('로그인 실패: ' + err.code);
+    });
 }
 
 function signOutUser() {

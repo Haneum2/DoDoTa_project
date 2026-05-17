@@ -8,8 +8,6 @@
     --accent: #ffeb3b; /* 媛뺤“ ?몃옉 */
 }
 
-/* GanaChocolate ??Jua (Google Fonts) 濡??泥?*/
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 body {
     background-color: var(--main-bg);
