@@ -1216,3 +1216,28 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 }
 
 .auth-google-btn:hover { border-color: #4a80c8; background: #f0f6ff; }
+
+.auth-verify-state {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.auth-verify-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.auth-verify-title {
+    font-family: 'Jua', sans-serif;
+    font-size: 1.15rem;
+    color: #4a4a4a;
+    margin: 0 0 10px;
+}
+
+.auth-verify-desc {
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 0.88rem;
+    color: #aaa;
+    line-height: 1.7;
+    margin: 0 0 22px;
+}
