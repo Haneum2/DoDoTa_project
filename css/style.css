@@ -943,7 +943,7 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 .status-btn.active.btn-favorite { border-color: #ff9eb5; background: #fff0f4; }
 .status-btn.active.btn-dislike  { border-color: #85bfff; background: #f0f5ff; }
 .status-btn.active.btn-full     { border-color: #81c784; background: #f0faf0; }
-.status-btn.active.btn-none     { border-color: #bbb;    background: #f5f5f5; }
+.status-btn.active.btn-none     { border-color: #ffd54f; background: #fffde7; }
 
 /* ===== ?곹깭 ?꾪꽣 諛?===== */
 .status-filter {
