@@ -26,13 +26,15 @@ function updateAuthUI(user) {
     const el = document.getElementById('auth-status');
     if (!el) return;
     if (user) {
-        const photoHTML = user.photoURL
-            ? `<img src="${user.photoURL}" class="auth-avatar" alt="프로필">`
-            : `<span class="auth-avatar-placeholder">👤</span>`;
+        const photo = (window.userProfile && window.userProfile.photoBase64) || user.photoURL || null;
+        const name  = (window.userProfile && window.userProfile.displayName) || user.displayName || user.email;
+        const photoHTML = photo
+            ? `<img src="${photo}" class="auth-avatar auth-avatar-clickable" alt="프로필" onclick="openProfileModal()">`
+            : `<span class="auth-avatar-placeholder auth-avatar-clickable" onclick="openProfileModal()">👤</span>`;
         el.innerHTML = `
             <div class="auth-user-info">
                 ${photoHTML}
-                <span class="auth-username">${user.displayName || user.email}</span>
+                <span class="auth-username auth-avatar-clickable" onclick="openProfileModal()">${name}</span>
                 <button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button>
             </div>`;
     } else {
@@ -523,8 +525,13 @@ async function loadData() {
             if (user) {
                 try {
                     await loadPetsFromFirestore(user.uid);
+                    if (typeof loadUserProfile === 'function') {
+                        await loadUserProfile(user.uid);
+                    }
+                    updateAuthUI(user);
                     if (authInitialized) {
-                        showToast(`✅ ${user.displayName || ''}님의 데이터를 불러왔어요!`);
+                        const name = (window.userProfile && window.userProfile.displayName) || user.displayName || '';
+                        showToast(`✅ ${name}님의 데이터를 불러왔어요!`);
                     }
                 } catch (e) {
                     console.error('Firestore 로드 실패:', e);
