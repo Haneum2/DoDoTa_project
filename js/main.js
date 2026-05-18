@@ -107,13 +107,41 @@ function toggleCheck(id) {
 
 // ===== 별점 =====
 function setStarRating(id, star) {
+    const prevChecked = (starRatings[id] || 0) === 5;
+
     const current = starRatings[id] || 0;
     starRatings[id] = (current === star) ? 0 : star;
     if (starRatings[id] === 0) delete starRatings[id];
+
+    const newRating  = starRatings[id] || 0;
+    const newChecked = newRating === 5;
+
+    // 5성 = 수집 완료로 자동 연동
+    const idx = checkedItems.indexOf(id);
+    if (newChecked && idx === -1) {
+        checkedItems.push(id);
+        localStorage.setItem('ddTownChecklist', JSON.stringify(checkedItems));
+    } else if (!newChecked && idx !== -1) {
+        checkedItems.splice(idx, 1);
+        localStorage.setItem('ddTownChecklist', JSON.stringify(checkedItems));
+    }
+
     localStorage.setItem('ddTownStarRatings', JSON.stringify(starRatings));
     scheduleSyncToFirestore();
+
+    // 체크 상태가 바뀌었고 "완료 가리기"가 켜진 경우 전체 재렌더
+    if (prevChecked !== newChecked && hideChecked) {
+        updateDisplay();
+        return;
+    }
+
+    // 그 외엔 해당 카드만 업데이트
     const container = document.querySelector(`.star-rating[data-id="${id}"]`);
-    if (container) applyStarDOM(container, starRatings[id] || 0);
+    if (container) {
+        applyStarDOM(container, newRating);
+        const card = container.closest('.card');
+        if (card) card.classList.toggle('checked', newChecked);
+    }
 }
 
 function hoverStars(container, n) {
@@ -155,8 +183,8 @@ function updateDisplay() {
         const categoryMatch = (currentSelectedCategory === 'all' && !isPetFood) ||
                               (item.type === currentSelectedCategory);
         
-        // 수집 완료 가리기 체크
-        const isChecked = checkedItems.includes(item.id);
+        // 5성 = 수집 완료
+        const isChecked = (starRatings[item.id] || 0) === 5;
         const hideMatch = hideChecked ? !isChecked : true;
 
         return isTimeAndWeatherOk && categoryMatch && hideMatch;
@@ -167,9 +195,9 @@ function updateDisplay() {
         listContainer.innerHTML = `<p style="grid-column: 1/-1; padding: 50px;">현재 조건(날씨: ${currentSelectedWeather})에 맞는 도감이 없습니다. 😢</p>`;
     } else {
         availableItems.forEach(item => {
-            const isChecked = checkedItems.includes(item.id);
             const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
-            const rating = starRatings[item.id] || 0;
+            const rating    = starRatings[item.id] || 0;
+            const isChecked = rating === 5;
             const starsHTML = [1,2,3,4,5].map(n =>
                 `<span class="star${rating >= n ? ' active' : ''}"
                        onclick="setStarRating(${item.id}, ${n})"
@@ -177,15 +205,14 @@ function updateDisplay() {
                        onmouseleave="unhoverStars(this.parentElement, ${item.id})">★</span>`
             ).join('');
             const card = `
-                <div class="card ${item.type} ${isChecked ? 'checked' : ''}" onclick="toggleCheck(${item.id})">
-                    <div class="checklist-marker">${isChecked ? '✅' : '⬜'}</div>
+                <div class="card ${item.type} ${isChecked ? 'checked' : ''}">
                     <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
                     <div class="card-text">
                         <h3>${item.name}</h3>
                         <p class="card-location">📍 ${item.location}</p>
                         <p class="card-time">${!isPetFood ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
                     </div>
-                    <div class="star-rating" data-id="${item.id}" onclick="event.stopPropagation()">
+                    <div class="star-rating" data-id="${item.id}">
                         ${starsHTML}
                     </div>
                 </div>
