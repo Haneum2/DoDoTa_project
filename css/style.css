@@ -587,7 +587,6 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     align-items: center;
     justify-content: center;
     z-index: 200;
-    backdrop-filter: blur(5px);
 }
 
 .modal-box {
@@ -1079,7 +1078,6 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     align-items: center;
     justify-content: center;
     z-index: 500;
-    backdrop-filter: blur(6px);
     animation: fadeIn 0.2s ease;
 }
 
