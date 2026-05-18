@@ -4,7 +4,7 @@
     "name": "파란색 브릭 흰동가리",
     "type": "fish",
     "season": true,
-    "location": "바다",
+    "location": "바다 - 동해",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -19,7 +19,7 @@
     "name": "청록색 브릭 흰동가리",
     "type": "fish",
     "season": true,
-    "location": "바다",
+    "location": "바다 - 동해",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -34,7 +34,7 @@
     "name": "오색 브릭 흰동가리",
     "type": "fish",
     "season": true,
-    "location": "바다",
+    "location": "이벤트 - 특수 브릭 물고기 사건",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -49,7 +49,7 @@
     "name": "보라색 브릭 흰동가리",
     "type": "fish",
     "season": true,
-    "location": "바다",
+    "location": "바다 - 동해",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -64,7 +64,7 @@
     "name": "빨간색 브릭 흰동가리",
     "type": "fish",
     "season": true,
-    "location": "바다",
+    "location": "바다 - 동해",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -154,7 +154,7 @@
     "name": "분홍색 브릭 큰고추잠자리",
     "type": "insect",
     "season": true,
-    "location": "숲",
+    "location": "숲 - 점핑 플랫폼",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -169,7 +169,7 @@
     "name": "노란색 브릭 큰고추잠자리",
     "type": "insect",
     "season": true,
-    "location": "숲",
+    "location": "숲 - 영혼의 참나무 숲",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -184,7 +184,7 @@
     "name": "파란색 브릭 큰고추잠자리",
     "type": "insect",
     "season": true,
-    "location": "숲",
+    "location": "숲 - 순록탑",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -199,7 +199,7 @@
     "name": "보라색 브릭 큰고추잠자리",
     "type": "insect",
     "season": true,
-    "location": "숲",
+    "location": "숲 - 숲속 섬",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -214,7 +214,7 @@
     "name": "컬러풀 브릭 큰고추잠자리",
     "type": "insect",
     "season": true,
-    "location": "숲",
+    "location": "이벤트 - 특수 브릭 벌레 사건",
     "start_time": 0,
     "end_time": 24,
     "weather": [
