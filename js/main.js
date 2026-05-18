@@ -2,6 +2,7 @@ let gameData = [];
 let currentSelectedWeather = 'sunny';
 let currentSelectedCategory = 'all';
 let checkedItems = [];
+let starRatings = {};
 let currentUser = null;
 let syncTimer = null;
 
@@ -10,21 +11,28 @@ async function loadChecklistFromFirestore(uid) {
     if (!db) return;
     try {
         const doc = await db.collection('users').doc(uid).get();
-        if (doc.exists && doc.data().encyclopediaChecked) {
-            checkedItems = doc.data().encyclopediaChecked;
-            localStorage.setItem('ddTownChecklist', JSON.stringify(checkedItems));
-        } else {
-            const local = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
-            if (local.length > 0) {
-                checkedItems = local;
-                await db.collection('users').doc(uid).set({ encyclopediaChecked: checkedItems }, { merge: true });
-            } else {
-                checkedItems = [];
+        const data = doc.exists ? doc.data() : {};
+
+        checkedItems = data.encyclopediaChecked
+            || JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
+        starRatings  = data.encyclopediaStarRatings
+            || JSON.parse(localStorage.getItem('ddTownStarRatings')) || {};
+
+        localStorage.setItem('ddTownChecklist',    JSON.stringify(checkedItems));
+        localStorage.setItem('ddTownStarRatings',  JSON.stringify(starRatings));
+
+        if (!data.encyclopediaChecked && !data.encyclopediaStarRatings) {
+            if (checkedItems.length > 0 || Object.keys(starRatings).length > 0) {
+                await db.collection('users').doc(uid).set(
+                    { encyclopediaChecked: checkedItems, encyclopediaStarRatings: starRatings },
+                    { merge: true }
+                );
             }
         }
     } catch (e) {
-        console.error('도감 체크리스트 로드 실패:', e);
-        checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
+        console.error('도감 로드 실패:', e);
+        checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist'))   || [];
+        starRatings  = JSON.parse(localStorage.getItem('ddTownStarRatings')) || {};
     }
 }
 
@@ -33,7 +41,7 @@ function scheduleSyncToFirestore() {
     clearTimeout(syncTimer);
     syncTimer = setTimeout(() => {
         db.collection('users').doc(currentUser.uid).set(
-            { encyclopediaChecked: checkedItems },
+            { encyclopediaChecked: checkedItems, encyclopediaStarRatings: starRatings },
             { merge: true }
         ).catch(e => console.error('도감 동기화 실패:', e));
     }, 1500);
@@ -97,6 +105,33 @@ function toggleCheck(id) {
     updateDisplay();
 }
 
+// ===== 별점 =====
+function setStarRating(id, star) {
+    const current = starRatings[id] || 0;
+    starRatings[id] = (current === star) ? 0 : star;
+    if (starRatings[id] === 0) delete starRatings[id];
+    localStorage.setItem('ddTownStarRatings', JSON.stringify(starRatings));
+    scheduleSyncToFirestore();
+    const container = document.querySelector(`.star-rating[data-id="${id}"]`);
+    if (container) applyStarDOM(container, starRatings[id] || 0);
+}
+
+function hoverStars(container, n) {
+    container.querySelectorAll('.star').forEach((s, i) => {
+        s.classList.toggle('hovered', i < n);
+    });
+}
+
+function unhoverStars(container, id) {
+    container.querySelectorAll('.star').forEach(s => s.classList.remove('hovered'));
+}
+
+function applyStarDOM(container, rating) {
+    container.querySelectorAll('.star').forEach((s, i) => {
+        s.classList.toggle('active', i < rating);
+    });
+}
+
 let hideChecked = false;
 
 function toggleHideChecked(isHide){
@@ -134,13 +169,25 @@ function updateDisplay() {
         availableItems.forEach(item => {
             const isChecked = checkedItems.includes(item.id);
             const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
+            const rating = starRatings[item.id] || 0;
+            const starsHTML = [1,2,3,4,5].map(n =>
+                `<span class="star${rating >= n ? ' active' : ''}"
+                       onclick="setStarRating(${item.id}, ${n})"
+                       onmouseenter="hoverStars(this.parentElement, ${n})"
+                       onmouseleave="unhoverStars(this.parentElement, ${item.id})">★</span>`
+            ).join('');
             const card = `
                 <div class="card ${item.type} ${isChecked ? 'checked' : ''}" onclick="toggleCheck(${item.id})">
                     <div class="checklist-marker">${isChecked ? '✅' : '⬜'}</div>
                     <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
-                    <h3>${item.name}</h3>
-                    <p>📍 ${item.location}</p>
-                    ${!isPetFood ? `<p>⏰ ${item.start_time}:00 ~ ${item.end_time}:00</p>` : ''}
+                    <div class="card-text">
+                        <h3>${item.name}</h3>
+                        <p class="card-location">📍 ${item.location}</p>
+                        <p class="card-time">${!isPetFood ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
+                    </div>
+                    <div class="star-rating" data-id="${item.id}" onclick="event.stopPropagation()">
+                        ${starsHTML}
+                    </div>
                 </div>
             `;
             listContainer.insertAdjacentHTML('beforeend', card);
@@ -208,7 +255,8 @@ if (typeof auth !== 'undefined') {
             if (typeof loadUserProfile === 'function') await loadUserProfile(user.uid);
             await loadChecklistFromFirestore(user.uid);
         } else {
-            checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
+            checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist'))   || [];
+            starRatings  = JSON.parse(localStorage.getItem('ddTownStarRatings')) || {};
         }
 
         refreshAuthUI(user);

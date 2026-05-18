@@ -183,6 +183,68 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     color: #888;
 }
 
+/* ===== 도감 카드 레이아웃 균일화 ===== */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-text {
+    width: 100%;
+    text-align: center;
+    flex: 1;
+}
+
+.card-text h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-location,
+.card-time {
+    margin: 3px 0 !important;
+    font-size: 0.82rem !important;
+    color: #999 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ===== 별점 ===== */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    width: 100%;
+}
+
+.star {
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: color 0.12s, transform 0.1s;
+    user-select: none;
+    line-height: 1;
+}
+
+.star.active {
+    color: #FFD700;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+.star.hovered {
+    color: rgba(255, 200, 0, 0.55);
+    transform: scale(1.15);
+}
+
 /* ===== ???섏씠吏 ===== */
 .home-page {
     min-height: 100vh;
