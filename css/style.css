@@ -1259,6 +1259,17 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 .auth-submit-btn:hover { background: #ff9999; transform: scale(1.02); }
 .auth-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
+.auto-login-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #888;
+    cursor: pointer;
+    margin: 4px 0 2px;
+}
+.auto-login-label input { cursor: pointer; accent-color: var(--primary); }
+
 .auth-divider {
     display: flex;
     align-items: center;

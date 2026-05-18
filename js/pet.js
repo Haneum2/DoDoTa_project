@@ -425,7 +425,7 @@ function renderFoodList() {
     foods.forEach(f => { if (fs[f.id]) counts[fs[f.id]]++; });
 
     document.getElementById('detail-summary').innerHTML =
-        `❤️ ${counts.favorite}/3 &nbsp;·&nbsp; 👎 싫어함 ${counts.dislike} &nbsp;·&nbsp; 🍽️ 배불림 ${counts.full} &nbsp;·&nbsp; ⬜ 보통 ${counts.none}`;
+        `❤️ ${counts.favorite}/3 &nbsp;·&nbsp; 👎 싫어함 ${counts.dislike} &nbsp;·&nbsp; 🍽️ 배불림 ${counts.full} &nbsp;·&nbsp; 😐 보통 ${counts.none}`;
 
     const filtered = currentStatusFilter === 'all'
         ? foods
@@ -438,7 +438,7 @@ function renderFoodList() {
         return;
     }
 
-    const statusLabel = { favorite: '❤️ 좋아함', dislike: '👎 싫어함', full: '🍽️ 배불림', none: '⬜ 보통' };
+    const statusLabel = { favorite: '❤️ 좋아함', dislike: '👎 싫어함', full: '🍽️ 배불림', none: '😐 보통' };
 
     container.innerHTML = filtered.map(food => {
         const status = fs[food.id] ?? null;
@@ -456,7 +456,7 @@ function renderFoodList() {
                     <button class="status-btn btn-full ${status === 'full' ? 'active' : ''}"
                         onclick="setFoodStatus(${food.id}, 'full')" title="배불리 먹은 음식">🍽️</button>
                     <button class="status-btn btn-none ${status === 'none' ? 'active' : ''}"
-                        onclick="setFoodStatus(${food.id}, 'none')" title="보통">⬜</button>
+                        onclick="setFoodStatus(${food.id}, 'none')" title="보통">😐</button>
                 </div>
             </div>`;
     }).join('');
