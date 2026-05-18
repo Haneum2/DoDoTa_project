@@ -22,5 +22,7 @@ function signInWithGoogle() {
 }
 
 function signOutUser() {
-    auth.signOut();
+    auth.signOut().then(() => {
+        window.location.href = 'index.html';
+    });
 }
