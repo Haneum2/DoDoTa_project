@@ -455,7 +455,7 @@ function renderFoodList() {
                         onclick="setFoodStatus(${food.id}, 'dislike')" title="싫어하는 음식">👎</button>
                     <button class="status-btn btn-full ${status === 'full' ? 'active' : ''}"
                         onclick="setFoodStatus(${food.id}, 'full')" title="배불리 먹은 음식">🍽️</button>
-                    <button class="status-btn btn-none ${status === 'none' ? 'active' : ''}"
+                    <button class="status-btn btn-none"
                         onclick="setFoodStatus(${food.id}, 'none')" title="보통">⬜</button>
                 </div>
             </div>`;
