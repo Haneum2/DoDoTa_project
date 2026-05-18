@@ -203,26 +203,15 @@ setInterval(updateDisplay, 60000);
 if (typeof auth !== 'undefined') {
     auth.onAuthStateChanged(async function(user) {
         currentUser = user;
-        const el = document.getElementById('auth-status');
 
         if (user) {
             if (typeof loadUserProfile === 'function') await loadUserProfile(user.uid);
             await loadChecklistFromFirestore(user.uid);
-
-            if (el) {
-                const photo = (window.userProfile && window.userProfile.photoBase64) || user.photoURL || null;
-                const name  = (window.userProfile && window.userProfile.displayName) || user.displayName || user.email;
-                const photoHTML = photo
-                    ? `<img src="${photo}" class="auth-avatar auth-avatar-clickable" alt="프로필" onclick="openProfileModal()">`
-                    : `<span class="auth-avatar-placeholder auth-avatar-clickable" onclick="openProfileModal()">👤</span>`;
-                el.innerHTML = `<div class="auth-user-info">${photoHTML}<span class="auth-username auth-avatar-clickable" onclick="openProfileModal()">${name}</span><button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button></div>`;
-            }
         } else {
             checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
-            if (el) {
-                el.innerHTML = `<button class="auth-btn auth-login" onclick="openAuthModal()">🔐 로그인 / 회원가입</button>`;
-            }
         }
+
+        refreshAuthUI(user);
 
         updateDisplay();
     });

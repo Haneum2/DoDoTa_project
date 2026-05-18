@@ -1,6 +1,43 @@
 window.userProfile = { displayName: null, photoBase64: null };
 let profileTempPhoto = null;
 
+// ===== 공통 이미지 리사이즈 유틸 =====
+function resizeImageToBase64(file, callback) {
+    const size = 200;
+    const reader = new FileReader();
+    reader.onload = e => {
+        const img = new Image();
+        img.onload = () => {
+            const sq = Math.min(img.width, img.height);
+            const sx = (img.width - sq) / 2;
+            const sy = (img.height - sq) / 2;
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            canvas.getContext('2d').drawImage(img, sx, sy, sq, sq, 0, 0, size, size);
+            callback(canvas.toDataURL('image/jpeg', 0.82));
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+// ===== 헤더 auth-status 갱신 (모든 페이지 공통) =====
+function refreshAuthUI(user) {
+    const el = document.getElementById('auth-status');
+    if (!el) return;
+    if (user) {
+        const photo = (window.userProfile && window.userProfile.photoBase64) || user.photoURL || null;
+        const name  = (window.userProfile && window.userProfile.displayName) || user.displayName || user.email;
+        const photoHTML = photo
+            ? `<img src="${photo}" class="auth-avatar auth-avatar-clickable" alt="프로필" onclick="openProfileModal()">`
+            : `<span class="auth-avatar-placeholder auth-avatar-clickable" onclick="openProfileModal()">👤</span>`;
+        el.innerHTML = `<div class="auth-user-info">${photoHTML}<span class="auth-username auth-avatar-clickable" onclick="openProfileModal()">${name}</span><button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button></div>`;
+    } else {
+        el.innerHTML = `<button class="auth-btn auth-login" onclick="openAuthModal()">🔐 로그인 / 회원가입</button>`;
+    }
+}
+
 // ===== Firestore 프로필 로드/저장 =====
 async function loadUserProfile(uid) {
     if (!db) return;
@@ -166,7 +203,7 @@ async function saveProfile() {
         window.userProfile.photoBase64 = profileTempPhoto;
 
         // 헤더 UI 갱신
-        if (typeof updateAuthUI === 'function') updateAuthUI(user);
+        refreshAuthUI(user);
 
         setProfileMsg('✅ 저장되었어요!', 'success');
     } catch (e) {

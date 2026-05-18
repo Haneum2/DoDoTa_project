@@ -1,5 +1,4 @@
 const MAX_FAVORITES = 3;
-const PHOTO_SIZE = 200;
 
 let foodData = {};
 let pets = [];
@@ -23,23 +22,7 @@ let syncTimer = null;
 
 // ===== Firebase Auth =====
 function updateAuthUI(user) {
-    const el = document.getElementById('auth-status');
-    if (!el) return;
-    if (user) {
-        const photo = (window.userProfile && window.userProfile.photoBase64) || user.photoURL || null;
-        const name  = (window.userProfile && window.userProfile.displayName) || user.displayName || user.email;
-        const photoHTML = photo
-            ? `<img src="${photo}" class="auth-avatar auth-avatar-clickable" alt="프로필" onclick="openProfileModal()">`
-            : `<span class="auth-avatar-placeholder auth-avatar-clickable" onclick="openProfileModal()">👤</span>`;
-        el.innerHTML = `
-            <div class="auth-user-info">
-                ${photoHTML}
-                <span class="auth-username auth-avatar-clickable" onclick="openProfileModal()">${name}</span>
-                <button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button>
-            </div>`;
-    } else {
-        el.innerHTML = `<button class="auth-btn auth-login" onclick="openAuthModal()">🔐 로그인 / 회원가입</button>`;
-    }
+    refreshAuthUI(user);
 }
 
 // ===== Firestore 동기화 =====
@@ -103,25 +86,6 @@ function showToast(msg) {
     toast._timer = setTimeout(() => toast.classList.remove('show'), 2600);
 }
 
-// ===== 이미지 리사이즈 공통 유틸 =====
-function resizeImageToBase64(file, callback) {
-    const reader = new FileReader();
-    reader.onload = e => {
-        const img = new Image();
-        img.onload = () => {
-            const size = Math.min(img.width, img.height);
-            const sx = (img.width - size) / 2;
-            const sy = (img.height - size) / 2;
-            const canvas = document.createElement('canvas');
-            canvas.width = PHOTO_SIZE;
-            canvas.height = PHOTO_SIZE;
-            canvas.getContext('2d').drawImage(img, sx, sy, size, size, 0, 0, PHOTO_SIZE, PHOTO_SIZE);
-            callback(canvas.toDataURL('image/jpeg', 0.82));
-        };
-        img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-}
 
 // ===== 카드/상세 직접 사진 업로드 =====
 function triggerPhotoUpload(petId) {
