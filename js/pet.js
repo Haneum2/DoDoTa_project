@@ -36,7 +36,7 @@ function updateAuthUI(user) {
                 <button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button>
             </div>`;
     } else {
-        el.innerHTML = `<button class="auth-btn auth-login" onclick="signInWithGoogle()">🔐 구글로 로그인</button>`;
+        el.innerHTML = `<button class="auth-btn auth-login" onclick="openAuthModal()">🔐 로그인 / 회원가입</button>`;
     }
 }
 

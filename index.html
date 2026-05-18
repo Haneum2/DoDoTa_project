@@ -43,6 +43,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="js/firebase.js"></script>
+    <script src="js/auth-ui.js"></script>
     <script>
         auth.onAuthStateChanged(function(user) {
             const el = document.getElementById('auth-status');
@@ -51,9 +52,9 @@
                 const photoHTML = user.photoURL
                     ? `<img src="${user.photoURL}" class="auth-avatar" alt="프로필">`
                     : '<span class="auth-avatar-placeholder">👤</span>';
-                el.innerHTML = `<div class="auth-user-info">${photoHTML}<span class="auth-username">${user.displayName || ''}</span><button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button></div>`;
+                el.innerHTML = `<div class="auth-user-info">${photoHTML}<span class="auth-username">${user.displayName || user.email}</span><button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button></div>`;
             } else {
-                el.innerHTML = `<button class="auth-btn auth-login" onclick="signInWithGoogle()">🔐 구글로 로그인</button>`;
+                el.innerHTML = `<button class="auth-btn auth-login" onclick="openAuthModal()">🔐 로그인 / 회원가입</button>`;
             }
         });
     </script>
