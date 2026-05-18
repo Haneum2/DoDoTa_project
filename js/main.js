@@ -172,9 +172,15 @@ function applyStarDOM(container, rating) {
 }
 
 let hideChecked = false;
+let showSeasonBirds = false;
 
-function toggleHideChecked(isHide){
+function toggleHideChecked(isHide) {
     hideChecked = isHide;
+    updateDisplay();
+}
+
+function toggleSeasonBird(isShow) {
+    showSeasonBirds = isShow;
     updateDisplay();
 }
 
@@ -188,17 +194,23 @@ function updateDisplay() {
         // 이제 여기서 some, trim, toLowerCase 로직이 실행되어 공백 문제를 해결합니다.
         const isTimeAndWeatherOk = isAvailable(item);
         
-        // 카테고리 체크 (물고기/곤충/전체/펫 먹이)
+        // 카테고리 체크 (물고기/곤충/전체/펫 먹이/조류)
         // 전체 보기에서는 펫 먹이 제외 (물고기·곤충 도감과 분리)
-        const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
+        const isPetFood   = item.type === 'cat_food' || item.type === 'dog_food';
+        const isBirdType  = item.type === 'bird' || item.type === 'bird_shinsa' || item.type === 'bird_brick';
         const categoryMatch = (currentSelectedCategory === 'all' && !isPetFood) ||
-                              (item.type === currentSelectedCategory);
-        
+                              (currentSelectedCategory === 'bird' && isBirdType) ||
+                              (currentSelectedCategory !== 'all' && currentSelectedCategory !== 'bird' && item.type === currentSelectedCategory);
+
+        // 시즌 조류 필터: 체크 시 shinsa·brick만 표시, 비조류는 그대로
+        const isSeasonBird = item.type === 'bird_shinsa' || item.type === 'bird_brick';
+        const seasonMatch  = !showSeasonBirds || !isBirdType || isSeasonBird;
+
         // 5성 = 수집 완료
         const isChecked = (starRatings[item.id] || 0) === 5;
         const hideMatch = hideChecked ? !isChecked : true;
 
-        return isTimeAndWeatherOk && categoryMatch && hideMatch;
+        return isTimeAndWeatherOk && categoryMatch && hideMatch && seasonMatch;
     });
 
     // 2. 결과 출력 로직 (하나의 루프로 통합)
