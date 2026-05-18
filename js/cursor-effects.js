@@ -16,6 +16,48 @@
             transition: opacity 0.2s ease;
         }
 
+        #cursor-dot {
+            position: fixed;
+            top: 0; left: 0;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ff69b4;
+            pointer-events: none;
+            z-index: 100000;
+            will-change: transform;
+            box-shadow: 0 0 5px #ff69b4, 0 0 10px rgba(255,105,180,0.6);
+            transition: opacity 0.2s, transform 0.06s;
+            animation: dotGlow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes dotGlow {
+            0%   { box-shadow: 0 0 5px #ff69b4, 0 0 10px rgba(255,105,180,0.6); background: #ff69b4; }
+            25%  { box-shadow: 0 0 5px #c084fc, 0 0 10px rgba(192,132,252,0.6); background: #c084fc; }
+            50%  { box-shadow: 0 0 5px #7dd3fc, 0 0 10px rgba(125,211,252,0.6); background: #7dd3fc; }
+            75%  { box-shadow: 0 0 5px #fde68a, 0 0 10px rgba(253,230,138,0.7); background: #fde68a; }
+            100% { box-shadow: 0 0 5px #ff69b4, 0 0 10px rgba(255,105,180,0.6); background: #ff69b4; }
+        }
+
+        .cursor-ripple {
+            position: fixed;
+            top: 0; left: 0;
+            width: 10px;
+            height: 10px;
+            margin: -5px 0 0 -5px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 105, 180, 0.85);
+            pointer-events: none;
+            z-index: 99996;
+            will-change: transform, opacity;
+            animation: rippleExpand 0.48s ease-out forwards;
+        }
+
+        @keyframes rippleExpand {
+            0%   { opacity: 0.9; transform: translate(var(--cx), var(--cy)) scale(1); }
+            100% { opacity: 0;   transform: translate(var(--cx), var(--cy)) scale(5); }
+        }
+
         @keyframes wandGlow {
             0%   { filter: drop-shadow(0 0 5px #ff69b4) drop-shadow(0 0 14px rgba(255,105,180,0.65)); }
             25%  { filter: drop-shadow(0 0 5px #c084fc) drop-shadow(0 0 14px rgba(192,132,252,0.65)); }
@@ -63,6 +105,10 @@
     cursor.textContent = '🪄';
     document.body.appendChild(cursor);
 
+    const dot = document.createElement('div');
+    dot.id = 'cursor-dot';
+    document.body.appendChild(dot);
+
     let mouseX = -300, mouseY = -300;
     let prevX  = -300, prevY  = -300;
     let tilt = 0;
@@ -96,11 +142,14 @@
     function renderFrame() {
         rafPending = false;
 
-        // transform만 사용 — layout 없음
         const s = isClicking ? 1.5 : 1;
         const r = isClicking ? tilt + 20 : tilt;
         cursor.style.transform =
             `translate(${mouseX - 4}px, ${mouseY - 20}px) rotate(${r}deg) scale(${s})`;
+
+        // 점은 항상 정확한 클릭 포인트에 위치
+        const dotScale = isClicking ? 1.7 : 1;
+        dot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px) scale(${dotScale})`;
 
         if (isModalOpen() || particleCount >= MAX_PARTICLES) return;
 
@@ -134,6 +183,7 @@
     document.addEventListener('mousedown', () => {
         isClicking = true;
         scheduleFrame();
+        spawnRipple(mouseX, mouseY);
         if (isModalOpen()) return;
         const tx = mouseX + TIP_DX, ty = mouseY + TIP_DY;
         for (let i = 0; i < 6; i++) {
@@ -145,11 +195,20 @@
     });
 
     document.addEventListener('mouseup',    () => { isClicking = false; scheduleFrame(); });
-    document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
+    document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; dot.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; dot.style.opacity = '1'; });
 
     const hearts   = ['💕', '💖', '💗', '💓', '🩷', '❤️', '💝'];
     const sparkles = ['✨', '⭐', '🌟', '💫'];
+
+    function spawnRipple(x, y) {
+        const el = document.createElement('div');
+        el.className = 'cursor-ripple';
+        el.style.setProperty('--cx', `${x}px`);
+        el.style.setProperty('--cy', `${y}px`);
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 520);
+    }
 
     function spawnHeart(x, y, burst) {
         if (particleCount >= MAX_PARTICLES) return;
