@@ -195,6 +195,7 @@ function updateDisplay() {
         // 전체 보기에서는 펫 먹이 제외 (물고기·곤충 도감과 분리)
         const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
         const categoryMatch = (currentSelectedCategory === 'all' && !isPetFood) ||
+                              (currentSelectedCategory === 'pet_food' && isPetFood) ||
                               (item.type === currentSelectedCategory);
 
         // 시즌 한정 필터: 체크 시 season:true 항목만 표시
