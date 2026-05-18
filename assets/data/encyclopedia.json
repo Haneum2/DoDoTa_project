@@ -264,5 +264,12 @@
   { "id": 260, "name": "미트버거",            "type": "dog_food", "image": "assets/images/fish_default.png" },
   { "id": 261, "name": "미트소스 가지 그라탱","type": "dog_food", "image": "assets/images/fish_default.png" },
   { "id": 262, "name": "킹크랩찜",            "type": "dog_food", "image": "assets/images/fish_default.png" },
-  { "id": 263, "name": "황금킹크랩찜",        "type": "dog_food", "image": "assets/images/fish_default.png" }
+  { "id": 263, "name": "황금킹크랩찜",        "type": "dog_food", "image": "assets/images/fish_default.png" },
+
+  { "id": 264, "name": "파란색 브릭 흰동가리", "type": "fish", "season": true, "location": "바다", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/1778278180404_파란색 브릭 흰동가리.webp" },
+  { "id": 265, "name": "청록색 브릭 흰동가리", "type": "fish", "season": true, "location": "바다", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/1778278234322_청록색 브릭 흰동가리.webp" },
+  { "id": 266, "name": "오색 브릭 흰동가리",   "type": "fish", "season": true, "location": "바다", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/1778293615070_오색 브릭 흰동가리.webp" },
+  { "id": 267, "name": "보라색 브릭 흰동가리", "type": "fish", "season": true, "location": "바다", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/1778293761365_보라색 브릭 흰동가리.webp" },
+  { "id": 268, "name": "빨간색 브릭 흰동가리", "type": "fish", "season": true, "location": "바다", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/1778293808486_빨간색 브릭 흰동가리.webp" },
+  { "id": 269, "name": "브릭 큰고추잠자리",    "type": "insect", "season": true, "location": "숲", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/insect_default.png" }
 ]

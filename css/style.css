@@ -162,8 +162,21 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 .card.cat_food { border-bottom: 5px solid #ff9eb5; }
 .card.dog_food { border-bottom: 5px solid #ffb347; }
 .card.bird { border-bottom: 5px solid #ff7043; }
-.card.bird_shinsa { border-bottom: 5px solid #7e57c2; }
-.card.bird_brick { border-bottom: 5px solid #26a69a; }
+
+.season-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, #ff8f00, #ff6d00);
+    color: white;
+    font-size: 0.62rem;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-family: 'NanumSquareRound', sans-serif;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+}
 
 .card img {
     width: 100px;

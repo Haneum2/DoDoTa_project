@@ -63,15 +63,15 @@
   { "id": 1062, "name": "비둘기조롱이",    "type": "bird", "location": "온천산 - 유적",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_비둘기조롱이.webp" },
   { "id": 1063, "name": "수리부엉이",      "type": "bird", "location": "숲 - 순록탑",             "start_time": 0, "end_time": 24, "weather": ["rainbow"],                    "image": "assets/images/bird_수리부엉이.webp" },
 
-  { "id": 1064, "name": "신사 무늬 비둘기","type": "bird_shinsa", "location": "이벤트 - 배우 비둘기 사건", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 무늬 비둘기.webp" },
-  { "id": 1065, "name": "신사 초록 비둘기","type": "bird_shinsa", "location": "숲 - 점핑 플랫폼",          "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 초록 비둘기.webp" },
-  { "id": 1066, "name": "신사 파랑 비둘기","type": "bird_shinsa", "location": "숲 - 영혼의 참나무 숲",    "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 파랑 비둘기.webp" },
-  { "id": 1067, "name": "신사 회색 비둘기","type": "bird_shinsa", "location": "숲 - 순록탑",               "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 회색 비둘기.webp" },
-  { "id": 1068, "name": "신사 빨강 비둘기","type": "bird_shinsa", "location": "숲 - 숲속 섬",              "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 빨강 비둘기.webp" },
+  { "id": 1064, "name": "신사 무늬 비둘기","type": "bird", "location": "이벤트 - 배우 비둘기 사건", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 무늬 비둘기.webp" },
+  { "id": 1065, "name": "신사 초록 비둘기","type": "bird", "location": "숲 - 점핑 플랫폼",          "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 초록 비둘기.webp" },
+  { "id": 1066, "name": "신사 파랑 비둘기","type": "bird", "location": "숲 - 영혼의 참나무 숲",    "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 파랑 비둘기.webp" },
+  { "id": 1067, "name": "신사 회색 비둘기","type": "bird", "location": "숲 - 순록탑",               "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 회색 비둘기.webp" },
+  { "id": 1068, "name": "신사 빨강 비둘기","type": "bird", "location": "숲 - 숲속 섬",              "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 빨강 비둘기.webp" },
 
-  { "id": 1069, "name": "브릭 분홍 참새",     "type": "bird_brick", "location": "온천산 - 바위절벽",            "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/insect_default.png" },
-  { "id": 1070, "name": "브릭 파란 참새",     "type": "bird_brick", "location": "온천산 - 온천",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/insect_default.png" },
-  { "id": 1071, "name": "브릭 보라 참새",     "type": "bird_brick", "location": "온천산 - 유적",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/insect_default.png" },
-  { "id": 1072, "name": "브릭 초록 참새",     "type": "bird_brick", "location": "온천산 - 화산 호수",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/insect_default.png" },
-  { "id": 1073, "name": "브릭 알록달록 참새", "type": "bird_brick", "location": "이벤트 - 특수 브릭 새 사건", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/insect_default.png" }
+  { "id": 1069, "name": "브릭 분홍 참새",     "type": "bird", "season": true, "location": "온천산 - 바위절벽",            "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 분홍 참새.webp" },
+  { "id": 1070, "name": "브릭 파란 참새",     "type": "bird", "season": true, "location": "온천산 - 온천",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 파란 참새.webp" },
+  { "id": 1071, "name": "브릭 보라 참새",     "type": "bird", "season": true, "location": "온천산 - 유적",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 보라 참새.webp" },
+  { "id": 1072, "name": "브릭 초록 참새",     "type": "bird", "season": true, "location": "온천산 - 화산 호수",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 초록 참새.webp" },
+  { "id": 1073, "name": "브릭 알록달록 참새", "type": "bird", "season": true, "location": "이벤트 - 특수 브릭 새 사건", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 알록달록 참새.webp" }
 ]

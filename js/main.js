@@ -172,15 +172,15 @@ function applyStarDOM(container, rating) {
 }
 
 let hideChecked = false;
-let showSeasonBirds = false;
+let showSeasonOnly = false;
 
 function toggleHideChecked(isHide) {
     hideChecked = isHide;
     updateDisplay();
 }
 
-function toggleSeasonBird(isShow) {
-    showSeasonBirds = isShow;
+function toggleSeasonOnly(isShow) {
+    showSeasonOnly = isShow;
     updateDisplay();
 }
 
@@ -196,15 +196,12 @@ function updateDisplay() {
         
         // 카테고리 체크 (물고기/곤충/전체/펫 먹이/조류)
         // 전체 보기에서는 펫 먹이 제외 (물고기·곤충 도감과 분리)
-        const isPetFood   = item.type === 'cat_food' || item.type === 'dog_food';
-        const isBirdType  = item.type === 'bird' || item.type === 'bird_shinsa' || item.type === 'bird_brick';
+        const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
         const categoryMatch = (currentSelectedCategory === 'all' && !isPetFood) ||
-                              (currentSelectedCategory === 'bird' && isBirdType) ||
-                              (currentSelectedCategory !== 'all' && currentSelectedCategory !== 'bird' && item.type === currentSelectedCategory);
+                              (item.type === currentSelectedCategory);
 
-        // 시즌 조류 필터: 체크 시 shinsa·brick만 표시, 비조류는 그대로
-        const isSeasonBird = item.type === 'bird_shinsa' || item.type === 'bird_brick';
-        const seasonMatch  = !showSeasonBirds || !isBirdType || isSeasonBird;
+        // 시즌 한정 필터: 체크 시 season:true 항목만 표시
+        const seasonMatch = !showSeasonOnly || item.season === true;
 
         // 5성 = 수집 완료
         const isChecked = (starRatings[item.id] || 0) === 5;
@@ -218,10 +215,11 @@ function updateDisplay() {
         listContainer.innerHTML = `<p style="grid-column: 1/-1; padding: 50px;">현재 조건(날씨: ${currentSelectedWeather})에 맞는 도감이 없습니다. 😢</p>`;
     } else {
         availableItems.forEach(item => {
-            const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
-            const isBird    = item.type === 'bird' || item.type === 'bird_shinsa' || item.type === 'bird_brick';
-            const rating    = starRatings[item.id] || 0;
-            const isChecked = rating === 5;
+            const isPetFood    = item.type === 'cat_food' || item.type === 'dog_food';
+            const isBird       = item.type === 'bird';
+            const rating       = starRatings[item.id] || 0;
+            const isChecked    = rating === 5;
+            const seasonBadge  = item.season ? `<span class="season-badge">✨ 시즌</span>` : '';
             const starsHTML = [1,2,3,4,5].map(n =>
                 `<span class="star${rating >= n ? ' active' : ''}"
                        onclick="setStarRating(${item.id}, ${n})"
@@ -229,7 +227,8 @@ function updateDisplay() {
                        onmouseleave="unhoverStars(this.parentElement, ${item.id})">★</span>`
             ).join('');
             const card = `
-                <div class="card ${item.type} ${isChecked ? 'checked' : ''}">
+                <div class="card ${item.type} ${isChecked ? 'checked' : ''} ${item.season ? 'season-item' : ''}">
+                    ${seasonBadge}
                     <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
                     <div class="card-text">
                         <h3>${item.name}</h3>
