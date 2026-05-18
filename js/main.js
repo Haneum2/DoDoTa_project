@@ -1,7 +1,43 @@
-let gameData = []; // 전체 데이터를 담을 배열
-let currentSelectedWeather = 'sunny'; // 기본 날씨 설정
+let gameData = [];
+let currentSelectedWeather = 'sunny';
 let currentSelectedCategory = 'all';
-let checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
+let checkedItems = [];
+let currentUser = null;
+let syncTimer = null;
+
+// ===== Firestore 연동 =====
+async function loadChecklistFromFirestore(uid) {
+    if (!db) return;
+    try {
+        const doc = await db.collection('users').doc(uid).get();
+        if (doc.exists && doc.data().encyclopediaChecked) {
+            checkedItems = doc.data().encyclopediaChecked;
+            localStorage.setItem('ddTownChecklist', JSON.stringify(checkedItems));
+        } else {
+            const local = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
+            if (local.length > 0) {
+                checkedItems = local;
+                await db.collection('users').doc(uid).set({ encyclopediaChecked: checkedItems }, { merge: true });
+            } else {
+                checkedItems = [];
+            }
+        }
+    } catch (e) {
+        console.error('도감 체크리스트 로드 실패:', e);
+        checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
+    }
+}
+
+function scheduleSyncToFirestore() {
+    if (!currentUser || !db) return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => {
+        db.collection('users').doc(currentUser.uid).set(
+            { encyclopediaChecked: checkedItems },
+            { merge: true }
+        ).catch(e => console.error('도감 동기화 실패:', e));
+    }, 1500);
+}
 
 // 1. JSON 데이터 불러오기 부분 수정
 async function loadData() {
@@ -56,9 +92,9 @@ function toggleCheck(id) {
         checkedItems.splice(index, 1); // 리스트에서 제거
     }
     
-    // 로컬 스토리지에 저장
     localStorage.setItem('ddTownChecklist', JSON.stringify(checkedItems));
-    updateDisplay(); // 화면 갱신 (체크된 카드의 스타일 변경을 위해)
+    scheduleSyncToFirestore();
+    updateDisplay();
 }
 
 let hideChecked = false;
@@ -161,8 +197,36 @@ function setWeather(weather) {
 
 // 초기 로딩
 loadData();
-// 1분마다 자동 갱신 (시간이 바뀔 수 있으므로)
 setInterval(updateDisplay, 60000);
+
+// Auth 상태 변화 → 체크리스트 동기화 + 헤더 UI 갱신
+if (typeof auth !== 'undefined') {
+    auth.onAuthStateChanged(async function(user) {
+        currentUser = user;
+        const el = document.getElementById('auth-status');
+
+        if (user) {
+            if (typeof loadUserProfile === 'function') await loadUserProfile(user.uid);
+            await loadChecklistFromFirestore(user.uid);
+
+            if (el) {
+                const photo = (window.userProfile && window.userProfile.photoBase64) || user.photoURL || null;
+                const name  = (window.userProfile && window.userProfile.displayName) || user.displayName || user.email;
+                const photoHTML = photo
+                    ? `<img src="${photo}" class="auth-avatar auth-avatar-clickable" alt="프로필" onclick="openProfileModal()">`
+                    : `<span class="auth-avatar-placeholder auth-avatar-clickable" onclick="openProfileModal()">👤</span>`;
+                el.innerHTML = `<div class="auth-user-info">${photoHTML}<span class="auth-username auth-avatar-clickable" onclick="openProfileModal()">${name}</span><button class="auth-btn auth-logout" onclick="signOutUser()">로그아웃</button></div>`;
+            }
+        } else {
+            checkedItems = JSON.parse(localStorage.getItem('ddTownChecklist')) || [];
+            if (el) {
+                el.innerHTML = `<button class="auth-btn auth-login" onclick="openAuthModal()">🔐 로그인 / 회원가입</button>`;
+            }
+        }
+
+        updateDisplay();
+    });
+}
 
 function updateClock() {
     const now = new Date();
