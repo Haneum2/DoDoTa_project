@@ -47,13 +47,24 @@ function scheduleSyncToFirestore() {
     }, 1500);
 }
 
-// 1. JSON 데이터 불러오기 부분 수정
+// 1. JSON 데이터 불러오기
 async function loadData() {
     try {
-        const response = await fetch('./assets/data/encyclopedia.json');
-        gameData = await response.json();
-        console.log("불러온 데이터:", gameData); // 데이터가 잘 들어왔는지 확인
-        updateDisplay(); 
+        const [encResult, birdResult] = await Promise.allSettled([
+            fetch('./assets/data/encyclopedia.json').then(r => r.json()),
+            fetch('./assets/data/birds.json').then(r => r.json())
+        ]);
+
+        gameData = encResult.status === 'fulfilled' ? encResult.value : [];
+
+        if (birdResult.status === 'fulfilled') {
+            gameData = gameData.concat(birdResult.value);
+        } else {
+            console.warn('조류 데이터 로드 실패:', birdResult.reason);
+        }
+
+        console.log("불러온 데이터:", gameData);
+        updateDisplay();
     } catch (error) {
         console.error("데이터 로드 실패:", error);
     }
@@ -196,6 +207,7 @@ function updateDisplay() {
     } else {
         availableItems.forEach(item => {
             const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
+            const isBird    = item.type === 'bird' || item.type === 'bird_shinsa' || item.type === 'bird_brick';
             const rating    = starRatings[item.id] || 0;
             const isChecked = rating === 5;
             const starsHTML = [1,2,3,4,5].map(n =>
@@ -210,7 +222,7 @@ function updateDisplay() {
                     <div class="card-text">
                         <h3>${item.name}</h3>
                         <p class="card-location">📍 ${item.location}</p>
-                        <p class="card-time">${!isPetFood ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
+                        <p class="card-time">${(!isPetFood && !isBird) ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
                     </div>
                     <div class="star-rating" data-id="${item.id}">
                         ${starsHTML}

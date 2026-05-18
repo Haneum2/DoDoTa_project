@@ -161,6 +161,9 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 .card.fish { border-bottom: 5px solid #03a9f4; }
 .card.cat_food { border-bottom: 5px solid #ff9eb5; }
 .card.dog_food { border-bottom: 5px solid #ffb347; }
+.card.bird { border-bottom: 5px solid #ff7043; }
+.card.bird_shinsa { border-bottom: 5px solid #7e57c2; }
+.card.bird_brick { border-bottom: 5px solid #26a69a; }
 
 .card img {
     width: 100px;
