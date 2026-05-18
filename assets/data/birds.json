@@ -1,77 +1,932 @@
 [
-  { "id": 1001, "name": "오목눈이",        "type": "bird", "location": "블랑코 머리 위",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_오목눈이.webp" },
-  { "id": 1002, "name": "굴뚝새",          "type": "bird", "location": "숲",                       "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_굴뚝새.webp" },
-  { "id": 1003, "name": "꼬까울새",        "type": "bird", "location": "도심",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_꼬까울새.webp" },
-  { "id": 1004, "name": "노랑배박새",      "type": "bird", "location": "온천산",                   "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_노랑배박새.webp" },
-  { "id": 1005, "name": "멋쟁이새",        "type": "bird", "location": "도시 근교",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_멋쟁이새.webp" },
-  { "id": 1006, "name": "푸른머리되새",    "type": "bird", "location": "꽃밭",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_푸른머리되새.webp" },
-  { "id": 1007, "name": "분홍가슴비둘기",  "type": "bird", "location": "도심",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_분홍가슴비둘기.webp" },
-  { "id": 1008, "name": "얼룩비둘기",      "type": "bird", "location": "어촌",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_얼룩비둘기.webp" },
-  { "id": 1009, "name": "염주비둘기",      "type": "bird", "location": "홈 근처",                  "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_염주비둘기.webp" },
-  { "id": 1010, "name": "청금강앵무",      "type": "bird", "location": "새들의 복귀",              "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_청금강앵무.webp" },
-  { "id": 1011, "name": "청공작",          "type": "bird", "location": "새들의 복귀",              "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_청공작.webp" },
-  { "id": 1012, "name": "청둥오리",        "type": "bird", "location": "호수",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_청둥오리.webp" },
-  { "id": 1013, "name": "큰홍학",          "type": "bird", "location": "물가",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_큰홍학.webp" },
-  { "id": 1014, "name": "동고비",          "type": "bird", "location": "어촌",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_동고비.webp" },
-  { "id": 1015, "name": "빨간머리때까치",  "type": "bird", "location": "도시 근교",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_빨간머리때까치.webp" },
-  { "id": 1016, "name": "수염오목눈이",    "type": "bird", "location": "온천산",                   "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_수염오목눈이.webp" },
-  { "id": 1017, "name": "분홍목녹색비둘기","type": "bird", "location": "꽃밭",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_분홍목녹색비둘기.webp" },
-  { "id": 1018, "name": "웡가비둘기",      "type": "bird", "location": "숲",                       "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_웡가비둘기.webp" },
-  { "id": 1019, "name": "바다갈매기",      "type": "bird", "location": "해변",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_바다갈매기.webp" },
-  { "id": 1020, "name": "홍머리오리",      "type": "bird", "location": "강",                       "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_홍머리오리.webp" },
-  { "id": 1021, "name": "검은턱오목눈이",  "type": "bird", "location": "숲 - 점핑 플랫폼",        "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_검은턱오목눈이.webp" },
-  { "id": 1022, "name": "녹자작",          "type": "bird", "location": "어촌 - 등대",              "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_녹자작.webp" },
-  { "id": 1023, "name": "유럽꾀꼬리",      "type": "bird", "location": "홈 근처",                  "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_유럽꾀꼬리.webp" },
-  { "id": 1024, "name": "홍금강앵무",      "type": "bird", "location": "새들의 복귀",              "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_홍금강앵무.webp" },
-  { "id": 1025, "name": "오두앵갈매기",    "type": "bird", "location": "고래바다 해변",            "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_오두앵갈매기.webp" },
-  { "id": 1026, "name": "유럽가마우지",    "type": "bird", "location": "바다",                     "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_유럽가마우지.webp" },
-  { "id": 1027, "name": "호사북방오리",    "type": "bird", "location": "강",                       "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_호사북방오리.webp" },
-  { "id": 1028, "name": "황오리",          "type": "bird", "location": "근교 호수",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_황오리.webp" },
-  { "id": 1029, "name": "노란머리바우어새","type": "bird", "location": "숲 - 영혼의 참나무",      "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_노란머리바우어새.webp" },
-  { "id": 1030, "name": "솔양진이",        "type": "bird", "location": "숲 - 숲속 섬",            "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_솔양진이.webp" },
-  { "id": 1031, "name": "알락할미새",      "type": "bird", "location": "꽃밭 - 보라빛 해변",      "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_알락할미새.webp" },
-  { "id": 1032, "name": "회색머리붉은참새","type": "bird", "location": "어촌 - 광장",             "start_time": 0, "end_time": 24, "weather": ["sunny", "rainbow"],           "image": "assets/images/bird_회색머리붉은참새.webp" },
-  { "id": 1033, "name": "황금과일비둘기",  "type": "bird", "location": "꽃밭 - 풍차꽃밭",         "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_황금과일비둘기.webp" },
-  { "id": 1034, "name": "은계",            "type": "bird", "location": "온천산 - 유적",            "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_은계.webp" },
-  { "id": 1035, "name": "흰비오리",        "type": "bird", "location": "숲 - 호수",               "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_흰비오리.webp" },
-  { "id": 1036, "name": "노랑배딱새",      "type": "bird", "location": "어촌 - 부두",             "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_노랑배딱새.webp" },
-  { "id": 1037, "name": "유럽벌잡이새",    "type": "bird", "location": "온천산 - 호숫가",         "start_time": 0, "end_time": 24, "weather": ["rainy", "rainbow"],           "image": "assets/images/bird_유럽벌잡이새.webp" },
-  { "id": 1038, "name": "올리브비둘기",    "type": "bird", "location": "온천산 - 온천",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_올리브비둘기.webp" },
-  { "id": 1039, "name": "초록금강앵무",    "type": "bird", "location": "새들의 복귀",             "start_time": 0, "end_time": 24, "weather": ["sunny", "rainbow"],           "image": "assets/images/bird_초록금강앵무.webp" },
-  { "id": 1040, "name": "검정제비갈매기",  "type": "bird", "location": "구해 - 해변",             "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_검정제비갈매기.webp" },
-  { "id": 1041, "name": "작은홍학",        "type": "bird", "location": "숲 - 호숫가",             "start_time": 0, "end_time": 24, "weather": ["rainy", "rainbow"],           "image": "assets/images/bird_작은홍학.webp" },
-  { "id": 1042, "name": "콩새",            "type": "bird", "location": "온천산 - 화산 호수",      "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_콩새.webp" },
-  { "id": 1043, "name": "황금가슴비둘기",  "type": "bird", "location": "어촌 - 동쪽 부두",        "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_황금가슴비둘기.webp" },
-  { "id": 1044, "name": "붉은뺨가마우지",  "type": "bird", "location": "구해, 고래바다",          "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_붉은뺨가마우지.webp" },
-  { "id": 1045, "name": "칡부엉이",        "type": "bird", "location": "온천산 - 바위절벽",       "start_time": 0, "end_time": 24, "weather": ["sunny", "rainbow"],           "image": "assets/images/bird_칡부엉이.webp" },
-  { "id": 1046, "name": "푸른박새",        "type": "bird", "location": "꽃밭 - 풍차꽃밭",         "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_푸른박새.webp" },
-  { "id": 1047, "name": "잠부과일비둘기",  "type": "bird", "location": "도시 근교",               "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_잠부과일비둘기.webp" },
-  { "id": 1048, "name": "제비갈매기",      "type": "bird", "location": "동해 - 해변",             "start_time": 0, "end_time": 24, "weather": ["rainbow"],                    "image": "assets/images/bird_제비갈매기.webp" },
-  { "id": 1049, "name": "황조롱이",        "type": "bird", "location": "숲 - 순록탑",             "start_time": 0, "end_time": 24, "weather": ["sunny", "rainbow"],           "image": "assets/images/bird_황조롱이.webp" },
-  { "id": 1050, "name": "히아신스금강앵무","type": "bird", "location": "새들의 복귀",             "start_time": 0, "end_time": 24, "weather": ["rainy", "rainbow"],           "image": "assets/images/bird_히아신스금강앵무.webp" },
-  { "id": 1051, "name": "동부 파랑새",     "type": "bird", "location": "도시 근교",               "start_time": 0, "end_time": 24, "weather": ["rainy", "rainbow"],           "image": "assets/images/bird_동부 파랑새.webp" },
-  { "id": 1052, "name": "홍방울새",        "type": "bird", "location": "숲 - 영혼의 참나무",      "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_홍방울새.webp" },
-  { "id": 1053, "name": "분홍비둘기",      "type": "bird", "location": "꽃밭 - 고래산",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_분홍비둘기.webp" },
-  { "id": 1054, "name": "매",              "type": "bird", "location": "온천산 - 온천",           "start_time": 0, "end_time": 24, "weather": ["rainy", "rainbow"],           "image": "assets/images/bird_매.webp" },
-  { "id": 1055, "name": "극락풍금조",      "type": "bird", "location": "도시 근교",               "start_time": 0, "end_time": 24, "weather": ["rainbow"],                    "image": "assets/images/bird_극락풍금조.webp" },
-  { "id": 1056, "name": "흰머리오리",      "type": "bird", "location": "온천산 - 호수",           "start_time": 0, "end_time": 24, "weather": ["rainy", "rainbow"],           "image": "assets/images/bird_흰머리오리.webp" },
-  { "id": 1057, "name": "황제가마우지",    "type": "bird", "location": "동해, 잔잔한 바다",       "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_황제가마우지.webp" },
-  { "id": 1058, "name": "녹공작",          "type": "bird", "location": "새들의 복귀 - 보너스 스테이지", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_녹공작.webp" },
-  { "id": 1059, "name": "아메리카홍학",    "type": "bird", "location": "꽃밭 - 보라빛 해변",      "start_time": 0, "end_time": 24, "weather": ["rainbow"],                    "image": "assets/images/bird_아메리카홍학.webp" },
-  { "id": 1060, "name": "아조레스멋쟁이새","type": "bird", "location": "어촌 - 등대",             "start_time": 0, "end_time": 24, "weather": ["rainbow"],                    "image": "assets/images/bird_아조레스멋쟁이새.webp" },
-  { "id": 1061, "name": "파랑딱새",        "type": "bird", "location": "숲 - 점핑 플랫폼",        "start_time": 0, "end_time": 24, "weather": ["rainbow"],                    "image": "assets/images/bird_파랑딱새.webp" },
-  { "id": 1062, "name": "비둘기조롱이",    "type": "bird", "location": "온천산 - 유적",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_비둘기조롱이.webp" },
-  { "id": 1063, "name": "수리부엉이",      "type": "bird", "location": "숲 - 순록탑",             "start_time": 0, "end_time": 24, "weather": ["rainbow"],                    "image": "assets/images/bird_수리부엉이.webp" },
-
-  { "id": 1064, "name": "신사 무늬 비둘기","type": "bird", "location": "이벤트 - 배우 비둘기 사건", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 무늬 비둘기.webp" },
-  { "id": 1065, "name": "신사 초록 비둘기","type": "bird", "location": "숲 - 점핑 플랫폼",          "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 초록 비둘기.webp" },
-  { "id": 1066, "name": "신사 파랑 비둘기","type": "bird", "location": "숲 - 영혼의 참나무 숲",    "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 파랑 비둘기.webp" },
-  { "id": 1067, "name": "신사 회색 비둘기","type": "bird", "location": "숲 - 순록탑",               "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 회색 비둘기.webp" },
-  { "id": 1068, "name": "신사 빨강 비둘기","type": "bird", "location": "숲 - 숲속 섬",              "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_신사 빨강 비둘기.webp" },
-
-  { "id": 1069, "name": "브릭 분홍 참새",     "type": "bird", "season": true, "location": "온천산 - 바위절벽",            "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 분홍 참새.webp" },
-  { "id": 1070, "name": "브릭 파란 참새",     "type": "bird", "season": true, "location": "온천산 - 온천",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 파란 참새.webp" },
-  { "id": 1071, "name": "브릭 보라 참새",     "type": "bird", "season": true, "location": "온천산 - 유적",                "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 보라 참새.webp" },
-  { "id": 1072, "name": "브릭 초록 참새",     "type": "bird", "season": true, "location": "온천산 - 화산 호수",           "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 초록 참새.webp" },
-  { "id": 1073, "name": "브릭 알록달록 참새", "type": "bird", "season": true, "location": "이벤트 - 특수 브릭 새 사건", "start_time": 0, "end_time": 24, "weather": ["sunny", "rainy", "rainbow"], "image": "assets/images/bird_브릭 알록달록 참새.webp" }
+  {
+    "id": 1001,
+    "name": "오목눈이",
+    "type": "bird",
+    "location": "블랑코 머리 위",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_오목눈이.webp"
+  },
+  {
+    "id": 1002,
+    "name": "굴뚝새",
+    "type": "bird",
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_굴뚝새.webp"
+  },
+  {
+    "id": 1003,
+    "name": "꼬까울새",
+    "type": "bird",
+    "location": "도심",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_꼬까울새.webp"
+  },
+  {
+    "id": 1004,
+    "name": "노랑배박새",
+    "type": "bird",
+    "location": "온천산",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_노랑배박새.webp"
+  },
+  {
+    "id": 1005,
+    "name": "멋쟁이새",
+    "type": "bird",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_멋쟁이새.webp"
+  },
+  {
+    "id": 1006,
+    "name": "푸른머리되새",
+    "type": "bird",
+    "location": "꽃밭",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_푸른머리되새.webp"
+  },
+  {
+    "id": 1007,
+    "name": "분홍가슴비둘기",
+    "type": "bird",
+    "location": "도심",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_분홍가슴비둘기.webp"
+  },
+  {
+    "id": 1008,
+    "name": "얼룩비둘기",
+    "type": "bird",
+    "location": "어촌",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_얼룩비둘기.webp"
+  },
+  {
+    "id": 1009,
+    "name": "염주비둘기",
+    "type": "bird",
+    "location": "홈 근처",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_염주비둘기.webp"
+  },
+  {
+    "id": 1010,
+    "name": "청금강앵무",
+    "type": "bird",
+    "location": "새들의 복귀",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_청금강앵무.webp"
+  },
+  {
+    "id": 1011,
+    "name": "청공작",
+    "type": "bird",
+    "location": "새들의 복귀",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_청공작.webp"
+  },
+  {
+    "id": 1012,
+    "name": "청둥오리",
+    "type": "bird",
+    "location": "호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_청둥오리.webp"
+  },
+  {
+    "id": 1013,
+    "name": "큰홍학",
+    "type": "bird",
+    "location": "물가",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_큰홍학.webp"
+  },
+  {
+    "id": 1014,
+    "name": "동고비",
+    "type": "bird",
+    "location": "어촌",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_동고비.webp"
+  },
+  {
+    "id": 1015,
+    "name": "빨간머리때까치",
+    "type": "bird",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_빨간머리때까치.webp"
+  },
+  {
+    "id": 1016,
+    "name": "수염오목눈이",
+    "type": "bird",
+    "location": "온천산",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_수염오목눈이.webp"
+  },
+  {
+    "id": 1017,
+    "name": "분홍목녹색비둘기",
+    "type": "bird",
+    "location": "꽃밭",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_분홍목녹색비둘기.webp"
+  },
+  {
+    "id": 1018,
+    "name": "웡가비둘기",
+    "type": "bird",
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_웡가비둘기.webp"
+  },
+  {
+    "id": 1019,
+    "name": "바다갈매기",
+    "type": "bird",
+    "location": "해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_바다갈매기.webp"
+  },
+  {
+    "id": 1020,
+    "name": "홍머리오리",
+    "type": "bird",
+    "location": "강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_홍머리오리.webp"
+  },
+  {
+    "id": 1021,
+    "name": "검은턱오목눈이",
+    "type": "bird",
+    "location": "숲 - 점핑 플랫폼",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_검은턱오목눈이.webp"
+  },
+  {
+    "id": 1022,
+    "name": "녹자작",
+    "type": "bird",
+    "location": "어촌 - 등대",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_녹자작.webp"
+  },
+  {
+    "id": 1023,
+    "name": "유럽꾀꼬리",
+    "type": "bird",
+    "location": "홈 근처",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_유럽꾀꼬리.webp"
+  },
+  {
+    "id": 1024,
+    "name": "홍금강앵무",
+    "type": "bird",
+    "location": "새들의 복귀",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_홍금강앵무.webp"
+  },
+  {
+    "id": 1025,
+    "name": "오두앵갈매기",
+    "type": "bird",
+    "location": "고래바다 해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_오두앵갈매기.webp"
+  },
+  {
+    "id": 1026,
+    "name": "유럽가마우지",
+    "type": "bird",
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_유럽가마우지.webp"
+  },
+  {
+    "id": 1027,
+    "name": "호사북방오리",
+    "type": "bird",
+    "location": "강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_호사북방오리.webp"
+  },
+  {
+    "id": 1028,
+    "name": "황오리",
+    "type": "bird",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_황오리.webp"
+  },
+  {
+    "id": 1029,
+    "name": "노란머리바우어새",
+    "type": "bird",
+    "location": "숲 - 영혼의 참나무",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_노란머리바우어새.webp"
+  },
+  {
+    "id": 1030,
+    "name": "솔양진이",
+    "type": "bird",
+    "location": "숲 - 숲속 섬",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_솔양진이.webp"
+  },
+  {
+    "id": 1031,
+    "name": "알락할미새",
+    "type": "bird",
+    "location": "꽃밭 - 보라빛 해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_알락할미새.webp"
+  },
+  {
+    "id": 1032,
+    "name": "회색머리붉은참새",
+    "type": "bird",
+    "location": "어촌 - 광장",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_회색머리붉은참새.webp"
+  },
+  {
+    "id": 1033,
+    "name": "황금과일비둘기",
+    "type": "bird",
+    "location": "꽃밭 - 풍차꽃밭",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_황금과일비둘기.webp"
+  },
+  {
+    "id": 1034,
+    "name": "은계",
+    "type": "bird",
+    "location": "온천산 - 유적",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_은계.webp"
+  },
+  {
+    "id": 1035,
+    "name": "흰비오리",
+    "type": "bird",
+    "location": "숲 - 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_흰비오리.webp"
+  },
+  {
+    "id": 1036,
+    "name": "노랑배딱새",
+    "type": "bird",
+    "location": "어촌 - 부두",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_노랑배딱새.webp"
+  },
+  {
+    "id": 1037,
+    "name": "유럽벌잡이새",
+    "type": "bird",
+    "location": "온천산 - 호숫가",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_유럽벌잡이새.webp"
+  },
+  {
+    "id": 1038,
+    "name": "올리브비둘기",
+    "type": "bird",
+    "location": "온천산 - 온천",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_올리브비둘기.webp"
+  },
+  {
+    "id": 1039,
+    "name": "초록금강앵무",
+    "type": "bird",
+    "location": "새들의 복귀",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_초록금강앵무.webp"
+  },
+  {
+    "id": 1040,
+    "name": "검정제비갈매기",
+    "type": "bird",
+    "location": "구해 - 해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_검정제비갈매기.webp"
+  },
+  {
+    "id": 1041,
+    "name": "작은홍학",
+    "type": "bird",
+    "location": "숲 - 호숫가",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_작은홍학.webp"
+  },
+  {
+    "id": 1042,
+    "name": "콩새",
+    "type": "bird",
+    "location": "온천산 - 화산 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_콩새.webp"
+  },
+  {
+    "id": 1043,
+    "name": "황금가슴비둘기",
+    "type": "bird",
+    "location": "어촌 - 동쪽 부두",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_황금가슴비둘기.webp"
+  },
+  {
+    "id": 1044,
+    "name": "붉은뺨가마우지",
+    "type": "bird",
+    "location": "구해, 고래바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_붉은뺨가마우지.webp"
+  },
+  {
+    "id": 1045,
+    "name": "칡부엉이",
+    "type": "bird",
+    "location": "온천산 - 바위절벽",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_칡부엉이.webp"
+  },
+  {
+    "id": 1046,
+    "name": "푸른박새",
+    "type": "bird",
+    "location": "꽃밭 - 풍차꽃밭",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_푸른박새.webp"
+  },
+  {
+    "id": 1047,
+    "name": "잠부과일비둘기",
+    "type": "bird",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_잠부과일비둘기.webp"
+  },
+  {
+    "id": 1048,
+    "name": "제비갈매기",
+    "type": "bird",
+    "location": "동해 - 해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bird_제비갈매기.webp"
+  },
+  {
+    "id": 1049,
+    "name": "황조롱이",
+    "type": "bird",
+    "location": "숲 - 순록탑",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_황조롱이.webp"
+  },
+  {
+    "id": 1050,
+    "name": "히아신스금강앵무",
+    "type": "bird",
+    "location": "새들의 복귀",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_히아신스금강앵무.webp"
+  },
+  {
+    "id": 1051,
+    "name": "동부 파랑새",
+    "type": "bird",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_동부 파랑새.webp"
+  },
+  {
+    "id": 1052,
+    "name": "홍방울새",
+    "type": "bird",
+    "location": "숲 - 영혼의 참나무",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_홍방울새.webp"
+  },
+  {
+    "id": 1053,
+    "name": "분홍비둘기",
+    "type": "bird",
+    "location": "꽃밭 - 고래산",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_분홍비둘기.webp"
+  },
+  {
+    "id": 1054,
+    "name": "매",
+    "type": "bird",
+    "location": "온천산 - 온천",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_매.webp"
+  },
+  {
+    "id": 1055,
+    "name": "극락풍금조",
+    "type": "bird",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bird_극락풍금조.webp"
+  },
+  {
+    "id": 1056,
+    "name": "흰머리오리",
+    "type": "bird",
+    "location": "온천산 - 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_흰머리오리.webp"
+  },
+  {
+    "id": 1057,
+    "name": "황제가마우지",
+    "type": "bird",
+    "location": "동해, 잔잔한 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_황제가마우지.webp"
+  },
+  {
+    "id": 1058,
+    "name": "녹공작",
+    "type": "bird",
+    "location": "새들의 복귀 - 보너스 스테이지",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_녹공작.webp"
+  },
+  {
+    "id": 1059,
+    "name": "아메리카홍학",
+    "type": "bird",
+    "location": "꽃밭 - 보라빛 해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bird_아메리카홍학.webp"
+  },
+  {
+    "id": 1060,
+    "name": "아조레스멋쟁이새",
+    "type": "bird",
+    "location": "어촌 - 등대",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bird_아조레스멋쟁이새.webp"
+  },
+  {
+    "id": 1061,
+    "name": "파랑딱새",
+    "type": "bird",
+    "location": "숲 - 점핑 플랫폼",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bird_파랑딱새.webp"
+  },
+  {
+    "id": 1062,
+    "name": "비둘기조롱이",
+    "type": "bird",
+    "location": "온천산 - 유적",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_비둘기조롱이.webp"
+  },
+  {
+    "id": 1063,
+    "name": "수리부엉이",
+    "type": "bird",
+    "location": "숲 - 순록탑",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bird_수리부엉이.webp"
+  },
+  {
+    "id": 1064,
+    "name": "신사 무늬 비둘기",
+    "type": "bird",
+    "location": "이벤트 - 배우 비둘기 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_신사 무늬 비둘기.webp"
+  },
+  {
+    "id": 1065,
+    "name": "신사 초록 비둘기",
+    "type": "bird",
+    "location": "숲 - 점핑 플랫폼",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_신사 초록 비둘기.webp"
+  },
+  {
+    "id": 1066,
+    "name": "신사 파랑 비둘기",
+    "type": "bird",
+    "location": "숲 - 영혼의 참나무 숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_신사 파랑 비둘기.webp"
+  },
+  {
+    "id": 1067,
+    "name": "신사 회색 비둘기",
+    "type": "bird",
+    "location": "숲 - 순록탑",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_신사 회색 비둘기.webp"
+  },
+  {
+    "id": 1068,
+    "name": "신사 빨강 비둘기",
+    "type": "bird",
+    "location": "숲 - 숲속 섬",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_신사 빨강 비둘기.webp"
+  }
 ]

@@ -1,0 +1,227 @@
+[
+  {
+    "id": 264,
+    "name": "파란색 브릭 흰동가리",
+    "type": "fish",
+    "season": true,
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778278180404_파란색 브릭 흰동가리.webp"
+  },
+  {
+    "id": 265,
+    "name": "청록색 브릭 흰동가리",
+    "type": "fish",
+    "season": true,
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778278234322_청록색 브릭 흰동가리.webp"
+  },
+  {
+    "id": 266,
+    "name": "오색 브릭 흰동가리",
+    "type": "fish",
+    "season": true,
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778293615070_오색 브릭 흰동가리.webp"
+  },
+  {
+    "id": 267,
+    "name": "보라색 브릭 흰동가리",
+    "type": "fish",
+    "season": true,
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778293761365_보라색 브릭 흰동가리.webp"
+  },
+  {
+    "id": 268,
+    "name": "빨간색 브릭 흰동가리",
+    "type": "fish",
+    "season": true,
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778293808486_빨간색 브릭 흰동가리.webp"
+  },
+  {
+    "id": 1069,
+    "name": "브릭 분홍 참새",
+    "type": "bird",
+    "season": true,
+    "location": "온천산 - 바위절벽",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_브릭 분홍 참새.webp"
+  },
+  {
+    "id": 1070,
+    "name": "브릭 파란 참새",
+    "type": "bird",
+    "season": true,
+    "location": "온천산 - 온천",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_브릭 파란 참새.webp"
+  },
+  {
+    "id": 1071,
+    "name": "브릭 보라 참새",
+    "type": "bird",
+    "season": true,
+    "location": "온천산 - 유적",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_브릭 보라 참새.webp"
+  },
+  {
+    "id": 1072,
+    "name": "브릭 초록 참새",
+    "type": "bird",
+    "season": true,
+    "location": "온천산 - 화산 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_브릭 초록 참새.webp"
+  },
+  {
+    "id": 1073,
+    "name": "브릭 알록달록 참새",
+    "type": "bird",
+    "season": true,
+    "location": "이벤트 - 특수 브릭 새 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bird_브릭 알록달록 참새.webp"
+  },
+  {
+    "id": 269,
+    "name": "분홍색 브릭 큰고추잠자리",
+    "type": "insect",
+    "season": true,
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778317740461_분홍색 브릭 큰고추잠자리.webp"
+  },
+  {
+    "id": 270,
+    "name": "노란색 브릭 큰고추잠자리",
+    "type": "insect",
+    "season": true,
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778317786905_노란색 브릭 큰고추잠자리.webp"
+  },
+  {
+    "id": 271,
+    "name": "파란색 브릭 큰고추잠자리",
+    "type": "insect",
+    "season": true,
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778317831281_파란색 브릭 큰고추잠자리.webp"
+  },
+  {
+    "id": 272,
+    "name": "보라색 브릭 큰고추잠자리",
+    "type": "insect",
+    "season": true,
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778317872480_보라색 브릭 큰고추잠자리.webp"
+  },
+  {
+    "id": 273,
+    "name": "컬러풀 브릭 큰고추잠자리",
+    "type": "insect",
+    "season": true,
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1778317945508_컬러풀 브릭 큰고추잠자리.webp"
+  }
+]

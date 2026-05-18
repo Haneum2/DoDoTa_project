@@ -1,0 +1,1134 @@
+[
+  {
+    "id": 1,
+    "name": "바벨",
+    "type": "fish",
+    "location": "얕은 강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_바벨.webp"
+  },
+  {
+    "id": 2,
+    "name": "민물배스",
+    "type": "fish",
+    "location": "강 (아무데나)",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_민물배스.webp"
+  },
+  {
+    "id": 3,
+    "name": "틸라피아",
+    "type": "fish",
+    "location": "강 (아무데나)",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_틸라피아.webp"
+  },
+  {
+    "id": 4,
+    "name": "왕새우",
+    "type": "fish",
+    "location": "강 (아무데나)",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_왕새우.webp"
+  },
+  {
+    "id": 5,
+    "name": "하늘종개",
+    "type": "fish",
+    "location": "거목강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_하늘종개.webp"
+  },
+  {
+    "id": 6,
+    "name": "민물잰더",
+    "type": "fish",
+    "location": "거목강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_민물잰더.webp"
+  },
+  {
+    "id": 7,
+    "name": "레드벨리피라냐",
+    "type": "fish",
+    "location": "거목강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_레드벨리피라냐.webp"
+  },
+  {
+    "id": 8,
+    "name": "후첸",
+    "type": "fish",
+    "location": "거목강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_후첸.webp"
+  },
+  {
+    "id": 9,
+    "name": "큰얼룩배스",
+    "type": "fish",
+    "location": "노을강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_큰얼룩배스.webp"
+  },
+  {
+    "id": 10,
+    "name": "유럽잉어",
+    "type": "fish",
+    "location": "노을강",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽잉어.webp"
+  },
+  {
+    "id": 11,
+    "name": "민물베도라치",
+    "type": "fish",
+    "location": "노을강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_민물베도라치.webp"
+  },
+  {
+    "id": 12,
+    "name": "미노우",
+    "type": "fish",
+    "location": "고요한 강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_미노우.webp"
+  },
+  {
+    "id": 13,
+    "name": "민물대구",
+    "type": "fish",
+    "location": "고요한 강",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_민물대구.webp"
+  },
+  {
+    "id": 14,
+    "name": "첨 연어",
+    "type": "fish",
+    "location": "고요한 강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_첨연어.webp"
+  },
+  {
+    "id": 15,
+    "name": "큰 가시고기",
+    "type": "fish",
+    "location": "얕은 강",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_큰가시고기.webp"
+  },
+  {
+    "id": 16,
+    "name": "유럽참개구리",
+    "type": "fish",
+    "location": "호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽참개구리.webp"
+  },
+  {
+    "id": 17,
+    "name": "유럽처브",
+    "type": "fish",
+    "location": "호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽처브.webp"
+  },
+  {
+    "id": 18,
+    "name": "유럽백조어",
+    "type": "fish",
+    "location": "호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽백조어.webp"
+  },
+  {
+    "id": 19,
+    "name": "텐치",
+    "type": "fish",
+    "location": "숲속 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_텐치.webp"
+  },
+  {
+    "id": 20,
+    "name": "머드개복치",
+    "type": "fish",
+    "location": "숲속 호수",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_머드개복치.webp"
+  },
+  {
+    "id": 21,
+    "name": "유럽민물가재",
+    "type": "fish",
+    "location": "숲속 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽민물가재.webp"
+  },
+  {
+    "id": 22,
+    "name": "큰입배스",
+    "type": "fish",
+    "location": "숲속 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_큰입배스.webp"
+  },
+  {
+    "id": 23,
+    "name": "큰진주조개",
+    "type": "fish",
+    "location": "숲속 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_큰진주조개.webp"
+  },
+  {
+    "id": 24,
+    "name": "북유럽파란가재",
+    "type": "fish",
+    "location": "숲속 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_북유럽파란가재.webp"
+  },
+  {
+    "id": 25,
+    "name": "북극곤들매기",
+    "type": "fish",
+    "location": "숲속 호수",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_북극곤들매기.webp"
+  },
+  {
+    "id": 26,
+    "name": "극지연어",
+    "type": "fish",
+    "location": "온천산 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_극지연어.webp"
+  },
+  {
+    "id": 27,
+    "name": "매화농어",
+    "type": "fish",
+    "location": "온천산 호수",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_매화농어.webp"
+  },
+  {
+    "id": 28,
+    "name": "올챙이",
+    "type": "fish",
+    "location": "온천산 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_올챙이.webp"
+  },
+  {
+    "id": 29,
+    "name": "독중개",
+    "type": "fish",
+    "location": "온천산 호수",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_둑중개.webp"
+  },
+  {
+    "id": 30,
+    "name": "펌프킨시드",
+    "type": "fish",
+    "location": "온천산 호수",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_펌프킨시드.webp"
+  },
+  {
+    "id": 31,
+    "name": "블루길",
+    "type": "fish",
+    "location": "온천산 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_블루길.webp"
+  },
+  {
+    "id": 32,
+    "name": "붕어",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_붕어.webp"
+  },
+  {
+    "id": 33,
+    "name": "백조어",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_백조어.webp"
+  },
+  {
+    "id": 34,
+    "name": "돌마자",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_돌마자.webp"
+  },
+  {
+    "id": 35,
+    "name": "홍합",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_홍합.webp"
+  },
+  {
+    "id": 36,
+    "name": "민물게",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_민물게.webp"
+  },
+  {
+    "id": 37,
+    "name": "루드",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_루드.webp"
+  },
+  {
+    "id": 38,
+    "name": "사루기",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_사루기.webp"
+  },
+  {
+    "id": 39,
+    "name": "줄무늬송사리",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_줄무늬송사리.webp"
+  },
+  {
+    "id": 40,
+    "name": "펄고기",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 12,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_펄고기.webp"
+  },
+  {
+    "id": 41,
+    "name": "강꼬치고기",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_강꼬치고기.webp"
+  },
+  {
+    "id": 42,
+    "name": "바다빙어",
+    "type": "fish",
+    "location": "초원 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_바다빙어.webp"
+  },
+  {
+    "id": 43,
+    "name": "나비빙어",
+    "type": "fish",
+    "location": "초원 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_나비잉어.webp"
+  },
+  {
+    "id": 44,
+    "name": "송어",
+    "type": "fish",
+    "location": "초원 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_송어.webp"
+  },
+  {
+    "id": 45,
+    "name": "금붕어",
+    "type": "fish",
+    "location": "초원 호수",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_금붕어.webp"
+  },
+  {
+    "id": 46,
+    "name": "유럽메기",
+    "type": "fish",
+    "location": "초원 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽메기.webp"
+  },
+  {
+    "id": 47,
+    "name": "정어리",
+    "type": "fish",
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_정어리.webp"
+  },
+  {
+    "id": 48,
+    "name": "배스",
+    "type": "fish",
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_배스.webp"
+  },
+  {
+    "id": 49,
+    "name": "가다랑어",
+    "type": "fish",
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_가다랑어.webp"
+  },
+  {
+    "id": 50,
+    "name": "대서양은상어",
+    "type": "fish",
+    "location": "바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_대서양은상어.webp"
+  },
+  {
+    "id": 51,
+    "name": "갈치",
+    "type": "fish",
+    "location": "잔잔한 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_갈치.webp"
+  },
+  {
+    "id": 52,
+    "name": "노란전갱이",
+    "type": "fish",
+    "location": "잔잔한 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_노란전갱이.webp"
+  },
+  {
+    "id": 53,
+    "name": "대서양난쟁이문어",
+    "type": "fish",
+    "location": "잔잔한 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_대서양난쟁이문어.webp"
+  },
+  {
+    "id": 54,
+    "name": "유럽가재",
+    "type": "fish",
+    "location": "잔잔한 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽가재.webp"
+  },
+  {
+    "id": 55,
+    "name": "검은점돔",
+    "type": "fish",
+    "location": "잔잔한 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_검은점돔.webp"
+  },
+  {
+    "id": 56,
+    "name": "참다랑어",
+    "type": "fish",
+    "location": "잔잔한 바다",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_참다랑어.webp"
+  },
+  {
+    "id": 57,
+    "name": "바다새우",
+    "type": "fish",
+    "location": "동해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_바다새우.webp"
+  },
+  {
+    "id": 58,
+    "name": "소라게",
+    "type": "fish",
+    "location": "동해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_소라게.webp"
+  },
+  {
+    "id": 59,
+    "name": "망둥어",
+    "type": "fish",
+    "location": "동해",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_망둥어.webp"
+  },
+  {
+    "id": 60,
+    "name": "등불성대",
+    "type": "fish",
+    "location": "동해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_등불성대.webp"
+  },
+  {
+    "id": 61,
+    "name": "해덕대구",
+    "type": "fish",
+    "location": "동해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_해덕대구.webp"
+  },
+  {
+    "id": 62,
+    "name": "개복치",
+    "type": "fish",
+    "location": "동해",
+    "start_time": 0,
+    "end_time": 12,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_개복치.webp"
+  },
+  {
+    "id": 63,
+    "name": "전갱이",
+    "type": "fish",
+    "location": "고래 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_전갱이.webp"
+  },
+  {
+    "id": 64,
+    "name": "해마",
+    "type": "fish",
+    "location": "고래 바다",
+    "start_time": 0,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_해마.webp"
+  },
+  {
+    "id": 65,
+    "name": "대서양연어",
+    "type": "fish",
+    "location": "고래 바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_대서양연어.webp"
+  },
+  {
+    "id": 66,
+    "name": "대서양고등어",
+    "type": "fish",
+    "location": "고래 바다",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_대서양고등어.webp"
+  },
+  {
+    "id": 67,
+    "name": "킹크랩",
+    "type": "fish",
+    "location": "고래 바다",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_킹크랩.webp"
+  },
+  {
+    "id": 68,
+    "name": "황새치",
+    "type": "fish",
+    "location": "고래 바다",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_황새치.webp"
+  },
+  {
+    "id": 69,
+    "name": "바다가시고기",
+    "type": "fish",
+    "location": "구해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_바다가시고기.webp"
+  },
+  {
+    "id": 70,
+    "name": "흰동가리",
+    "type": "fish",
+    "location": "구해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_흰동가리.webp"
+  },
+  {
+    "id": 71,
+    "name": "유럽가자미",
+    "type": "fish",
+    "location": "구해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽가자미.webp"
+  },
+  {
+    "id": 72,
+    "name": "복어",
+    "type": "fish",
+    "location": "구해",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_복어.webp"
+  },
+  {
+    "id": 73,
+    "name": "유럽장어",
+    "type": "fish",
+    "location": "구해",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽장어.webp"
+  },
+  {
+    "id": 74,
+    "name": "귀상어",
+    "type": "fish",
+    "location": "구해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_귀상어.webp"
+  },
+  {
+    "id": 75,
+    "name": "노랑촉수",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_노랑촉수.webp"
+  },
+  {
+    "id": 76,
+    "name": "아귀",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_아귀.webp"
+  },
+  {
+    "id": 77,
+    "name": "참문어",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_참문어.webp"
+  },
+  {
+    "id": 78,
+    "name": "대문짝넙치",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_대문짝넙치.webp"
+  },
+  {
+    "id": 79,
+    "name": "유럽날오징어",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_유럽날오징어.webp"
+  },
+  {
+    "id": 80,
+    "name": "두툽상어",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_두툽상어.webp"
+  },
+  {
+    "id": 81,
+    "name": "산갈치",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_산갈치.webp"
+  },
+  {
+    "id": 82,
+    "name": "황금 킹크랩",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_황금 킹크랩.webp"
+  },
+  {
+    "id": 83,
+    "name": "붉은개복치",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_붉은개복치.webp"
+  },
+  {
+    "id": 84,
+    "name": "청상아리",
+    "type": "fish",
+    "location": "바다 낚시",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_청상아리.webp"
+  }
+]

@@ -1,0 +1,856 @@
+[
+  {
+    "id": 85,
+    "name": "호랑나비",
+    "type": "insect",
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_호랑나비.webp"
+  },
+  {
+    "id": 86,
+    "name": "유럽갈고리나비",
+    "type": "insect",
+    "location": "도시",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_유럽갈고리나비.webp"
+  },
+  {
+    "id": 87,
+    "name": "멧노랑나비",
+    "type": "insect",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_멧노랑나비.webp"
+  },
+  {
+    "id": 88,
+    "name": "배추흰나비",
+    "type": "insect",
+    "location": "어촌",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_배추흰나비.webp"
+  },
+  {
+    "id": 89,
+    "name": "아폴로모시나비",
+    "type": "insect",
+    "location": "곤충 유인 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_아폴로모시나비.webp"
+  },
+  {
+    "id": 90,
+    "name": "붉은고리호랑나비",
+    "type": "insect",
+    "location": "곤충 유인 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_붉은고리호랑나비.webp"
+  },
+  {
+    "id": 91,
+    "name": "슬코스키몰포나비",
+    "type": "insect",
+    "location": "곤충 유인기",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_슬코스키몰포나비.webp"
+  },
+  {
+    "id": 92,
+    "name": "아스파라거스벌레",
+    "type": "insect",
+    "location": "꽃밭",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_아스파라거스벌레.webp"
+  },
+  {
+    "id": 93,
+    "name": "별노린재",
+    "type": "insect",
+    "location": "홈",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_별노린재.webp"
+  },
+  {
+    "id": 94,
+    "name": "큰고추잠자리",
+    "type": "insect",
+    "location": "물가",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_큰고추잠자리.webp"
+  },
+  {
+    "id": 95,
+    "name": "오아시스메뚜기",
+    "type": "insect",
+    "location": "온천산",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_오아시스메뚜기.webp"
+  },
+  {
+    "id": 96,
+    "name": "연푸른 부전나비",
+    "type": "insect",
+    "location": "도심",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_연푸른부전나비.jfif"
+  },
+  {
+    "id": 97,
+    "name": "녹색호랑풍뎅이",
+    "type": "insect",
+    "location": "온천산",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_녹색호랑풍뎅이.webp"
+  },
+  {
+    "id": 98,
+    "name": "말벌호랑하늘소",
+    "type": "insect",
+    "location": "숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_말벌호랑하늘소.webp"
+  },
+  {
+    "id": 99,
+    "name": "파란꽃풍뎅이",
+    "type": "insect",
+    "location": "홈",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_파란꽃풍뎅이.webp"
+  },
+  {
+    "id": 100,
+    "name": "망치다리메뚜기",
+    "type": "insect",
+    "location": "어촌",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_망치다리메뚜기.webp"
+  },
+  {
+    "id": 101,
+    "name": "칠성무당벌레",
+    "type": "insect",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1776430899706_spr_ui_item_normal_p_insect_insect405.png"
+  },
+  {
+    "id": 102,
+    "name": "넉점박이잠자리",
+    "type": "insect",
+    "location": "근교 호숫가",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_넉점박이잠자리.webp"
+  },
+  {
+    "id": 103,
+    "name": "호박벌",
+    "type": "insect",
+    "location": "꽃밭",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_호박벌.webp"
+  },
+  {
+    "id": 104,
+    "name": "붉은목제비나비",
+    "type": "insect",
+    "location": "홈",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_붉은목제비나비.webp"
+  },
+  {
+    "id": 105,
+    "name": "홍날개",
+    "type": "insect",
+    "location": "온천산-온천",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_홍날개.webp"
+  },
+  {
+    "id": 106,
+    "name": "분홍색 철써기",
+    "type": "insect",
+    "location": "곤충 유인 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_분홍색 철써기.webp"
+  },
+  {
+    "id": 107,
+    "name": "여치",
+    "type": "insect",
+    "location": "꽃밭-보라빛 해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_여치.webp"
+  },
+  {
+    "id": 108,
+    "name": "흰점꼬리털벌",
+    "type": "insect",
+    "location": "숲-순록탑",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_흰점꼬리털벌.webp"
+  },
+  {
+    "id": 109,
+    "name": "개미",
+    "type": "insect",
+    "location": "어촌-어촌 광장",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_개미.webp"
+  },
+  {
+    "id": 110,
+    "name": "보라네발나비",
+    "type": "insect",
+    "location": "꽃밭-고래산",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_보라네발나비.webp"
+  },
+  {
+    "id": 111,
+    "name": "긴꼬리산누에나방",
+    "type": "insect",
+    "location": "도시 근교",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_긴꼬리산누에나방.webp"
+  },
+  {
+    "id": 112,
+    "name": "표범무늬네발나비",
+    "type": "insect",
+    "location": "어촌-부두",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_표범무늬네발나비.webp"
+  },
+  {
+    "id": 113,
+    "name": "사성 무당벌레",
+    "type": "insect",
+    "location": "온천산-화산 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_사성 무당벌레.webp"
+  },
+  {
+    "id": 114,
+    "name": "매미",
+    "type": "insect",
+    "location": "숲-영혼의 참나무 숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_매미.webp"
+  },
+  {
+    "id": 115,
+    "name": "밀잠자리",
+    "type": "insect",
+    "location": "강변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_밀잠자리.webp"
+  },
+  {
+    "id": 116,
+    "name": "큰줄무늬메뚜기",
+    "type": "insect",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_큰줄무늬메뚜기.webp"
+  },
+  {
+    "id": 117,
+    "name": "무지개 사마귀",
+    "type": "insect",
+    "location": "온천산-바위절벽",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/1776431141883_spr_ui_item_normal_p_insect_insect602.png"
+  },
+  {
+    "id": 118,
+    "name": "공작나비",
+    "type": "insect",
+    "location": "꽃밭-풍차꽃밭",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_공작나비.webp"
+  },
+  {
+    "id": 119,
+    "name": "신선나비",
+    "type": "insect",
+    "location": "온천산-온천",
+    "start_time": 0,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_신선나비.webp"
+  },
+  {
+    "id": 120,
+    "name": "흰마녀밤나방",
+    "type": "insect",
+    "location": "곤충 유인 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_흰마녀밤나방.webp"
+  },
+  {
+    "id": 121,
+    "name": "고산수염하늘소",
+    "type": "insect",
+    "location": "숲-숲속 섬",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bug_고산수염하늘소.webp"
+  },
+  {
+    "id": 122,
+    "name": "이색무당벌레",
+    "type": "insect",
+    "location": "숲-순록탑",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_이색무당벌레.webp"
+  },
+  {
+    "id": 123,
+    "name": "파푸아사마귀",
+    "type": "insect",
+    "location": "온천산-유적",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_파푸아사마귀.webp"
+  },
+  {
+    "id": 124,
+    "name": "보라벌",
+    "type": "insect",
+    "location": "꽃밭-고래산",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_보라벌.webp"
+  },
+  {
+    "id": 125,
+    "name": "녹색날개호랑나비",
+    "type": "insect",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_녹색날개호랑나비.webp"
+  },
+  {
+    "id": 126,
+    "name": "산악사슴벌레",
+    "type": "insect",
+    "location": "숲-점핑 플랫폼",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_산악사슴벌레.webp"
+  },
+  {
+    "id": 127,
+    "name": "은빛 보석풍뎅이",
+    "type": "insect",
+    "location": "온천산-바위절벽",
+    "start_time": 0,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_은빛보석풍뎅이.webp"
+  },
+  {
+    "id": 128,
+    "name": "파란노린재",
+    "type": "insect",
+    "location": "어촌-어촌등대",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_파란노린재.webp"
+  },
+  {
+    "id": 129,
+    "name": "물잠자리",
+    "type": "insect",
+    "location": "숲-숲속 호수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_물잠자리.webp"
+  },
+  {
+    "id": 130,
+    "name": "메넬라우스나비",
+    "type": "insect",
+    "location": "숲-영혼의 참나무숲",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_메넬라우스나비.webp"
+  },
+  {
+    "id": 131,
+    "name": "왕나비",
+    "type": "insect",
+    "location": "곤충 유인 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_왕나비.webp"
+  },
+  {
+    "id": 132,
+    "name": "티폰쇠똥구리",
+    "type": "insect",
+    "location": "온천산-유적",
+    "start_time": 0,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_티폰쇠똥구리.webp"
+  },
+  {
+    "id": 133,
+    "name": "보석꽃풍뎅이",
+    "type": "insect",
+    "location": "꽃밭-고래산",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_보석꽃풍뎅이.webp"
+  },
+  {
+    "id": 134,
+    "name": "황금 보석풍뎅이",
+    "type": "insect",
+    "location": "숲-점핑 플랫폼",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_황금보석풍뎅이.webp"
+  },
+  {
+    "id": 135,
+    "name": "찔레잠자리",
+    "type": "insect",
+    "location": "온천산-온천산수",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bug_찔레잠자리.webp"
+  },
+  {
+    "id": 136,
+    "name": "이사벨라나방",
+    "type": "insect",
+    "location": "숲-영혼의 참나무숲",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_이사벨라나방.webp"
+  },
+  {
+    "id": 137,
+    "name": "혜성 꼬리 나방",
+    "type": "insect",
+    "location": "도시 근교",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_혜성꼬리나방.webp"
+  },
+  {
+    "id": 138,
+    "name": "장수풍뎅이",
+    "type": "insect",
+    "location": "어촌-어촌 동쪽부두",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_장수풍뎅이.webp"
+  },
+  {
+    "id": 139,
+    "name": "피카소 노린재",
+    "type": "insect",
+    "location": "꽃밭-보라빛 해변",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_피카소노린재.webp"
+  },
+  {
+    "id": 140,
+    "name": "진주네발나비",
+    "type": "insect",
+    "location": "꽃밭",
+    "start_time": 0,
+    "end_time": 12,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_진주네발나비.webp"
+  },
+  {
+    "id": 141,
+    "name": "황금귀신사슴벌레",
+    "type": "insect",
+    "location": "숲-영혼의 참나무숲",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_황금귀신사슴벌레.webp"
+  },
+  {
+    "id": 142,
+    "name": "무지개사슴벌레",
+    "type": "insect",
+    "location": "곤충 유인 사건",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_무지개사슴벌레.webp"
+  },
+  {
+    "id": 143,
+    "name": "악마꽃사마귀",
+    "type": "insect",
+    "location": "온천산-유적",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/1777543442291_spr_ui_item_normal_p_insect_insect601.png"
+  },
+  {
+    "id": 144,
+    "name": "푸른목수벌",
+    "type": "insect",
+    "location": "어촌-어촌 광장",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bug_푸른목수벌.webp"
+  },
+  {
+    "id": 145,
+    "name": "헬레나 몰포나비",
+    "type": "insect",
+    "location": "꽃밭-보라빛 해변",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bug_헬레나몰포나비.webp"
+  },
+  {
+    "id": 146,
+    "name": "헤쿠바 몰포나비",
+    "type": "insect",
+    "location": "숲-순록탑",
+    "start_time": 6,
+    "end_time": 18,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/bug_헤쿠바몰포나비.webp"
+  },
+  {
+    "id": 147,
+    "name": "헤라클레스풍뎅이",
+    "type": "insect",
+    "location": "화산호수",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_헤라클레스풍뎅이.webp"
+  },
+  {
+    "id": 148,
+    "name": "나선주머니나방",
+    "type": "insect",
+    "location": "숲-순록탑",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/bug_나선주머니나방.webp"
+  }
+]

@@ -49,25 +49,22 @@ function scheduleSyncToFirestore() {
 
 // 1. JSON 데이터 불러오기
 async function loadData() {
-    try {
-        const [encResult, birdResult] = await Promise.allSettled([
-            fetch('./assets/data/encyclopedia.json').then(r => r.json()),
-            fetch('./assets/data/birds.json').then(r => r.json())
-        ]);
+    const files = ['fish', 'insect', 'birds', 'cat_food', 'dog_food', 'season'];
+    const results = await Promise.allSettled(
+        files.map(f => fetch(`./assets/data/${f}.json`).then(r => r.json()))
+    );
 
-        gameData = encResult.status === 'fulfilled' ? encResult.value : [];
-
-        if (birdResult.status === 'fulfilled') {
-            gameData = gameData.concat(birdResult.value);
+    gameData = [];
+    results.forEach((res, i) => {
+        if (res.status === 'fulfilled') {
+            gameData = gameData.concat(res.value);
         } else {
-            console.warn('조류 데이터 로드 실패:', birdResult.reason);
+            console.warn(`${files[i]}.json 로드 실패:`, res.reason);
         }
+    });
 
-        console.log("불러온 데이터:", gameData);
-        updateDisplay();
-    } catch (error) {
-        console.error("데이터 로드 실패:", error);
-    }
+    console.log("불러온 데이터:", gameData.length, "항목");
+    updateDisplay();
 }
 
 
