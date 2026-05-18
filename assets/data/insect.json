@@ -233,7 +233,7 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/1776430899706_spr_ui_item_normal_p_insect_insect405.png"
+    "image": "assets/images/spr_ui_item_normal_p_insect_insect405.png"
   },
   {
     "id": 102,
@@ -449,7 +449,7 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/1776431141883_spr_ui_item_normal_p_insect_insect602.png"
+    "image": "assets/images/spr_ui_item_normal_p_insect_insect602.png"
   },
   {
     "id": 118,
@@ -789,7 +789,7 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/1777543442291_spr_ui_item_normal_p_insect_insect601.png"
+    "image": "assets/images/spr_ui_item_normal_p_insect_insect601.png"
   },
   {
     "id": 144,
