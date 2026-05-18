@@ -22,6 +22,9 @@ function signInWithGoogle() {
 }
 
 function signOutUser() {
+    localStorage.removeItem('ddTownChecklist');
+    localStorage.removeItem('ddTownStarRatings');
+    localStorage.removeItem('ddTownPets');
     auth.signOut().then(() => {
         window.location.href = 'index.html';
     });
