@@ -1130,5 +1130,18 @@
       "rainbow"
     ],
     "image": "assets/images/fish_청상아리.webp"
+  },
+  {
+    "id": 85,
+    "name": "펄고기",
+    "type": "fish",
+    "location": "근교 호수",
+    "start_time": 0,
+    "end_time": 12,
+    "weather": [
+      "sunny",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_펄고기.jfif"
   }
 ]

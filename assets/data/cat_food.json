@@ -508,5 +508,11 @@
     "name": "청상아리",
     "type": "cat_food",
     "image": "assets/images/fish_청상아리.webp"
+  },
+  {
+    "id": 234,
+    "name": "펄고기",
+    "type": "cat_food",
+    "image": "assets/images/fish_펄고기.jfif"
   }
 ]
