@@ -463,10 +463,12 @@ function renderFoodList() {
 // ===== 데이터 로드 =====
 async function loadData() {
     try {
-        const response = await fetch('./assets/data/encyclopedia.json');
-        const allData = await response.json();
-        foodData.cat = allData.filter(i => i.type === 'cat_food');
-        foodData.dog = allData.filter(i => i.type === 'dog_food');
+        const [catRes, dogRes] = await Promise.all([
+            fetch('./assets/data/cat_food.json').then(r => r.json()),
+            fetch('./assets/data/dog_food.json').then(r => r.json()),
+        ]);
+        foodData.cat = catRes;
+        foodData.dog = dogRes;
 
         // 로컬 데이터 먼저 로드해서 즉시 렌더
         pets = JSON.parse(localStorage.getItem('ddTownPets')) || [];
