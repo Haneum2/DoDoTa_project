@@ -223,5 +223,80 @@
       "rainbow"
     ],
     "image": "assets/images/season_컬러풀 브릭 큰고추잠자리.webp"
+  },
+  {
+    "id": 274,
+    "name": "갈색 감독 난쟁이",
+    "type": "fish",
+    "location": "고래바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "season": true,
+    "image": "assets/images/fish_갈색 감독 난쟁이.webp"
+  },
+  {
+    "id": 275,
+    "name": "감청색 감독 난쟁이",
+    "type": "fish",
+    "location": "고래바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "season": true,
+    "image": "assets/images/fish_감청색 감독 난쟁이.webp"
+  },
+  {
+    "id": 276,
+    "name": "청록색 감독 난쟁이",
+    "type": "fish",
+    "location": "고래바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "season": true,
+    "image": "assets/images/fish_청록색 감독 난쟁이.webp"
+  },
+  {
+    "id": 277,
+    "name": "갈색 감독 참문어",
+    "type": "fish",
+    "location": "고래바다",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "season": true,
+    "image": "assets/images/fish_갈색 감독 참문어.webp"
+  },
+  {
+    "id": 278,
+    "name": "꽃무늬 감독 참문어",
+    "type": "fish",
+    "location": "이벤트-문어 엔터테인먼트",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "season": true,
+    "image": "assets/images/fish_꽃무늬 감독 참문어.webp"
   }
 ]
