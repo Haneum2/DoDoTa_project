@@ -323,7 +323,7 @@ function renderPetList() {
         const foods = foodData[pet.type] || [];
         const fs = pet.foodStatus || {};
         const counts = { favorite: 0, dislike: 0, full: 0, none: 0 };
-        foods.forEach(f => { counts[fs[f.id] || 'none']++; });
+        foods.forEach(f => { if (fs[f.id]) counts[fs[f.id]]++; });
         const icon = pet.type === 'cat' ? '🐱' : '🐶';
 
         const photoInner = pet.photo
@@ -378,8 +378,8 @@ function setFoodStatus(foodId, newStatus) {
     if (!pet) return;
     if (!pet.foodStatus) pet.foodStatus = {};
 
-    const current = pet.foodStatus[foodId] || 'none';
-    if (current === newStatus || newStatus === 'none') {
+    const current = pet.foodStatus[foodId] ?? null;
+    if (current === newStatus) {
         delete pet.foodStatus[foodId];
         savePets(); renderFoodList(); return;
     }
@@ -422,14 +422,14 @@ function renderFoodList() {
     const foods = foodData[pet.type] || [];
     const fs = pet.foodStatus;
     const counts = { favorite: 0, dislike: 0, full: 0, none: 0 };
-    foods.forEach(f => { counts[fs[f.id] || 'none']++; });
+    foods.forEach(f => { if (fs[f.id]) counts[fs[f.id]]++; });
 
     document.getElementById('detail-summary').innerHTML =
         `❤️ ${counts.favorite}/3 &nbsp;·&nbsp; 👎 싫어함 ${counts.dislike} &nbsp;·&nbsp; 🍽️ 배불림 ${counts.full} &nbsp;·&nbsp; ⬜ 보통 ${counts.none}`;
 
     const filtered = currentStatusFilter === 'all'
         ? foods
-        : foods.filter(f => (fs[f.id] || 'none') === currentStatusFilter);
+        : foods.filter(f => fs[f.id] === currentStatusFilter);
 
     const container = document.getElementById('detail-food-list');
 
@@ -438,13 +438,13 @@ function renderFoodList() {
         return;
     }
 
-    const statusLabel = { favorite: '❤️ 좋아함', dislike: '👎 싫어함', full: '🍽️ 배불림', none: '' };
+    const statusLabel = { favorite: '❤️ 좋아함', dislike: '👎 싫어함', full: '🍽️ 배불림', none: '⬜ 보통' };
 
     container.innerHTML = filtered.map(food => {
-        const status = fs[food.id] || 'none';
-        const label = statusLabel[status];
+        const status = fs[food.id] ?? null;
+        const label = status ? (statusLabel[status] || '') : '';
         return `
-            <div class="card food-card status-${status}">
+            <div class="card food-card${status ? ' status-' + status : ''}">
                 ${label ? `<div class="food-status-badge badge-${status}">${label}</div>` : ''}
                 <img src="${food.image}" alt="${food.name}" onerror="this.style.display='none'">
                 <h3>${food.name}</h3>
@@ -455,7 +455,7 @@ function renderFoodList() {
                         onclick="setFoodStatus(${food.id}, 'dislike')" title="싫어하는 음식">👎</button>
                     <button class="status-btn btn-full ${status === 'full' ? 'active' : ''}"
                         onclick="setFoodStatus(${food.id}, 'full')" title="배불리 먹은 음식">🍽️</button>
-                    <button class="status-btn btn-none"
+                    <button class="status-btn btn-none ${status === 'none' ? 'active' : ''}"
                         onclick="setFoodStatus(${food.id}, 'none')" title="보통">⬜</button>
                 </div>
             </div>`;
