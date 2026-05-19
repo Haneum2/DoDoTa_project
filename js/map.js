@@ -19,7 +19,7 @@ const MAP_LOCATIONS = [
     { id: 'hotsp_lk2',   name: '온천산 호수',        x: 50,  y: 28,  type: 'lake',   match: ['온천산 호수', '온천산 - 호수', '온천산 - 호숫가'] },
     { id: 'prairie_lk',  name: '초원 호수',          x: 21,  y: 55,  type: 'lake',   match: ['초원 호수'] },
     { id: 'suburb_lk1',  name: '근교 호수',          x: 44,  y: 39,  type: 'lake',   match: ['근교 호수', '근교 호숫가'] },
-    { id: 'suburb_lk2',  name: '근교 호수',          x: 54,  y: 46,  type: 'lake',   match: ['근교 호수', '근교 호숫가'] },
+    { id: 'suburb_lk2',  name: '근교 호수',          x: 63,  y: 44,  type: 'lake',   match: ['근교 호수', '근교 호숫가'] },
     { id: 'forest_lk1',  name: '숲속 호수',          x: 78,  y: 44,  type: 'lake',   match: ['숲속 호수', '숲-숲속 호수', '숲 - 호수', '숲 - 호숫가'] },
     { id: 'forest_lk2',  name: '숲속 호수',          x: 72,  y: 63,  type: 'lake',   match: ['숲속 호수', '숲-숲속 호수', '숲 - 호수', '숲 - 호숫가'] },
 
