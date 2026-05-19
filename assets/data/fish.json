@@ -11,7 +11,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_바벨.webp"
+    "image": "assets/images/fish_바벨.webp",
+    "size": "중간",
+    "prices": [
+      75,
+      112,
+      150,
+      null,
+      null
+    ]
   },
   {
     "id": 2,
@@ -25,7 +33,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_민물배스.webp"
+    "image": "assets/images/fish_민물배스.webp",
+    "size": "중간",
+    "prices": [
+      75,
+      112,
+      150,
+      300,
+      600
+    ]
   },
   {
     "id": 3,
@@ -39,7 +55,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_틸라피아.webp"
+    "image": "assets/images/fish_틸라피아.webp",
+    "size": "푸른색",
+    "prices": [
+      null,
+      480,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 4,
@@ -53,7 +77,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_왕새우.webp"
+    "image": "assets/images/fish_왕새우.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      400
+    ]
   },
   {
     "id": 5,
@@ -67,7 +99,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_하늘종개.webp"
+    "image": "assets/images/fish_하늘종개.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      null
+    ]
   },
   {
     "id": 6,
@@ -80,7 +120,15 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_민물잰더.webp"
+    "image": "assets/images/fish_민물잰더.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      460,
+      null,
+      920
+    ]
   },
   {
     "id": 7,
@@ -94,7 +142,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_레드벨리피라냐.webp"
+    "image": "assets/images/fish_레드벨리피라냐.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      460,
+      920,
+      null
+    ]
   },
   {
     "id": 8,
@@ -106,7 +162,25 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_후첸.webp"
+    "image": "assets/images/fish_후첸.webp",
+    "size": "중간",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "time_ranges": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        24
+      ]
+    ]
   },
   {
     "id": 9,
@@ -120,7 +194,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_큰얼룩배스.webp"
+    "image": "assets/images/fish_큰얼룩배스.webp",
+    "size": "중간",
+    "prices": [
+      50,
+      75,
+      100,
+      null,
+      null
+    ]
   },
   {
     "id": 10,
@@ -133,7 +215,15 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽잉어.webp"
+    "image": "assets/images/fish_유럽잉어.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      null,
+      null,
+      920,
+      null
+    ]
   },
   {
     "id": 11,
@@ -147,7 +237,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_민물베도라치.webp"
+    "image": "assets/images/fish_민물베도라치.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      null,
+      300,
+      600,
+      null
+    ]
   },
   {
     "id": 12,
@@ -161,7 +259,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_미노우.webp"
+    "image": "assets/images/fish_미노우.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      null
+    ]
   },
   {
     "id": 13,
@@ -175,7 +281,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_민물대구.webp"
+    "image": "assets/images/fish_민물대구.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      null,
+      460,
+      null,
+      null
+    ]
   },
   {
     "id": 14,
@@ -187,7 +301,15 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_첨연어.webp"
+    "image": "assets/images/fish_첨연어.webp",
+    "size": "작다",
+    "prices": [
+      null,
+      225,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 15,
@@ -200,7 +322,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_큰가시고기.webp"
+    "image": "assets/images/fish_큰가시고기.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      225,
+      null,
+      600,
+      null
+    ]
   },
   {
     "id": 17,
@@ -214,7 +344,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽처브.webp"
+    "image": "assets/images/fish_유럽처브.webp",
+    "size": "중간",
+    "prices": [
+      75,
+      112,
+      150,
+      300,
+      600
+    ]
   },
   {
     "id": 18,
@@ -228,7 +366,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽백조어.webp"
+    "image": "assets/images/fish_유럽백조어.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      400
+    ]
   },
   {
     "id": 19,
@@ -242,7 +388,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_텐치.webp"
+    "image": "assets/images/fish_텐치.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      null
+    ]
   },
   {
     "id": 20,
@@ -256,7 +410,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_머드개복치.webp"
+    "image": "assets/images/fish_머드개복치.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      null,
+      400,
+      null
+    ]
   },
   {
     "id": 21,
@@ -270,7 +432,25 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽민물가재.webp"
+    "image": "assets/images/fish_유럽민물가재.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      null,
+      null
+    ],
+    "time_ranges": [
+      [
+        0,
+        12
+      ],
+      [
+        18,
+        24
+      ]
+    ]
   },
   {
     "id": 22,
@@ -283,21 +463,37 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_큰입배스.webp"
+    "image": "assets/images/fish_큰입배스.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      460,
+      920,
+      null
+    ]
   },
   {
     "id": 24,
     "name": "북유럽파란가재",
     "type": "fish",
     "location": "숲속 호수",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "sunny",
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_북유럽파란가재.webp"
+    "image": "assets/images/fish_북유럽파란가재.webp",
+    "size": "작다",
+    "prices": [
+      250,
+      375,
+      500,
+      null,
+      null
+    ]
   },
   {
     "id": 25,
@@ -310,7 +506,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_북극곤들매기.webp"
+    "image": "assets/images/fish_북극곤들매기.webp",
+    "size": "중간",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 26,
@@ -324,7 +528,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_극지연어.webp"
+    "image": "assets/images/fish_극지연어.webp",
+    "size": "중간",
+    "prices": [
+      105,
+      157,
+      210,
+      null,
+      null
+    ]
   },
   {
     "id": 27,
@@ -338,7 +550,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_매화농어.webp"
+    "image": "assets/images/fish_매화농어.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      null,
+      null
+    ]
   },
   {
     "id": 28,
@@ -351,7 +571,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_올챙이.webp"
+    "image": "assets/images/fish_올챙이.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      null,
+      null
+    ]
   },
   {
     "id": 29,
@@ -364,7 +592,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_둑중개.webp"
+    "image": "assets/images/fish_둑중개.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      225,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 30,
@@ -377,20 +613,36 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_펌프킨시드.webp"
+    "image": "assets/images/fish_펌프킨시드.webp",
+    "size": "작다",
+    "prices": [
+      250,
+      375,
+      null,
+      1000,
+      null
+    ]
   },
   {
     "id": 31,
     "name": "블루길",
     "type": "fish",
     "location": "온천산 호수",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_블루길.webp"
+    "image": "assets/images/fish_블루길.webp",
+    "size": "작다",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 32,
@@ -404,7 +656,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_붕어.webp"
+    "image": "assets/images/fish_붕어.webp",
+    "size": "중간",
+    "prices": [
+      75,
+      112,
+      150,
+      300,
+      600
+    ]
   },
   {
     "id": 33,
@@ -418,7 +678,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_백조어.webp"
+    "image": "assets/images/fish_백조어.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      null,
+      null
+    ]
   },
   {
     "id": 34,
@@ -432,7 +700,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_돌마자.webp"
+    "image": "assets/images/fish_돌마자.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      null,
+      null
+    ]
   },
   {
     "id": 35,
@@ -445,7 +721,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_홍합.webp"
+    "image": "assets/images/fish_홍합.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 36,
@@ -459,7 +743,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_민물게.webp"
+    "image": "assets/images/fish_민물게.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      400,
+      null
+    ]
   },
   {
     "id": 37,
@@ -473,7 +765,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_루드.webp"
+    "image": "assets/images/fish_루드.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      225,
+      null,
+      600,
+      null
+    ]
   },
   {
     "id": 38,
@@ -487,7 +787,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_사루기.webp"
+    "image": "assets/images/fish_사루기.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      460,
+      920,
+      null
+    ]
   },
   {
     "id": 39,
@@ -500,7 +808,25 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_줄무늬송사리.webp"
+    "image": "assets/images/fish_줄무늬송사리.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      225,
+      null,
+      null,
+      null
+    ],
+    "time_ranges": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        24
+      ]
+    ]
   },
   {
     "id": 40,
@@ -513,20 +839,36 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_펄고기.webp"
+    "image": "assets/images/fish_펄고기.webp",
+    "size": "작다",
+    "prices": [
+      250,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 41,
     "name": "강꼬치고기",
     "type": "fish",
     "location": "근교 호수",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_강꼬치고기.webp"
+    "image": "assets/images/fish_강꼬치고기.webp",
+    "size": "중간",
+    "prices": [
+      610,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 42,
@@ -540,7 +882,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_바다빙어.webp"
+    "image": "assets/images/fish_바다빙어.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      400,
+      800
+    ]
   },
   {
     "id": 43,
@@ -553,20 +903,36 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_나비잉어.webp"
+    "image": "assets/images/fish_나비잉어.webp",
+    "size": "크다",
+    "prices": [
+      320,
+      480,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 44,
     "name": "송어",
     "type": "fish",
     "location": "초원 호수",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_송어.webp"
+    "image": "assets/images/fish_송어.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      460,
+      null,
+      null
+    ]
   },
   {
     "id": 45,
@@ -579,20 +945,36 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_금붕어.webp"
+    "image": "assets/images/fish_금붕어.webp",
+    "size": "작다",
+    "prices": [
+      null,
+      null,
+      null,
+      1000,
+      null
+    ]
   },
   {
     "id": 46,
     "name": "유럽메기",
     "type": "fish",
     "location": "초원 호수",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽메기.webp"
+    "image": "assets/images/fish_유럽메기.webp",
+    "size": "중간",
+    "prices": [
+      null,
+      915,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 47,
@@ -606,7 +988,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_정어리.webp"
+    "image": "assets/images/fish_정어리.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      null,
+      400
+    ]
   },
   {
     "id": 48,
@@ -620,7 +1010,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_배스.webp"
+    "image": "assets/images/fish_배스.webp",
+    "size": "중간",
+    "prices": [
+      75,
+      112,
+      150,
+      300,
+      600
+    ]
   },
   {
     "id": 49,
@@ -634,7 +1032,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_가다랑어.webp"
+    "image": "assets/images/fish_가다랑어.webp",
+    "size": "크다",
+    "prices": [
+      210,
+      315,
+      420,
+      840,
+      null
+    ]
   },
   {
     "id": 50,
@@ -648,7 +1054,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_대서양은상어.webp"
+    "image": "assets/images/fish_대서양은상어.webp",
+    "size": "푸른색",
+    "prices": [
+      320,
+      480,
+      640,
+      1280,
+      null
+    ]
   },
   {
     "id": 51,
@@ -662,7 +1076,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_갈치.webp"
+    "image": "assets/images/fish_갈치.webp",
+    "size": "크다",
+    "prices": [
+      105,
+      157,
+      210,
+      420,
+      null
+    ]
   },
   {
     "id": 52,
@@ -676,7 +1098,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_노란전갱이.webp"
+    "image": "assets/images/fish_노란전갱이.webp",
+    "size": "중간",
+    "prices": [
+      155,
+      232,
+      310,
+      620,
+      1240
+    ]
   },
   {
     "id": 53,
@@ -690,34 +1120,58 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_대서양난쟁이문어.webp"
+    "image": "assets/images/fish_대서양난쟁이문어.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      225,
+      300,
+      600,
+      1200
+    ]
   },
   {
     "id": 54,
     "name": "유럽가재",
     "type": "fish",
     "location": "잔잔한 바다",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "sunny",
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽가재.webp"
+    "image": "assets/images/fish_유럽가재.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      460,
+      null,
+      null
+    ]
   },
   {
     "id": 55,
     "name": "검은점돔",
     "type": "fish",
     "location": "잔잔한 바다",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_검은점돔.webp"
+    "image": "assets/images/fish_검은점돔.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 56,
@@ -729,7 +1183,15 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_참다랑어.webp"
+    "image": "assets/images/fish_참다랑어.webp",
+    "size": "크다",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 57,
@@ -743,13 +1205,21 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_바다새우.webp"
+    "image": "assets/images/fish_바다새우.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      400
+    ]
   },
   {
     "id": 58,
     "name": "소라게",
     "type": "fish",
-    "location": "동해",
+    "location": "숲속 섬",
     "start_time": 0,
     "end_time": 24,
     "weather": [
@@ -757,7 +1227,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_소라게.webp"
+    "image": "assets/images/fish_소라게.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      null,
+      null
+    ]
   },
   {
     "id": 59,
@@ -771,7 +1249,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_망둥어.webp"
+    "image": "assets/images/fish_망둥어.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      225,
+      300,
+      600,
+      1200
+    ]
   },
   {
     "id": 60,
@@ -783,7 +1269,15 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_등불성대.webp"
+    "image": "assets/images/fish_등불성대.webp",
+    "size": "중간",
+    "prices": [
+      380,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 61,
@@ -796,7 +1290,25 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_해덕대구.webp"
+    "image": "assets/images/fish_해덕대구.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      null,
+      null,
+      null
+    ],
+    "time_ranges": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        24
+      ]
+    ]
   },
   {
     "id": 62,
@@ -806,9 +1318,19 @@
     "start_time": 0,
     "end_time": 12,
     "weather": [
+      "sunny",
+      "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_개복치.webp"
+    "image": "assets/images/fish_개복치.webp",
+    "size": "크다",
+    "prices": [
+      850,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 63,
@@ -822,7 +1344,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_전갱이.webp"
+    "image": "assets/images/fish_전갱이.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      400
+    ]
   },
   {
     "id": 65,
@@ -836,7 +1366,25 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_대서양연어.webp"
+    "image": "assets/images/fish_대서양연어.webp",
+    "size": "중간",
+    "prices": [
+      155,
+      232,
+      310,
+      null,
+      null
+    ],
+    "time_ranges": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        24
+      ]
+    ]
   },
   {
     "id": 66,
@@ -849,7 +1397,15 @@
       "sunny",
       "rainbow"
     ],
-    "image": "assets/images/fish_대서양고등어.webp"
+    "image": "assets/images/fish_대서양고등어.webp",
+    "size": "작다",
+    "prices": [
+      150,
+      225,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 67,
@@ -861,7 +1417,15 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_킹크랩.webp"
+    "image": "assets/images/fish_킹크랩.webp",
+    "size": "크다",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 68,
@@ -873,7 +1437,15 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_황새치.webp"
+    "image": "assets/images/fish_황새치.webp",
+    "size": "크다",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 69,
@@ -887,7 +1459,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_바다가시고기.webp"
+    "image": "assets/images/fish_바다가시고기.webp",
+    "size": "작다",
+    "prices": [
+      50,
+      75,
+      100,
+      200,
+      400
+    ]
   },
   {
     "id": 70,
@@ -901,21 +1481,37 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_흰동가리.webp"
+    "image": "assets/images/fish_흰동가리.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      null,
+      400,
+      null
+    ]
   },
   {
     "id": 71,
     "name": "유럽가자미",
     "type": "fish",
     "location": "구해",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "sunny",
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽가자미.webp"
+    "image": "assets/images/fish_유럽가자미.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      null,
+      920,
+      null
+    ]
   },
   {
     "id": 72,
@@ -929,7 +1525,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_복어.webp"
+    "image": "assets/images/fish_복어.webp",
+    "size": "중간",
+    "prices": [
+      230,
+      345,
+      460,
+      920,
+      1840
+    ]
   },
   {
     "id": 73,
@@ -941,19 +1545,35 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽장어.webp"
+    "image": "assets/images/fish_유럽장어.webp",
+    "size": "중간",
+    "prices": [
+      380,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 74,
     "name": "귀상어",
     "type": "fish",
     "location": "구해",
-    "start_time": 0,
-    "end_time": 24,
+    "start_time": 18,
+    "end_time": 6,
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_귀상어.webp"
+    "image": "assets/images/fish_귀상어.webp",
+    "size": "크다",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 75,
@@ -967,7 +1587,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_노랑촉수.webp"
+    "image": "assets/images/fish_노랑촉수.webp",
+    "size": "황금",
+    "prices": [
+      320,
+      480,
+      640,
+      1280,
+      null
+    ]
   },
   {
     "id": 76,
@@ -981,7 +1609,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_아귀.webp"
+    "image": "assets/images/fish_아귀.webp",
+    "size": "황금",
+    "prices": [
+      320,
+      480,
+      640,
+      1280,
+      null
+    ]
   },
   {
     "id": 77,
@@ -995,7 +1631,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_참문어.webp"
+    "image": "assets/images/fish_참문어.webp",
+    "size": "황금",
+    "prices": [
+      320,
+      480,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 78,
@@ -1009,7 +1653,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_대문짝넙치.webp"
+    "image": "assets/images/fish_대문짝넙치.webp",
+    "size": "황금",
+    "prices": [
+      320,
+      480,
+      null,
+      1280,
+      null
+    ]
   },
   {
     "id": 79,
@@ -1023,7 +1675,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_유럽날오징어.webp"
+    "image": "assets/images/fish_유럽날오징어.webp",
+    "size": "황금",
+    "prices": [
+      320,
+      480,
+      640,
+      1280,
+      null
+    ]
   },
   {
     "id": 81,
@@ -1037,7 +1697,15 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_산갈치.webp"
+    "image": "assets/images/fish_산갈치.webp",
+    "size": "황금",
+    "prices": [
+      535,
+      802,
+      1070,
+      2140,
+      null
+    ]
   },
   {
     "id": 82,
@@ -1049,7 +1717,15 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_황금 킹크랩.webp"
+    "image": "assets/images/fish_황금 킹크랩.webp",
+    "size": "황금",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   },
   {
     "id": 84,
@@ -1061,6 +1737,14 @@
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_청상아리.webp"
+    "image": "assets/images/fish_청상아리.webp",
+    "size": "황금",
+    "prices": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
   }
 ]

@@ -79,16 +79,19 @@ function isAvailable(item) {
 
     const currentHour = new Date().getHours();
 
-    // 시간 체크 (자정 포함 로직)
+    // 시간 체크 (분리 구간 및 자정 포함)
     let timeMatch = false;
-    if (item.start_time <= item.end_time) {
+    if (item.time_ranges) {
+        timeMatch = item.time_ranges.some(([s, e]) =>
+            s <= e ? currentHour >= s && currentHour < e
+                   : currentHour >= s || currentHour < e
+        );
+    } else if (item.start_time <= item.end_time) {
         timeMatch = currentHour >= item.start_time && currentHour < item.end_time;
     } else {
         timeMatch = currentHour >= item.start_time || currentHour < item.end_time;
     }
 
-    // 날씨 체크
-    // main.js 내부의 weatherMatch 부분 수정
     const weatherMatch = item.weather.some(w =>
         w.trim().toLowerCase() === currentSelectedWeather.trim().toLowerCase()
     );
@@ -197,7 +200,7 @@ function buildCardHTML(item, dimmed) {
             <div class="card-text">
                 <h3>${item.name}</h3>
                 <p class="card-location">📍 ${item.location}</p>
-                <p class="card-time">${(!isPetFood && !isBird) ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
+                <p class="card-time">${(!isPetFood && !isBird) ? '⏰ ' + (item.time_ranges ? item.time_ranges.map(([s,e])=>`${s}:00~${e}:00`).join(' / ') : `${item.start_time}:00 ~ ${item.end_time}:00`) : '&nbsp;'}</p>
             </div>
             <div class="star-rating" data-id="${item.id}" onclick="event.stopPropagation()">
                 ${starsHTML}
@@ -372,9 +375,15 @@ function openItemDetail(id) {
         ? '전체 (맑음 · 비 · 무지개)'
         : (item.weather || []).map(w => weatherLabel[w] || w).join(' · ');
 
-    const timeText = (!isPetFood && !isBird && item.start_time !== undefined)
-        ? `${item.start_time}:00 ~ ${item.end_time}:00${item.start_time === 0 && item.end_time === 24 ? ' (상시)' : ''}`
-        : null;
+    let timeText = null;
+    if (!isPetFood && !isBird) {
+        if (item.time_ranges) {
+            timeText = item.time_ranges.map(([s,e]) => `${s}:00 ~ ${e}:00`).join(' / ');
+        } else if (item.start_time !== undefined) {
+            const isAlways = item.start_time === 0 && item.end_time === 24;
+            timeText = `${item.start_time}:00 ~ ${item.end_time}:00${isAlways ? ' (상시)' : ''}`;
+        }
+    }
 
     const sizeRow = item.size
         ? `<div class="detail-row"><span class="detail-label">📏 크기</span><span>${sizeIcon[item.size] || ''} ${item.size}</span></div>`
