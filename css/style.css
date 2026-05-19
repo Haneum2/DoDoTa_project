@@ -1488,7 +1488,7 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     border-color: #3a3a5a;
 }
 
-[data-theme="dark"] .star { color: rgba(255,255,255,0.1); }
+[data-theme="dark"] .star { color: rgba(255,255,255,0.32); }
 [data-theme="dark"] .star-rating { border-top-color: rgba(255,255,255,0.06); }
 
 [data-theme="dark"] .weather-btn {
