@@ -3,7 +3,7 @@
 const MAP_LOCATIONS = [
     // ── 바다 ──
     { id: 'old_sea',     name: '구해',              x: 49,  y:  8,  type: 'sea',    match: ['구해', '구해 - 해변'] },
-    { id: 'whale_sea',   name: '고래바다',           x: 14,  y: 52,  type: 'sea',    match: ['고래 바다', '고래바다', '고래바다 해변', '구해, 고래바다'] },
+    { id: 'whale_sea',   name: '고래바다',           x:  7,  y: 57,  type: 'sea',    match: ['고래 바다', '고래바다', '고래바다 해변', '구해, 고래바다'] },
     { id: 'east_sea',    name: '동해',               x: 88,  y: 49,  type: 'sea',    match: ['동해', '동해 - 해변', '동해, 잔잔한 바다', '바다 - 동해'] },
     { id: 'calm_sea',    name: '잔잔한 바다',        x: 49,  y: 73,  type: 'sea',    match: ['잔잔한 바다', '바다 낚시', '동해, 잔잔한 바다', '바다'] },
 
@@ -17,7 +17,7 @@ const MAP_LOCATIONS = [
     { id: 'volcano_lk',  name: '화산 호수',          x: 37,  y: 18,  type: 'lake',   match: ['화산호수', '온천산-화산 호수', '온천산 - 화산 호수'] },
     { id: 'hotsp_lk1',   name: '온천산 호수',        x: 43,  y: 22,  type: 'lake',   match: ['온천산 호수', '온천산 - 호수', '온천산 - 호숫가'] },
     { id: 'hotsp_lk2',   name: '온천산 호수',        x: 50,  y: 28,  type: 'lake',   match: ['온천산 호수', '온천산 - 호수', '온천산 - 호숫가'] },
-    { id: 'prairie_lk',  name: '초원 호수',          x: 33,  y: 50,  type: 'lake',   match: ['초원 호수'] },
+    { id: 'prairie_lk',  name: '초원 호수',          x: 21,  y: 55,  type: 'lake',   match: ['초원 호수'] },
     { id: 'suburb_lk1',  name: '근교 호수',          x: 44,  y: 39,  type: 'lake',   match: ['근교 호수', '근교 호숫가'] },
     { id: 'suburb_lk2',  name: '근교 호수',          x: 54,  y: 46,  type: 'lake',   match: ['근교 호수', '근교 호숫가'] },
     { id: 'forest_lk1',  name: '숲속 호수',          x: 78,  y: 44,  type: 'lake',   match: ['숲속 호수', '숲-숲속 호수', '숲 - 호수', '숲 - 호숫가'] },
@@ -35,7 +35,7 @@ const MAP_LOCATIONS = [
     { id: 'jump_plat',   name: '점핑 플랫폼',        x: 77,  y: 66,  type: 'spot',   match: ['숲-점핑 플랫폼', '숲 - 점핑 플랫폼'] },
 
     // ── 꽃밭 지역 ──
-    { id: 'whale_mt',    name: '고래산',             x: 21,  y: 46,  type: 'spot',   match: ['꽃밭 - 고래산', '꽃밭-고래산'] },
+    { id: 'whale_mt',    name: '고래산',             x: 16,  y: 46,  type: 'spot',   match: ['꽃밭 - 고래산', '꽃밭-고래산'] },
     { id: 'windmill',    name: '풍차 꽃밭',          x: 21,  y: 61,  type: 'spot',   match: ['꽃밭 - 풍차꽃밭', '꽃밭-풍차꽃밭', '꽃밭'] },
     { id: 'purple_bch',  name: '보라빛 해변',        x: 21,  y: 75,  type: 'spot',   match: ['꽃밭 - 보라빛 해변', '꽃밭-보라빛 해변', '해변', '고래바다 해변'] },
 
