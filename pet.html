@@ -59,6 +59,11 @@
             <button class="sfil-btn"        data-status="full"     onclick="setStatusFilter('full')">🍽️ 배불림</button>
         </div>
 
+        <!-- 검색창 -->
+        <div class="pet-search-bar">
+            <input type="search" id="food-search-input" placeholder="🔍 먹이 이름 검색..." oninput="setFoodSearch(this.value)">
+        </div>
+
         <main id="detail-food-list" class="grid-container"></main>
     </div>
 

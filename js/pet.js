@@ -5,6 +5,7 @@ let pets = [];
 let selectedPetId = null;
 let newPetType = 'cat';
 let currentStatusFilter = 'all';
+let currentSearchQuery = '';
 let currentUser = null;
 let authInitialized = false;
 
@@ -291,6 +292,7 @@ function deletePet(id) {
 // ===== 뷰 전환 =====
 function showListView() {
     currentStatusFilter = 'all';
+    currentSearchQuery = '';
     document.getElementById('view-list').style.display = 'block';
     document.getElementById('view-detail').style.display = 'none';
     renderPetList();
@@ -299,6 +301,8 @@ function showListView() {
 function showDetailView(petId) {
     selectedPetId = petId;
     currentStatusFilter = 'all';
+    currentSearchQuery = '';
+    document.getElementById('food-search-input').value = '';
     document.getElementById('view-list').style.display = 'none';
     document.getElementById('view-detail').style.display = 'block';
     updateStatusFilterUI();
@@ -397,6 +401,12 @@ function setFoodStatus(foodId, newStatus) {
     renderFoodList();
 }
 
+// ===== 검색 =====
+function setFoodSearch(query) {
+    currentSearchQuery = query.trim();
+    renderFoodList();
+}
+
 // ===== 상태 필터 =====
 function setStatusFilter(status) {
     currentStatusFilter = status;
@@ -427,9 +437,12 @@ function renderFoodList() {
     document.getElementById('detail-summary').innerHTML =
         `❤️ ${counts.favorite}/3 &nbsp;·&nbsp; 👎 싫어함 ${counts.dislike} &nbsp;·&nbsp; 🍽️ 배불림 ${counts.full} &nbsp;·&nbsp; 😐 보통 ${counts.none}`;
 
-    const filtered = currentStatusFilter === 'all'
-        ? foods
-        : foods.filter(f => fs[f.id] === currentStatusFilter);
+    const q = currentSearchQuery.toLowerCase();
+    const filtered = foods.filter(f => {
+        const matchStatus = currentStatusFilter === 'all' || fs[f.id] === currentStatusFilter;
+        const matchSearch = !q || f.name.toLowerCase().includes(q);
+        return matchStatus && matchSearch;
+    });
 
     const container = document.getElementById('detail-food-list');
 
