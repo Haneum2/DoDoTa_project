@@ -21,7 +21,7 @@ const MAP_LOCATIONS = [
     { id: 'suburb_lk1',  name: '근교 호수',          x: 44,  y: 39,  type: 'lake',   match: ['근교 호수', '근교 호숫가'] },
     { id: 'suburb_lk2',  name: '근교 호수',          x: 54,  y: 46,  type: 'lake',   match: ['근교 호수', '근교 호숫가'] },
     { id: 'forest_lk1',  name: '숲속 호수',          x: 78,  y: 44,  type: 'lake',   match: ['숲속 호수', '숲-숲속 호수', '숲 - 호수', '숲 - 호숫가'] },
-    { id: 'forest_lk2',  name: '숲속 호수',          x: 78,  y: 55,  type: 'lake',   match: ['숲속 호수', '숲-숲속 호수', '숲 - 호수', '숲 - 호숫가'] },
+    { id: 'forest_lk2',  name: '숲속 호수',          x: 72,  y: 63,  type: 'lake',   match: ['숲속 호수', '숲-숲속 호수', '숲 - 호수', '숲 - 호숫가'] },
 
     // ── 온천산 지역 ──
     { id: 'ruins',       name: '유적',               x: 29,  y: 18,  type: 'spot',   match: ['온천산 - 유적', '온천산-유적'] },

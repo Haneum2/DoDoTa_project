@@ -2014,7 +2014,7 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     flex-direction: column;
     gap: 16px;
     padding: 16px;
-    max-width: 900px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -2025,7 +2025,7 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 .map-wrapper {
     position: relative;
     width: 100%;
-    max-width: 560px;
+    max-width: 850px;
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
