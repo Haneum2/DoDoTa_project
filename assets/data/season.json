@@ -304,26 +304,42 @@
     "name": "얼음 결정 킹크랩",
     "type": "fish",
     "season": true,
-    "location": "고래 바다",
+    "location": "구해",
     "start_time": 6,
     "end_time": 24,
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_킹크랩.webp"
+    "image": "assets/images/fish_킹크랩.webp",
+    "size": "크다",
+    "prices": [
+      215,
+      322,
+      430,
+      null,
+      null
+    ]
   },
   {
     "id": 280,
     "name": "얼음 결정 개복치",
     "type": "fish",
     "season": true,
-    "location": "동해",
+    "location": "구해",
     "start_time": 0,
     "end_time": 12,
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_개복치.webp"
+    "image": "assets/images/fish_개복치.webp",
+    "size": "크다",
+    "prices": [
+      215,
+      322,
+      430,
+      860,
+      null
+    ]
   },
   {
     "id": 281,
@@ -338,14 +354,22 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_복어.webp"
+    "image": "assets/images/fish_복어.webp",
+    "size": "중간",
+    "prices": [
+      155,
+      232,
+      310,
+      null,
+      null
+    ]
   },
   {
     "id": 282,
     "name": "얼음 결정 해마",
     "type": "fish",
     "season": true,
-    "location": "고래 바다",
+    "location": "구해",
     "start_time": 0,
     "end_time": 18,
     "weather": [
@@ -353,19 +377,35 @@
       "rainy",
       "rainbow"
     ],
-    "image": "assets/images/fish_해마.webp"
+    "image": "assets/images/fish_해마.webp",
+    "size": "작다",
+    "prices": [
+      100,
+      150,
+      200,
+      null,
+      null
+    ]
   },
   {
     "id": 283,
     "name": "얼음 결정 고래상어",
     "type": "fish",
     "season": true,
-    "location": "구해",
+    "location": "얼음 결정 물고기 사건 [추가사건]",
     "start_time": 0,
     "end_time": 24,
     "weather": [
       "rainbow"
     ],
-    "image": "assets/images/fish_default.png"
+    "image": "assets/images/fish_default.png",
+    "size": "크다",
+    "prices": [
+      null,
+      480,
+      null,
+      null,
+      null
+    ]
   }
 ]
