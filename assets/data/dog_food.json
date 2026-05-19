@@ -1,7 +1,7 @@
 [
   {
     "id": 234,
-    "name": "개사료",
+    "name": "강아지 사료",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
@@ -67,55 +67,55 @@
   },
   {
     "id": 245,
-    "name": "느타리버섯파이",
+    "name": "느타리버섯 파이",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 246,
-    "name": "표고버섯파이",
+    "name": "표고버섯 파이",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 247,
-    "name": "양송이버섯파이",
+    "name": "양송이버섯 파이",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 248,
-    "name": "믹시드 잼",
+    "name": "믹스드 잼",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 249,
-    "name": "라즈베리잼",
+    "name": "라즈베리 잼",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 250,
-    "name": "사과잼",
+    "name": "사과 잼",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 251,
-    "name": "블루베리잼",
+    "name": "블루베리 잼",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 252,
-    "name": "딸기잼",
+    "name": "딸기 잼",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 253,
-    "name": "케찹",
+    "name": "케첩",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
@@ -145,13 +145,13 @@
   },
   {
     "id": 258,
-    "name": "미트 소스 파스타",
+    "name": "미트소스 파스타",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 259,
-    "name": "콘스프",
+    "name": "콘수프",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   },
@@ -174,8 +174,14 @@
     "image": "assets/images/fish_default.png"
   },
   {
-    "id": 263,
-    "name": "황금킹크랩찜",
+    "id": 310,
+    "name": "갈은 무와 스테이크",
+    "type": "dog_food",
+    "image": "assets/images/fish_default.png"
+  },
+  {
+    "id": 311,
+    "name": "무 크림 수프",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
   }
