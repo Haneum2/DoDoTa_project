@@ -1861,3 +1861,145 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
     pointer-events: none;
     z-index: 1;
 }
+
+/* ===== 아이템 상세 뷰 ===== */
+.item-detail-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    background: rgba(0,0,0,0);
+    transition: background 0.3s;
+}
+.item-detail-overlay.open {
+    background: rgba(0,0,0,0.45);
+}
+.item-detail-panel {
+    width: 100%;
+    max-height: 92dvh;
+    background: var(--card-bg, #fff);
+    border-radius: 24px 24px 0 0;
+    padding: 20px 20px 36px;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.18);
+}
+.item-detail-overlay.open .item-detail-panel {
+    transform: translateY(0);
+}
+
+.item-detail-back {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0 0 16px 0;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.detail-img-wrap {
+    position: relative;
+    text-align: center;
+    margin-bottom: 12px;
+}
+.detail-img-wrap .season-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.detail-img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+.detail-name {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 0 0 20px;
+    color: var(--text-color);
+}
+
+.detail-info {
+    background: var(--main-bg, #f8f8f8);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+.detail-label {
+    color: #888;
+    font-size: 0.88rem;
+}
+
+.detail-prices-section {
+    margin-bottom: 20px;
+}
+.detail-prices-title {
+    font-size: 0.95rem;
+    margin: 0 0 10px;
+    color: var(--text-color);
+}
+.detail-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.detail-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: var(--main-bg, #f8f8f8);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    transition: background 0.15s;
+}
+.detail-price-row.current {
+    background: var(--primary);
+    color: #fff;
+    font-weight: bold;
+}
+.detail-price-row.current .detail-price-star { color: #fff; }
+.detail-price-star { color: #FFD700; letter-spacing: -1px; }
+.detail-price-val { font-weight: bold; }
+
+.detail-star-section {
+    text-align: center;
+}
+.detail-star-label {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0 0 8px;
+}
+.detail-stars .star { font-size: 1.6rem; }
+
+/* 카드 클릭 커서 */
+.card { cursor: pointer; }
+
+/* 다크 모드 */
+[data-theme="dark"] .item-detail-panel {
+    background: #1e1e2e;
+}
+[data-theme="dark"] .detail-info,
+[data-theme="dark"] .detail-price-row {
+    background: #252535;
+}
+[data-theme="dark"] .detail-price-row.current {
+    background: var(--primary);
+}

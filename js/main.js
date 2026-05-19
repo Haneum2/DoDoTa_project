@@ -191,7 +191,7 @@ function buildCardHTML(item, dimmed) {
                onmouseleave="unhoverStars(this.parentElement, ${item.id})">★</span>`
     ).join('');
     return `
-        <div class="card ${item.type} ${isChecked ? 'checked' : ''} ${item.season ? 'season-item' : ''} ${dimmed ? 'card-unavailable' : ''}">
+        <div class="card ${item.type} ${isChecked ? 'checked' : ''} ${item.season ? 'season-item' : ''} ${dimmed ? 'card-unavailable' : ''}" onclick="openItemDetail(${item.id})">
             ${seasonBadge}${dimBadge}
             <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
             <div class="card-text">
@@ -199,7 +199,7 @@ function buildCardHTML(item, dimmed) {
                 <p class="card-location">📍 ${item.location}</p>
                 <p class="card-time">${(!isPetFood && !isBird) ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
             </div>
-            <div class="star-rating" data-id="${item.id}">
+            <div class="star-rating" data-id="${item.id}" onclick="event.stopPropagation()">
                 ${starsHTML}
             </div>
         </div>`;
@@ -355,3 +355,101 @@ setInterval(updateClock, 1000);
 
 // 페이지 로드 시 즉시 실행
 updateClock();
+
+// ===== 아이템 상세 뷰 =====
+const weatherLabel = { sunny: '☀️ 맑음', rainy: '🌧️ 비', rainbow: '🌈 무지개' };
+const sizeIcon     = { '크다': '🔵', '중간': '🟡', '작다': '🔴' };
+
+function openItemDetail(id) {
+    const item = gameData.find(i => i.id === id);
+    if (!item) return;
+
+    const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
+    const isBird    = item.type === 'bird';
+    const rating    = starRatings[id] || 0;
+
+    const weatherText = (item.weather && item.weather.length === 3)
+        ? '전체 (맑음 · 비 · 무지개)'
+        : (item.weather || []).map(w => weatherLabel[w] || w).join(' · ');
+
+    const timeText = (!isPetFood && !isBird && item.start_time !== undefined)
+        ? `${item.start_time}:00 ~ ${item.end_time}:00${item.start_time === 0 && item.end_time === 24 ? ' (상시)' : ''}`
+        : null;
+
+    const sizeRow = item.size
+        ? `<div class="detail-row"><span class="detail-label">📏 크기</span><span>${sizeIcon[item.size] || ''} ${item.size}</span></div>`
+        : '';
+
+    const weatherRow = item.weather
+        ? `<div class="detail-row"><span class="detail-label">🌤️ 날씨</span><span>${weatherText}</span></div>`
+        : '';
+
+    const timeRow = timeText
+        ? `<div class="detail-row"><span class="detail-label">⏰ 시간</span><span>${timeText}</span></div>`
+        : '';
+
+    let priceHTML = '';
+    if (item.prices && item.prices.some(p => p !== null)) {
+        const rows = item.prices.map((p, i) => {
+            const stars = '★'.repeat(i + 1) + '☆'.repeat(4 - i);
+            const isCurrent = rating === i + 1;
+            return `<div class="detail-price-row${isCurrent ? ' current' : ''}">
+                <span class="detail-price-star">${stars}</span>
+                <span class="detail-price-val">${p !== null ? p + 'G' : '?'}</span>
+            </div>`;
+        }).join('');
+        priceHTML = `<div class="detail-prices-section"><h4 class="detail-prices-title">💰 별점별 판매가</h4><div class="detail-prices">${rows}</div></div>`;
+    }
+
+    const starsHTML = [1,2,3,4,5].map(n =>
+        `<span class="star${rating >= n ? ' active' : ''}"
+               onclick="setStarRatingDetail(${id}, ${n})"
+               onmouseenter="hoverStars(this.parentElement, ${n})"
+               onmouseleave="unhoverStars(this.parentElement, ${id})">★</span>`
+    ).join('');
+
+    document.getElementById('item-detail-content').innerHTML = `
+        <div class="detail-img-wrap">
+            ${item.season ? '<span class="season-badge">✨ 시즌</span>' : ''}
+            <img src="${item.image}" alt="${item.name}" class="detail-img" onerror="this.style.display='none'">
+        </div>
+        <h2 class="detail-name">${item.name}</h2>
+        <div class="detail-info">
+            <div class="detail-row"><span class="detail-label">📍 위치</span><span>${item.location}</span></div>
+            ${sizeRow}${timeRow}${weatherRow}
+        </div>
+        ${priceHTML}
+        <div class="detail-star-section">
+            <p class="detail-star-label">내 별점</p>
+            <div class="star-rating detail-stars" data-id="${id}">${starsHTML}</div>
+        </div>
+    `;
+
+    const overlay = document.getElementById('item-detail-overlay');
+    overlay.style.display = 'flex';
+    requestAnimationFrame(() => overlay.classList.add('open'));
+}
+
+function setStarRatingDetail(id, star) {
+    setStarRating(id, star);
+    // 가격 테이블 current 행 업데이트
+    const rating = starRatings[id] || 0;
+    document.querySelectorAll('.detail-price-row').forEach((row, i) => {
+        row.classList.toggle('current', rating === i + 1);
+    });
+    // 별점 UI 업데이트
+    const container = document.querySelector('.detail-stars');
+    if (container) applyStarDOM(container, rating);
+}
+
+function closeItemDetail() {
+    const overlay = document.getElementById('item-detail-overlay');
+    overlay.classList.remove('open');
+    overlay.addEventListener('transitionend', () => {
+        overlay.style.display = 'none';
+    }, { once: true });
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeItemDetail();
+});

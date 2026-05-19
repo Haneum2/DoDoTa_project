@@ -53,6 +53,14 @@
 
     <main id="item-list" class="grid-container"></main>
 
+    <!-- ===== 아이템 상세 패널 ===== -->
+    <div id="item-detail-overlay" class="item-detail-overlay" style="display:none;">
+        <div class="item-detail-panel">
+            <button class="item-detail-back" onclick="closeItemDetail()">← 뒤로</button>
+            <div id="item-detail-content"></div>
+        </div>
+    </div>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
