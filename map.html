@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script>(function(){var t=localStorage.getItem('ddTownTheme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');})()</script>
+    <title>지도 - 두근두근타운</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-top-row">
+            <a href="index.html" class="back-btn">← 홈으로</a>
+            <div id="auth-status"></div>
+        </div>
+        <h1>🗺️ 두근두근타운 지도</h1>
+        <p style="text-align:center;font-size:0.88rem;color:#888;margin:4px 0 0;">위치를 클릭하면 해당 장소에서 잡을 수 있는 아이템을 볼 수 있어요</p>
+    </header>
+
+    <div class="map-page">
+        <!-- 지도 영역 -->
+        <div class="map-wrapper" id="map-wrapper">
+            <img src="assets/images/map.png" class="map-bg" alt="두근두근타운 지도"
+                 onerror="this.parentElement.classList.add('map-no-image')">
+            <div class="map-pins" id="map-pins"><!-- JS로 삽입 --></div>
+        </div>
+
+        <!-- 사이드 패널 -->
+        <div id="map-panel" class="map-panel">
+            <div class="map-panel-header">
+                <span id="map-panel-title">위치 선택</span>
+                <button class="map-panel-close" onclick="closeMapPanel()">✕</button>
+            </div>
+            <div class="map-panel-filters">
+                <button class="mpf-btn active" data-cat="all"    onclick="setPanelCat('all')">전체</button>
+                <button class="mpf-btn"        data-cat="fish"   onclick="setPanelCat('fish')">🐟 물고기</button>
+                <button class="mpf-btn"        data-cat="insect" onclick="setPanelCat('insect')">🐞 곤충</button>
+                <button class="mpf-btn"        data-cat="bird"   onclick="setPanelCat('bird')">🐦 조류</button>
+            </div>
+            <div id="map-panel-list" class="map-panel-list">
+                <p class="map-panel-empty">지도에서 위치를 클릭하세요</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/auth-ui.js"></script>
+    <script src="js/profile-ui.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/cursor-effects.js"></script>
+</body>
+</html>
