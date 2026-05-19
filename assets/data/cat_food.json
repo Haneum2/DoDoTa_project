@@ -1,13 +1,13 @@
 [
   {
     "id": 149,
-    "name": "고양이 사료",
+    "name": "고양이사료",
     "type": "cat_food",
     "image": "assets/images/fish_default.png"
   },
   {
     "id": 150,
-    "name": "동물 공용 사료",
+    "name": "동물공용음식",
     "type": "cat_food",
     "image": "assets/images/fish_default.png"
   },
@@ -162,12 +162,6 @@
     "image": "assets/images/fish_줄무늬송사리.webp"
   },
   {
-    "id": 176,
-    "name": "유럽머드미노우",
-    "type": "cat_food",
-    "image": "assets/images/fish_default.png"
-  },
-  {
     "id": 177,
     "name": "강꼬치고기",
     "type": "cat_food",
@@ -196,18 +190,6 @@
     "name": "큰입배스",
     "type": "cat_food",
     "image": "assets/images/fish_큰입배스.webp"
-  },
-  {
-    "id": 182,
-    "name": "큰진주조개",
-    "type": "cat_food",
-    "image": "assets/images/fish_큰진주조개.webp"
-  },
-  {
-    "id": 183,
-    "name": "블루크로우",
-    "type": "cat_food",
-    "image": "assets/images/fish_default.png"
   },
   {
     "id": 184,
@@ -310,12 +292,6 @@
     "name": "전갱이",
     "type": "cat_food",
     "image": "assets/images/fish_전갱이.webp"
-  },
-  {
-    "id": 201,
-    "name": "해마",
-    "type": "cat_food",
-    "image": "assets/images/fish_해마.webp"
   },
   {
     "id": 202,
@@ -480,12 +456,6 @@
     "image": "assets/images/fish_유럽날오징어.webp"
   },
   {
-    "id": 229,
-    "name": "두툽상어",
-    "type": "cat_food",
-    "image": "assets/images/fish_두툽상어.webp"
-  },
-  {
     "id": 230,
     "name": "산갈치",
     "type": "cat_food",
@@ -498,12 +468,6 @@
     "image": "assets/images/fish_황금 킹크랩.webp"
   },
   {
-    "id": 232,
-    "name": "달고기/붉평치",
-    "type": "cat_food",
-    "image": "assets/images/fish_default.png"
-  },
-  {
     "id": 233,
     "name": "청상아리",
     "type": "cat_food",
@@ -514,5 +478,65 @@
     "name": "펄고기",
     "type": "cat_food",
     "image": "assets/images/fish_펄고기.jfif"
+  },
+  {
+    "id": 300,
+    "name": "얼음 결정 킹크랩",
+    "type": "cat_food",
+    "image": "assets/images/fish_킹크랩.webp"
+  },
+  {
+    "id": 301,
+    "name": "얼음 결정 개복치",
+    "type": "cat_food",
+    "image": "assets/images/fish_개복치.webp"
+  },
+  {
+    "id": 302,
+    "name": "얼음 결정 복어",
+    "type": "cat_food",
+    "image": "assets/images/fish_복어.webp"
+  },
+  {
+    "id": 303,
+    "name": "얼음 결정 해마",
+    "type": "cat_food",
+    "image": "assets/images/fish_해마.webp"
+  },
+  {
+    "id": 304,
+    "name": "얼음 결정 고래상어",
+    "type": "cat_food",
+    "image": "assets/images/fish_default.png"
+  },
+  {
+    "id": 305,
+    "name": "갈색감독난쟁이문어",
+    "type": "cat_food",
+    "image": "assets/images/fish_갈색 감독 난쟁이.webp"
+  },
+  {
+    "id": 306,
+    "name": "감청색감독난쟁이문어",
+    "type": "cat_food",
+    "image": "assets/images/fish_감청색 감독 난쟁이.webp"
+  },
+  {
+    "id": 307,
+    "name": "청록색감독난쟁이문어",
+    "type": "cat_food",
+    "image": "assets/images/fish_청록색 감독 난쟁이.webp"
+  },
+  {
+    "id": 308,
+    "name": "갈색감독참문어",
+    "type": "cat_food",
+    "image": "assets/images/fish_갈색 감독 참문어.webp"
+  },
+  {
+    "id": 309,
+    "name": "꽃무늬감독참문어",
+    "type": "cat_food",
+    "image": "assets/images/fish_꽃무늬 감독 참문어.webp"
   }
 ]

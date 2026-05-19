@@ -2,20 +2,13 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <script>(function(){var t=localStorage.getItem('ddTownTheme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');})()</script>
     <title>두근두근타운 도감</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&display=swap" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'NanumSquareRound';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-    </style>
 </head>
 
 <body class="home-page">
@@ -27,6 +20,12 @@
         <h1>두근두근타운 도감</h1>
         <p class="home-subtitle">게임을 더 즐겁게 ✨</p>
     </header>
+
+    <section class="achievement-section">
+        <div id="achievement-stats" class="achievement-card">
+            <div class="ach-loading">📊 달성률 불러오는 중...</div>
+        </div>
+    </section>
 
     <main class="home-nav">
         <a href="encyclopedia.html" class="nav-card encyclopedia-card">
@@ -53,6 +52,60 @@
             refreshAuthUI(user);
         });
     </script>
+    <script src="js/theme.js"></script>
     <script src="js/cursor-effects.js"></script>
+    <script>
+        (async function loadAchievementStats() {
+            try {
+                const [fishData, insectData, birdsData, seasonData] = await Promise.all([
+                    fetch('./assets/data/fish.json').then(r => r.json()),
+                    fetch('./assets/data/insect.json').then(r => r.json()),
+                    fetch('./assets/data/birds.json').then(r => r.json()),
+                    fetch('./assets/data/season.json').then(r => r.json()),
+                ]);
+                // season.json 아이템을 타입별로 합산
+                const merge = (base, type) => [
+                    ...base,
+                    ...seasonData.filter(i => i.type === type)
+                ];
+                const ratings = JSON.parse(localStorage.getItem('ddTownStarRatings')) || {};
+                const cats = [
+                    { label: '🐟 물고기', type: 'fish',   items: merge(fishData, 'fish') },
+                    { label: '🐞 곤충',   type: 'insect', items: merge(insectData, 'insect') },
+                    { label: '🐦 조류',   type: 'bird',   items: merge(birdsData, 'bird') },
+                ];
+                let totalAll = 0, collectedAll = 0;
+                const catStats = cats.map(c => {
+                    const total     = c.items.length;
+                    const collected = c.items.filter(i => (ratings[i.id] || 0) >= 5).length;
+                    totalAll     += total;
+                    collectedAll += collected;
+                    return { label: c.label, type: c.type, total, collected };
+                });
+                const pct = totalAll > 0 ? Math.round((collectedAll / totalAll) * 100) : 0;
+                document.getElementById('achievement-stats').innerHTML = `
+                    <div class="ach-title">📖 도감 달성률</div>
+                    <div class="ach-total-row">
+                        <div class="ach-bar"><div class="ach-bar-fill" style="width:${pct}%"></div></div>
+                        <span class="ach-percent">${pct}%</span>
+                    </div>
+                    <div class="ach-count">${collectedAll} / ${totalAll} 수집</div>
+                    <div class="ach-divider"></div>
+                    <div class="ach-categories">
+                        ${catStats.map(s => {
+                            const p = s.total > 0 ? Math.round((s.collected / s.total) * 100) : 0;
+                            return `<div class="ach-cat">
+                                <span class="ach-cat-label">${s.label}</span>
+                                <div class="ach-cat-bar"><div class="ach-cat-fill ${s.type}" style="width:${p}%"></div></div>
+                                <span class="ach-cat-count">${s.collected}/${s.total}</span>
+                            </div>`;
+                        }).join('')}
+                    </div>`;
+            } catch (e) {
+                document.getElementById('achievement-stats').innerHTML =
+                    '<p class="ach-loading">달성률을 불러올 수 없어요.</p>';
+            }
+        })();
+    </script>
 </body>
 </html>

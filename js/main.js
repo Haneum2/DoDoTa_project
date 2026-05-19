@@ -1,10 +1,13 @@
 let gameData = [];
 let currentSelectedWeather = 'sunny';
 let currentSelectedCategory = 'all';
+let currentSearchQuery = '';
 let checkedItems = [];
 let starRatings = {};
 let currentUser = null;
 let syncTimer = null;
+
+const weatherNames = { sunny: '맑음', rainbow: '무지개', rainy: '비' };
 
 // ===== Firestore 연동 =====
 async function loadChecklistFromFirestore(uid) {
@@ -63,7 +66,6 @@ async function loadData() {
         }
     });
 
-    console.log("불러온 데이터:", gameData.length, "항목");
     updateDisplay();
 }
 
@@ -76,7 +78,6 @@ function isAvailable(item) {
     }
 
     const currentHour = new Date().getHours();
-    console.log(`현재 시각: ${currentHour}시, 아이템: ${item.name}`); // 필터링 과정 확인
 
     // 시간 체크 (자정 포함 로직)
     let timeMatch = false;
@@ -88,14 +89,9 @@ function isAvailable(item) {
 
     // 날씨 체크
     // main.js 내부의 weatherMatch 부분 수정
-    const weatherMatch = item.weather.some(w => {
-    // 1. 각 날씨 문자열의 앞뒤 공백을 완벽히 제거 (trim)
-    // 2. 소문자로 통일해서 비교 (toLowerCase)
-        return w.trim().toLowerCase() === currentSelectedWeather.trim().toLowerCase();
-    });
-    if (item.name === "줄무늬송사리" || item.name === "왕새우") {
-        console.log(`[디버깅] 이름: ${item.name} | 결과: ${weatherMatch}`);
-    }
+    const weatherMatch = item.weather.some(w =>
+        w.trim().toLowerCase() === currentSelectedWeather.trim().toLowerCase()
+    );
     return timeMatch && weatherMatch;
 }
 
@@ -158,7 +154,7 @@ function hoverStars(container, n) {
     });
 }
 
-function unhoverStars(container, id) {
+function unhoverStars(container, _id) {
     container.querySelectorAll('.star').forEach(s => s.classList.remove('hovered'));
 }
 
@@ -181,70 +177,85 @@ function toggleSeasonOnly(isShow) {
     updateDisplay();
 }
 
+function buildCardHTML(item, dimmed) {
+    const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
+    const isBird    = item.type === 'bird';
+    const rating    = starRatings[item.id] || 0;
+    const isChecked = rating === 5;
+    const seasonBadge = item.season ? `<span class="season-badge">✨ 시즌</span>` : '';
+    const dimBadge    = dimmed ? `<div class="unavailable-badge">🕐 현재 미등장</div>` : '';
+    const starsHTML = [1,2,3,4,5].map(n =>
+        `<span class="star${rating >= n ? ' active' : ''}"
+               onclick="setStarRating(${item.id}, ${n})"
+               onmouseenter="hoverStars(this.parentElement, ${n})"
+               onmouseleave="unhoverStars(this.parentElement, ${item.id})">★</span>`
+    ).join('');
+    return `
+        <div class="card ${item.type} ${isChecked ? 'checked' : ''} ${item.season ? 'season-item' : ''} ${dimmed ? 'card-unavailable' : ''}">
+            ${seasonBadge}${dimBadge}
+            <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
+            <div class="card-text">
+                <h3>${item.name}</h3>
+                <p class="card-location">📍 ${item.location}</p>
+                <p class="card-time">${(!isPetFood && !isBird) ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
+            </div>
+            <div class="star-rating" data-id="${item.id}">
+                ${starsHTML}
+            </div>
+        </div>`;
+}
+
+function categoryCheck(item) {
+    const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
+    return (currentSelectedCategory === 'all' && !isPetFood) ||
+           (item.type === currentSelectedCategory);
+}
+
 function updateDisplay() {
     const listContainer = document.getElementById('item-list');
-    listContainer.innerHTML = ''; 
+    listContainer.innerHTML = '';
 
-    // 1. 필터링 로직
+    // 1. 현재 조건에 맞는 아이템
     const availableItems = gameData.filter(item => {
-        // [핵심] 날씨와 시간 체크는 우리가 만든 'isAvailable' 함수에 맡깁니다.
-        // 이제 여기서 some, trim, toLowerCase 로직이 실행되어 공백 문제를 해결합니다.
-        const isTimeAndWeatherOk = isAvailable(item);
-        
-        // 카테고리 체크 (물고기/곤충/전체/펫 먹이/조류)
-        // 전체 보기에서는 펫 먹이 제외 (물고기·곤충 도감과 분리)
-        const isPetFood = item.type === 'cat_food' || item.type === 'dog_food';
-        const categoryMatch = (currentSelectedCategory === 'all' && !isPetFood) ||
-                              (item.type === currentSelectedCategory);
-
-        // 시즌 한정 필터: 체크 시 season:true 항목만 표시
-        const seasonMatch = !showSeasonOnly || item.season === true;
-
-        // 5성 = 수집 완료
+        if (!isAvailable(item)) return false;
+        if (!categoryCheck(item)) return false;
+        if (showSeasonOnly && !item.season) return false;
         const isChecked = (starRatings[item.id] || 0) === 5;
-        const hideMatch = hideChecked ? !isChecked : true;
-
-        return isTimeAndWeatherOk && categoryMatch && hideMatch && seasonMatch;
+        if (hideChecked && isChecked) return false;
+        if (currentSearchQuery && !item.name.toLowerCase().includes(currentSearchQuery)) return false;
+        return true;
     });
 
-    // 2. 결과 출력 로직 (하나의 루프로 통합)
-    if (availableItems.length === 0) {
-        listContainer.innerHTML = `<p style="grid-column: 1/-1; padding: 50px;">현재 조건(날씨: ${currentSelectedWeather})에 맞는 도감이 없습니다. 😢</p>`;
-    } else {
-        availableItems.forEach(item => {
-            const isPetFood    = item.type === 'cat_food' || item.type === 'dog_food';
-            const isBird       = item.type === 'bird';
-            const rating       = starRatings[item.id] || 0;
-            const isChecked    = rating === 5;
-            const seasonBadge  = item.season ? `<span class="season-badge">✨ 시즌</span>` : '';
-            const starsHTML = [1,2,3,4,5].map(n =>
-                `<span class="star${rating >= n ? ' active' : ''}"
-                       onclick="setStarRating(${item.id}, ${n})"
-                       onmouseenter="hoverStars(this.parentElement, ${n})"
-                       onmouseleave="unhoverStars(this.parentElement, ${item.id})">★</span>`
-            ).join('');
-            const card = `
-                <div class="card ${item.type} ${isChecked ? 'checked' : ''} ${item.season ? 'season-item' : ''}">
-                    ${seasonBadge}
-                    <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
-                    <div class="card-text">
-                        <h3>${item.name}</h3>
-                        <p class="card-location">📍 ${item.location}</p>
-                        <p class="card-time">${(!isPetFood && !isBird) ? `⏰ ${item.start_time}:00 ~ ${item.end_time}:00` : '&nbsp;'}</p>
-                    </div>
-                    <div class="star-rating" data-id="${item.id}">
-                        ${starsHTML}
-                    </div>
-                </div>
-            `;
-            listContainer.insertAdjacentHTML('beforeend', card);
+    // 2. 검색 중일 때: 이름은 맞지만 시각/날씨로 숨겨진 아이템
+    let dimmedItems = [];
+    if (currentSearchQuery) {
+        const shownIds = new Set(availableItems.map(i => i.id));
+        dimmedItems = gameData.filter(item => {
+            if (shownIds.has(item.id)) return false;
+            if (!item.name.toLowerCase().includes(currentSearchQuery)) return false;
+            if (!categoryCheck(item)) return false;
+            return true;
         });
     }
 
-    // 3. 달성률 업데이트 (함수가 있다면 실행)
-    if (typeof updateProgress === 'function') {
-        updateProgress();
+    // 3. 렌더링
+    if (availableItems.length === 0 && dimmedItems.length === 0) {
+        listContainer.innerHTML = `<p style="grid-column:1/-1;padding:50px;text-align:center;">현재 조건(날씨: ${weatherNames[currentSelectedWeather] || currentSelectedWeather})에 맞는 도감이 없습니다. 😢</p>`;
+    } else {
+        availableItems.forEach(item =>
+            listContainer.insertAdjacentHTML('beforeend', buildCardHTML(item, false))
+        );
+        if (dimmedItems.length > 0) {
+            listContainer.insertAdjacentHTML('beforeend',
+                `<div class="unavailable-section-title">🕐 현재 시각·날씨에 등장하지 않아요 (${dimmedItems.length})</div>`
+            );
+            dimmedItems.forEach(item =>
+                listContainer.insertAdjacentHTML('beforeend', buildCardHTML(item, true))
+            );
+        }
     }
+
+    if (typeof updateProgress === 'function') updateProgress();
 }
 
 function updateProgress() {
@@ -256,6 +267,11 @@ function updateProgress() {
     if (progressElement) {
         progressElement.innerHTML = `도감 달성률: ${percent}% (${collected}/${total})`;
     }
+}
+
+function setSearch(query) {
+    currentSearchQuery = query.trim().toLowerCase();
+    updateDisplay();
 }
 
 function setCategory(category) {
@@ -325,7 +341,7 @@ function updateClock() {
     // 화면에 출력
     const clockElement = document.getElementById('real-time-clock');
     if (clockElement) {
-        clockElement.innerText = `현재 서버 시각: ${timeString}`;
+        clockElement.innerText = `현재 시각: ${timeString}`;
     }
 
     // 정각(0분 0초)이 될 때마다 도감 리스트를 자동으로 새로고침

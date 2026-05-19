@@ -191,7 +191,7 @@
   },
   {
     "id": 15,
-    "name": "큰 가시고기",
+    "name": "큰가시고기",
     "type": "fish",
     "location": "얕은 강",
     "start_time": 0,
@@ -201,20 +201,6 @@
       "rainbow"
     ],
     "image": "assets/images/fish_큰가시고기.webp"
-  },
-  {
-    "id": 16,
-    "name": "유럽참개구리",
-    "type": "fish",
-    "location": "호수",
-    "start_time": 0,
-    "end_time": 24,
-    "weather": [
-      "sunny",
-      "rainy",
-      "rainbow"
-    ],
-    "image": "assets/images/fish_유럽참개구리.webp"
   },
   {
     "id": 17,
@@ -300,18 +286,6 @@
     "image": "assets/images/fish_큰입배스.webp"
   },
   {
-    "id": 23,
-    "name": "큰진주조개",
-    "type": "fish",
-    "location": "숲속 호수",
-    "start_time": 0,
-    "end_time": 24,
-    "weather": [
-      "rainbow"
-    ],
-    "image": "assets/images/fish_큰진주조개.webp"
-  },
-  {
     "id": 24,
     "name": "북유럽파란가재",
     "type": "fish",
@@ -381,7 +355,7 @@
   },
   {
     "id": 29,
-    "name": "독중개",
+    "name": "둑중개",
     "type": "fish",
     "location": "온천산 호수",
     "start_time": 6,
@@ -570,7 +544,7 @@
   },
   {
     "id": 43,
-    "name": "나비빙어",
+    "name": "나비잉어",
     "type": "fish",
     "location": "초원 호수",
     "start_time": 0,
@@ -851,20 +825,6 @@
     "image": "assets/images/fish_전갱이.webp"
   },
   {
-    "id": 64,
-    "name": "해마",
-    "type": "fish",
-    "location": "고래 바다",
-    "start_time": 0,
-    "end_time": 18,
-    "weather": [
-      "sunny",
-      "rainy",
-      "rainbow"
-    ],
-    "image": "assets/images/fish_해마.webp"
-  },
-  {
     "id": 65,
     "name": "대서양연어",
     "type": "fish",
@@ -1066,20 +1026,6 @@
     "image": "assets/images/fish_유럽날오징어.webp"
   },
   {
-    "id": 80,
-    "name": "두툽상어",
-    "type": "fish",
-    "location": "바다 낚시",
-    "start_time": 0,
-    "end_time": 24,
-    "weather": [
-      "sunny",
-      "rainy",
-      "rainbow"
-    ],
-    "image": "assets/images/fish_두툽상어.webp"
-  },
-  {
     "id": 81,
     "name": "산갈치",
     "type": "fish",
@@ -1095,7 +1041,7 @@
   },
   {
     "id": 82,
-    "name": "황금 킹크랩",
+    "name": "황금킹크랩",
     "type": "fish",
     "location": "바다 낚시",
     "start_time": 0,
@@ -1104,20 +1050,6 @@
       "rainbow"
     ],
     "image": "assets/images/fish_황금 킹크랩.webp"
-  },
-  {
-    "id": 83,
-    "name": "붉은개복치",
-    "type": "fish",
-    "location": "바다 낚시",
-    "start_time": 0,
-    "end_time": 24,
-    "weather": [
-      "sunny",
-      "rainy",
-      "rainbow"
-    ],
-    "image": "assets/images/fish_붉은개복치.webp"
   },
   {
     "id": 84,
@@ -1130,18 +1062,5 @@
       "rainbow"
     ],
     "image": "assets/images/fish_청상아리.webp"
-  },
-  {
-    "id": 85,
-    "name": "펄고기",
-    "type": "fish",
-    "location": "근교 호수",
-    "start_time": 0,
-    "end_time": 12,
-    "weather": [
-      "sunny",
-      "rainbow"
-    ],
-    "image": "assets/images/fish_펄고기.jfif"
   }
 ]

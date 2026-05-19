@@ -226,7 +226,7 @@
   },
   {
     "id": 274,
-    "name": "갈색 감독 난쟁이",
+    "name": "갈색감독난쟁이문어",
     "type": "fish",
     "location": "고래바다",
     "start_time": 0,
@@ -241,7 +241,7 @@
   },
   {
     "id": 275,
-    "name": "감청색 감독 난쟁이",
+    "name": "감청색감독난쟁이문어",
     "type": "fish",
     "location": "고래바다",
     "start_time": 0,
@@ -256,7 +256,7 @@
   },
   {
     "id": 276,
-    "name": "청록색 감독 난쟁이",
+    "name": "청록색감독난쟁이문어",
     "type": "fish",
     "location": "고래바다",
     "start_time": 0,
@@ -271,7 +271,7 @@
   },
   {
     "id": 277,
-    "name": "갈색 감독 참문어",
+    "name": "갈색감독참문어",
     "type": "fish",
     "location": "고래바다",
     "start_time": 0,
@@ -286,7 +286,7 @@
   },
   {
     "id": 278,
-    "name": "꽃무늬 감독 참문어",
+    "name": "꽃무늬감독참문어",
     "type": "fish",
     "location": "이벤트-문어 엔터테인먼트",
     "start_time": 0,
@@ -298,5 +298,74 @@
     ],
     "season": true,
     "image": "assets/images/fish_꽃무늬 감독 참문어.webp"
+  },
+  {
+    "id": 279,
+    "name": "얼음 결정 킹크랩",
+    "type": "fish",
+    "season": true,
+    "location": "고래 바다",
+    "start_time": 6,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_킹크랩.webp"
+  },
+  {
+    "id": 280,
+    "name": "얼음 결정 개복치",
+    "type": "fish",
+    "season": true,
+    "location": "동해",
+    "start_time": 0,
+    "end_time": 12,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_개복치.webp"
+  },
+  {
+    "id": 281,
+    "name": "얼음 결정 복어",
+    "type": "fish",
+    "season": true,
+    "location": "구해",
+    "start_time": 12,
+    "end_time": 24,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_복어.webp"
+  },
+  {
+    "id": 282,
+    "name": "얼음 결정 해마",
+    "type": "fish",
+    "season": true,
+    "location": "고래 바다",
+    "start_time": 0,
+    "end_time": 18,
+    "weather": [
+      "sunny",
+      "rainy",
+      "rainbow"
+    ],
+    "image": "assets/images/fish_해마.webp"
+  },
+  {
+    "id": 283,
+    "name": "얼음 결정 고래상어",
+    "type": "fish",
+    "season": true,
+    "location": "구해",
+    "start_time": 0,
+    "end_time": 24,
+    "weather": [
+      "rainbow"
+    ],
+    "image": "assets/images/fish_default.png"
   }
 ]
