@@ -903,9 +903,10 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 /* ===== ?뚯떇 移대뱶 ?곹깭 ?됱긽 ===== */
 .card.food-card { padding-top: 30px; } /* 諭껋? 怨듦컙 ?뺣낫 */
 
-.card.status-favorite { border-color: #ff9eb5; background: linear-gradient(150deg, #fff5f7, #ffffff); }
+.card.status-favorite { border-color: #ff80aa; background: linear-gradient(135deg, #ffc8dc 0%, #ffd6e8 50%, #fff5f8 100%); }
 .card.status-dislike  { border-color: #85bfff; background: linear-gradient(150deg, #f5f8ff, #ffffff); }
 .card.status-full     { border-color: #81c784; background: linear-gradient(150deg, #f4faf4, #ffffff); }
+.card.status-none     { border-color: #ffd54f; background: linear-gradient(150deg, #fffde7, #ffffff); }
 
 /* ?곹깭 諭껋? (移대뱶 醫뚯긽?? */
 .food-status-badge {
@@ -1652,9 +1653,10 @@ h3, .weather-btn, .cat-btn, .hide-settings label {
 [data-theme="dark"] .profile-section-toggle:hover { background: #252535; }
 [data-theme="dark"] .profile-danger-zone   { border-top-color: #3a1a1a; }
 
-[data-theme="dark"] .card.status-favorite { background: linear-gradient(150deg, #2a1a20, #252535); }
+[data-theme="dark"] .card.status-favorite { background: linear-gradient(135deg, #3d1228 0%, #2d1520 50%, #252535 100%); }
 [data-theme="dark"] .card.status-dislike  { background: linear-gradient(150deg, #1a1e2a, #252535); }
 [data-theme="dark"] .card.status-full     { background: linear-gradient(150deg, #1a2a1a, #252535); }
+[data-theme="dark"] .card.status-none     { background: linear-gradient(150deg, #252010, #252535); }
 
 /* ===== 다크모드 토글 버튼 ===== */
 .theme-toggle-btn {

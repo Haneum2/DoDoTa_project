@@ -442,7 +442,7 @@ function renderFoodList() {
         const matchStatus = currentStatusFilter === 'all' || fs[f.id] === currentStatusFilter;
         const matchSearch = !q || f.name.toLowerCase().includes(q);
         return matchStatus && matchSearch;
-    });
+    }).sort((a, b) => (fs[b.id] === 'favorite') - (fs[a.id] === 'favorite'));
 
     const container = document.getElementById('detail-food-list');
 
