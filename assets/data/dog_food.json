@@ -184,5 +184,11 @@
     "name": "무 크림 수프",
     "type": "dog_food",
     "image": "assets/images/fish_default.png"
+  },
+  {
+    "id": 312,
+    "name": "황금 킹크랩 찜",
+    "type": "dog_food",
+    "image": "assets/images/fish_황금 킹크랩.webp"
   }
 ]
